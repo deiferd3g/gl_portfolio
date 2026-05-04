@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Portfolio profesional de Deifer Garanton — Ingeniero, Arquitecto de Sistemas, Desarrollador Full-Stack. Mas de 40 proyectos que transforman la gestion publica y privada.">
-    <title>Deifer Garanton — Portfolio</title>
+    <meta name="description" content="Portafolio profesional de Deifer Garantón — Ingeniero, Arquitecto de Sistemas, Desarrollador Full-Stack. Más de 40 proyectos que transforman la gestión pública y privada.">
+    <title>Deifer Garantón — Portafolio</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700,800" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -17,38 +17,16 @@
         .gradient-text { background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .glow-card { box-shadow: 0 0 30px -10px rgba(0,102,255,.15); transition: box-shadow .4s, transform .4s; }
         .glow-card:hover { box-shadow: 0 0 50px -8px rgba(0,102,255,.25); transform: translateY(-2px); }
-        .code-bg { background-image:
-            linear-gradient(rgba(0,102,255,.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(0,102,255,.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            position: relative; }
-        .code-bg::before {
-            content: '</> /* Vegapunk Protocol */';
-            position: absolute;
-            bottom: 40px;
-            right: 40px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.7rem;
-            color: rgba(0,102,255,.08);
-            white-space: pre;
-            line-height: 1.6;
-            pointer-events: none;
-        }
         .tag-pill { @apply px-3 py-1 rounded-full text-xs font-medium border; }
-        .timeline-dot { width: 12px; height: 12px; background: var(--primary); border-radius: 50%; position: absolute; left: -6px; top: 4px; box-shadow: 0 0 12px rgba(0,102,255,.4); }
-        .node-minpi { --node-color: #059669; }
-        .node-sunai { --node-color: #D97706; }
-        .node-pablo { --node-color: #7C3AED; }
-        .node-gl { --node-color: #0066FF; }
-        .icon-decor { width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.2rem; }
-        .tech-icon-strip { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
-        .tech-icon-strip i { font-size: 1.5rem; opacity: 0.8; transition: opacity .2s, transform .2s; }
-        .tech-icon-strip i:hover { opacity: 1; transform: scale(1.15); }
-        .section-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid; }
-        .section-badge.minpi { color: #34d399; border-color: rgba(52,211,153,.3); background: rgba(52,211,153,.08); }
-        .section-badge.sunai { color: #fbbf24; border-color: rgba(251,191,36,.3); background: rgba(251,191,36,.08); }
-        .section-badge.pablo { color: #a78bfa; border-color: rgba(167,139,250,.3); background: rgba(167,139,250,.08); }
-        .section-badge.gl { color: #60a5fa; border-color: rgba(96,165,250,.3); background: rgba(96,165,250,.08); }
+        .tech-strip { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+        .tech-strip i { font-size: 1.5rem; opacity: 0.8; transition: opacity .2s, transform .2s; }
+        .tech-strip i:hover { opacity: 1; transform: scale(1.15); }
+        .section-header h2 { font-weight: 800; }
+        .section-header p { color: #9ca3af; }
+        .accent-emerald { color: #34d399; }
+        .accent-amber { color: #fbbf24; }
+        .accent-violet { color: #a78bfa; }
+        .accent-blue { color: #60a5fa; }
     </style>
 </head>
 <body class="font-sans antialiased bg-gray-950 text-gray-100">
@@ -61,7 +39,7 @@
                 <div class="w-8 h-8 rounded-lg bg-[#0066FF] flex items-center justify-center shadow-lg shadow-blue-500/25 transition-transform group-hover:scale-110">
                     <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
                 </div>
-                <span class="font-bold text-white text-lg">DG <span class="text-[#0066FF]">Portfolio</span></span>
+                <span class="font-bold text-white text-lg">DG <span class="text-[#0066FF]">Portafolio</span></span>
             </a>
             <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-300">
                 <a href="#inicio" class="hover:text-[#0066FF] transition">Inicio</a>
@@ -75,7 +53,7 @@
 </nav>
 
 {{-- ═══════════════════ HERO ═══════════════════ --}}
-<section id="inicio" class="relative min-h-screen flex items-center pt-16 overflow-hidden code-bg">
+<section id="inicio" class="relative min-h-screen flex items-center pt-16 overflow-hidden hero-overlay">
     <div class="absolute inset-0 bg-gradient-to-b from-gray-950 via-blue-950/20 to-gray-950"></div>
     <div class="absolute top-1/4 -left-20 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]"></div>
     <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-violet-600/8 rounded-full blur-[100px]"></div>
@@ -90,12 +68,12 @@
 
         <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6" data-aos="fade-up" data-aos-delay="200">
             <span class="text-gray-300">Hola, soy</span><br>
-            <span class="gradient-text">Deifer Garanton</span>
+            <span class="gradient-text">Deifer Garantón</span>
         </h1>
 
         <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="300">
-            Arquitecto de sistemas, desarrollador TALL Stack y estratega tecnologico.
-            <strong class="text-white">Mas de 40 proyectos</strong> que transforman la gestion publica y privada.
+            Arquitecto de sistemas, desarrollador TALL Stack y estratega tecnológico.
+            <strong class="text-white">Más de 40 proyectos</strong> que transforman la gestión pública y privada.
         </p>
 
         <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="400">
@@ -113,8 +91,8 @@
         <div class="flex flex-wrap justify-center gap-8 mt-12 pt-8 border-t border-gray-800" data-aos="fade-up" data-aos-delay="500">
             <div><div class="text-3xl font-bold text-[#0066FF]">40+</div><div class="text-sm text-gray-500">Repositorios</div></div>
             <div><div class="text-3xl font-bold text-emerald-400">4</div><div class="text-sm text-gray-500">Nodos Operativos</div></div>
-            <div><div class="text-3xl font-bold text-violet-400">7+</div><div class="text-sm text-gray-500">Anos de Experiencia</div></div>
-            <div><div class="text-3xl font-bold text-amber-400">14</div><div class="text-sm text-gray-500">Tecnologias</div></div>
+            <div><div class="text-3xl font-bold text-violet-400">7+</div><div class="text-sm text-gray-500">Años de Experiencia</div></div>
+            <div><div class="text-3xl font-bold text-amber-400">14</div><div class="text-sm text-gray-500">Tecnologías</div></div>
         </div>
     </div>
 </section>
@@ -141,17 +119,13 @@
     </div>
 </section>
 
-{{-- ═══════════════════ NODE: MINPI ═══════════════════ --}}
-<section id="minpi" class="py-20 md:py-28 node-minpi">
+{{-- ═══════════════════ SECCIÓN: MINPI ═══════════════════ --}}
+<section id="minpi" class="py-20 md:py-28">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div data-aos="fade-up" class="mb-12">
-            <span class="section-badge minpi">
-                <i class="devicon-postgresql-plain text-xs"></i>
-                Nodo MINPI
-            </span>
-            <h2 class="text-3xl md:text-4xl font-bold mt-2 text-white">Asesoria <span class="text-emerald-400">Tecnologica</span></h2>
-            <p class="text-gray-400 mt-2 max-w-xl">Sistemas de datos geoespaciales, gestion documental y automatizacion de procesos gubernamentales.</p>
-            <div class="tech-icon-strip mt-3">
+        <div data-aos="fade-up" class="section-header mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold mt-2 text-white">Asesoría <span class="accent-emerald">Tecnológica</span></h2>
+            <p class="text-gray-400 mt-2 max-w-xl">Sistemas de datos geoespaciales, gestión documental y automatización de procesos gubernamentales.</p>
+            <div class="tech-strip mt-3">
                 <i class="devicon-laravel-original" title="Laravel"></i>
                 <i class="devicon-livewire-plain text-pink-400" title="Livewire"></i>
                 <i class="devicon-postgresql-plain" title="PostgreSQL"></i>
@@ -162,174 +136,81 @@
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             @php
-            $minpi = [
-                ['name' => 'minpi_gis_v2', 'tech' => 'Laravel 13 / Filament 5', 'desc' => 'Sistema de Informacion Geografica para planificacion territorial', 'achievement' => 'Georreferenciacion de +10K puntos de interes', 'benefit' => 'Toma de decisiones territoriales con datos precisos'],
-                ['name' => 'minpi_midai', 'tech' => 'Laravel 13 / Filament 5', 'desc' => 'Modulo Integral de Datos para la Administracion Interna', 'achievement' => 'Centralizacion de 5 departamentos en un solo sistema', 'benefit' => 'Reduccion de tiempos administrativos en un 60%'],
-                ['name' => 'minpi_gh', 'tech' => 'Laravel 13 / Filament 5', 'desc' => 'Gestion de Historias — Sistema de expedientes y seguimiento', 'achievement' => '+5K expedientes digitalizados y trazables', 'benefit' => 'Eliminacion del papeleo fisico en un 80%'],
-                ['name' => 'minpi_acreditacion', 'tech' => 'Laravel 13 / Filament 5', 'desc' => 'Sistema de acreditacion y certificacion de personal', 'achievement' => 'Proceso de acreditacion reducido de 15 a 3 dias', 'benefit' => 'Agilizacion de tramites para +500 funcionarios'],
-                ['name' => 'minpi_atencion', 'tech' => 'Laravel 10 / Blade', 'desc' => 'Sistema de atencion al ciudadano y gestion de solicitudes', 'achievement' => 'Atencion a +2K ciudadanos con seguimiento en linea', 'benefit' => 'Transparencia y eficiencia en la atencion publica'],
-                ['name' => 'minpi_web', 'tech' => 'Laravel 10 / Blade', 'desc' => 'Portal web institucional con gestor de contenidos', 'achievement' => '+100K visitas/mes con contenido dinamico', 'benefit' => 'Comunicacion institucional efectiva y actualizada'],
-                ['name' => 'minpi_seguridad', 'tech' => 'Laravel 10 / Blade', 'desc' => 'Sistema integral de seguridad y control de acceso', 'achievement' => 'Control de acceso para 3 sedes con reportes en tiempo real', 'benefit' => 'Reduccion de incidentes de seguridad en un 90%'],
-                ['name' => 'minpi_saime', 'tech' => 'Laravel 11 / Blade', 'desc' => 'Integracion con datos SAIME para verificacion de identidad', 'achievement' => 'Validacion automatica de identidad en segundos', 'benefit' => 'Eliminacion de fraudes por suplantacion de identidad'],
-                ['name' => 'minpi_tecnologia', 'tech' => 'Laravel 11 / Blade', 'desc' => 'Gestion de activos tecnologicos e inventario TI', 'achievement' => 'Inventario de +1K activos tecnologicos auditables', 'benefit' => 'Ahorro del 30% en compras duplicadas'],
-                ['name' => 'minpi_sala_f', 'tech' => 'Laravel 11 / Blade', 'desc' => 'Sala de fusion — Coordinacion interinstitucional', 'achievement' => 'Coordinacion entre 5 instituciones en tiempo real', 'benefit' => 'Eliminacion de silos de informacion'],
-                ['name' => 'minpi_sala_2026', 'tech' => 'Laravel 11 / Blade', 'desc' => 'Plataforma de sala situacional 2026', 'achievement' => 'Dashboard en vivo con +20 indicadores clave', 'benefit' => 'Toma de decisiones basada en datos en tiempo real'],
-                ['name' => 'minpi_gestion_humana', 'tech' => 'Laravel 10 / Blade', 'desc' => 'Gestion de recursos humanos y nomina', 'achievement' => 'Automatizacion de nomina para +200 empleados', 'benefit' => 'Reduccion de errores de calculo al 0%'],
-                ['name' => 'minpi_geo_f', 'tech' => 'Laravel 10 / Blade', 'desc' => 'Geografia fiscal — Catastro y tributacion territorial', 'achievement' => 'Mapa catastral con +15K parcelas georreferenciadas', 'benefit' => 'Incremento de recaudacion fiscal en un 25%'],
-                ['name' => 'minpi_pp', 'tech' => 'Laravel 13 / Filament 5', 'desc' => 'Planificacion y presupuesto por proyectos', 'achievement' => 'Seguimiento presupuestario de +50 proyectos activos', 'benefit' => 'Optimizacion del gasto publico en un 15%'],
-                ['name' => 'minpi_bloque_historico', 'tech' => 'Laravel 10 / Blade', 'desc' => 'Archivo historico digitalizado', 'achievement' => 'Digitalizacion de +10K documentos historicos', 'benefit' => 'Preservacion de la memoria institucional'],
-                ['name' => 'minpi_risin', 'tech' => 'Laravel 11 / Blade', 'desc' => 'Registro de informacion sindical', 'achievement' => 'Base de datos sindical unificada', 'benefit' => 'Transparencia en la gestion sindical'],
+            $proyectos = [
+                // MINPI
+                ['section' => 'minpi', 'name' => 'minpi_gis_v2', 'tech' => 'Laravel 13 / Filament 5', 'desc' => 'Sistema de Información Geográfica para planificación territorial', 'achievement' => 'Georreferenciación de +10K puntos de interés', 'benefit' => 'Toma de decisiones territoriales con datos precisos', 'color' => 'emerald'],
+                ['section' => 'minpi', 'name' => 'minpi_midai', 'tech' => 'Laravel 13 / Filament 5', 'desc' => 'Módulo Integral de Datos para la Administración Interna', 'achievement' => 'Centralización de 5 departamentos en un solo sistema', 'benefit' => 'Reducción de tiempos administrativos en un 60%', 'color' => 'emerald'],
+                ['section' => 'minpi', 'name' => 'minpi_gh', 'tech' => 'Laravel 13 / Filament 5', 'desc' => 'Gestión de Historias — Sistema de expedientes y seguimiento', 'achievement' => '+5K expedientes digitalizados y trazables', 'benefit' => 'Eliminación del papeleo físico en un 80%', 'color' => 'emerald'],
+                ['section' => 'minpi', 'name' => 'minpi_acreditacion', 'tech' => 'Laravel 13 / Filament 5', 'desc' => 'Sistema de acreditación y certificación de personal', 'achievement' => 'Proceso de acreditación reducido de 15 a 3 días', 'benefit' => 'Agilización de trámites para +500 funcionarios', 'color' => 'emerald'],
+                ['section' => 'minpi', 'name' => 'minpi_atencion', 'tech' => 'Laravel 10 / Blade', 'desc' => 'Sistema de atención al ciudadano y gestión de solicitudes', 'achievement' => 'Atención a +2K ciudadanos con seguimiento en línea', 'benefit' => 'Transparencia y eficiencia en la atención pública', 'color' => 'emerald'],
+                ['section' => 'minpi', 'name' => 'minpi_web', 'tech' => 'Laravel 10 / Blade', 'desc' => 'Portal web institucional con gestor de contenidos', 'achievement' => '+100K visitas/mes con contenido dinámico', 'benefit' => 'Comunicación institucional efectiva y actualizada', 'color' => 'emerald'],
+                ['section' => 'minpi', 'name' => 'minpi_seguridad', 'tech' => 'Laravel 10 / Blade', 'desc' => 'Sistema integral de seguridad y control de acceso', 'achievement' => 'Control de acceso para 3 sedes con reportes en tiempo real', 'benefit' => 'Reducción de incidentes de seguridad en un 90%', 'color' => 'emerald'],
+                ['section' => 'minpi', 'name' => 'minpi_saime', 'tech' => 'Laravel 11 / Blade', 'desc' => 'Integración con datos SAIME para verificación de identidad', 'achievement' => 'Validación automática de identidad en segundos', 'benefit' => 'Eliminación de fraudes por suplantación de identidad', 'color' => 'emerald'],
+                ['section' => 'minpi', 'name' => 'minpi_tecnologia', 'tech' => 'Laravel 11 / Blade', 'desc' => 'Gestión de activos tecnológicos e inventario TI', 'achievement' => 'Inventario de +1K activos tecnológicos auditables', 'benefit' => 'Ahorro del 30% en compras duplicadas', 'color' => 'emerald'],
+                ['section' => 'minpi', 'name' => 'minpi_sala_f', 'tech' => 'Laravel 11 / Blade', 'desc' => 'Sala de Fusión — Coordinación interinstitucional', 'achievement' => 'Coordinación entre 5 instituciones en tiempo real', 'benefit' => 'Eliminación de silos de información', 'color' => 'emerald'],
+                ['section' => 'minpi', 'name' => 'minpi_sala_2026', 'tech' => 'Laravel 11 / Blade', 'desc' => 'Plataforma de sala situacional 2026', 'achievement' => 'Dashboard en vivo con +20 indicadores clave', 'benefit' => 'Toma de decisiones basada en datos en tiempo real', 'color' => 'emerald'],
+                ['section' => 'minpi', 'name' => 'minpi_gestion_humana', 'tech' => 'Laravel 10 / Blade', 'desc' => 'Gestión de recursos humanos y nómina', 'achievement' => 'Automatización de nómina para +200 empleados', 'benefit' => 'Reducción de errores de cálculo al 0%', 'color' => 'emerald'],
+                ['section' => 'minpi', 'name' => 'minpi_geo_f', 'tech' => 'Laravel 10 / Blade', 'desc' => 'Geografía Fiscal — Catastro y tributación territorial', 'achievement' => 'Mapa catastral con +15K parcelas georreferenciadas', 'benefit' => 'Incremento de recaudación fiscal en un 25%', 'color' => 'emerald'],
+                ['section' => 'minpi', 'name' => 'minpi_pp', 'tech' => 'Laravel 13 / Filament 5', 'desc' => 'Planificación y presupuesto por proyectos', 'achievement' => 'Seguimiento presupuestario de +50 proyectos activos', 'benefit' => 'Optimización del gasto público en un 15%', 'color' => 'emerald'],
+                ['section' => 'minpi', 'name' => 'minpi_bloque_historico', 'tech' => 'Laravel 10 / Blade', 'desc' => 'Archivo histórico digitalizado', 'achievement' => 'Digitalización de +10K documentos históricos', 'benefit' => 'Preservación de la memoria institucional', 'color' => 'emerald'],
+                ['section' => 'minpi', 'name' => 'minpi_risin', 'tech' => 'Laravel 11 / Blade', 'desc' => 'Registro de información sindical', 'achievement' => 'Base de datos sindical unificada', 'benefit' => 'Transparencia en la gestión sindical', 'color' => 'emerald'],
+
+                // SUNAI
+                ['section' => 'sunai', 'name' => 'sunai_sgim', 'tech' => 'Laravel 13 / Filament 5', 'desc' => 'Sistema de Gestión Integral Multidisciplinario', 'achievement' => 'Integración de 6 módulos operativos en un solo sistema', 'benefit' => 'Visibilidad completa de la operación en tiempo real', 'color' => 'amber'],
+                ['section' => 'sunai', 'name' => 'sunai_intranet', 'tech' => 'Laravel 11 / Filament 5', 'desc' => 'Intranet corporativa con portal de empleados', 'achievement' => '+500 usuarios activos con perfiles personalizados', 'benefit' => 'Comunicación interna y colaboración unificada', 'color' => 'amber'],
+                ['section' => 'sunai', 'name' => 'sunai_sigaci_2025', 'tech' => 'Laravel 11 / Filament 5', 'desc' => 'Sistema de Gestión de Archivo y Control Interno', 'achievement' => 'Archivo digital con +50K documentos clasificados', 'benefit' => 'Consultas de archivo reducidas de días a segundos', 'color' => 'amber'],
+                ['section' => 'sunai', 'name' => 'sunai_sigaci', 'tech' => 'JavaScript (legacy)', 'desc' => 'Versión legacy del sistema de archivo', 'achievement' => 'Base estable que operó por 3 años sin incidentes', 'benefit' => 'Continuidad operativa garantizada durante la migración', 'color' => 'amber'],
+                ['section' => 'sunai', 'name' => 'sunai_sigaci_old', 'tech' => 'Laravel 10 / Blade (Público)', 'desc' => 'Versión pública del sistema SIGACI (código abierto)', 'achievement' => 'Único repositorio público — Referencia para otros entes', 'benefit' => 'Transparencia y reutilización por otras instituciones', 'color' => 'amber'],
+                ['section' => 'sunai', 'name' => 'sunai_intranet_old', 'tech' => 'HTML/CSS clásico', 'desc' => 'Primera versión de la intranet corporativa', 'achievement' => 'Punto de partida para la digitalización del ente', 'benefit' => 'Lecciones aprendidas aplicadas en la versión actual', 'color' => 'amber'],
+
+                // PABLO
+                ['section' => 'pablo', 'name' => 'pablo_foro_crecimiento', 'tech' => 'Laravel 13 / Flux 2', 'desc' => 'App web + Landing page para canal de YouTube FORO DE CRECIMIENTO', 'achievement' => 'Plataforma de comunidad con autenticación y foro', 'benefit' => 'Crecimiento de audiencia y engagement digital', 'color' => 'violet'],
+                ['section' => 'pablo', 'name' => 'pablo_constructor_synergy', 'tech' => 'Laravel 11 / Livewire', 'desc' => 'Plataforma de sinergia constructora — Gestión de proyectos', 'achievement' => 'Coordinación de +20 proyectos de construcción', 'benefit' => 'Reducción de retrasos en entregas en un 40%', 'color' => 'violet'],
+                ['section' => 'pablo', 'name' => 'pablo_constructor_base', 'tech' => 'Laravel 11 / Livewire', 'desc' => 'Base de datos de proyectos constructores', 'achievement' => 'Catálogo de +100 proyectos con toda su documentación', 'benefit' => 'Consulta rápida de historial de proyectos', 'color' => 'violet'],
+                ['section' => 'pablo', 'name' => 'pablo_constructor_plannea', 'tech' => 'Laravel 11 / Livewire', 'desc' => 'Planificación y seguimiento de obras', 'achievement' => 'Seguimiento semanal de avance de obras', 'benefit' => 'Control de presupuesto y tiempos reales', 'color' => 'violet'],
+                ['section' => 'pablo', 'name' => 'pablo_kyusho_center', 'tech' => 'Laravel 11 / Livewire', 'desc' => 'Centro de artes marciales — Gestión de estudiantes', 'achievement' => '+200 estudiantes registrados con progreso trazable', 'benefit' => 'Administración digital del centro de entrenamiento', 'color' => 'violet'],
+                ['section' => 'pablo', 'name' => 'pablo_training', 'tech' => 'Laravel 11 / Livewire', 'desc' => 'Plataforma de entrenamiento personalizado', 'achievement' => 'Planes de entrenamiento personalizados por usuario', 'benefit' => 'Seguimiento de progreso y resultados medibles', 'color' => 'violet'],
+                ['section' => 'pablo', 'name' => 'pablo_saludencasa', 'tech' => 'JavaScript / HTML', 'desc' => 'Plataforma de salud y bienestar en casa', 'achievement' => '+1K usuarios activos en la plataforma', 'benefit' => 'Acceso a servicios de salud desde casa', 'color' => 'violet'],
+                ['section' => 'pablo', 'name' => 'pablo_blog', 'tech' => 'Laravel 11 / Livewire', 'desc' => 'Blog personal con gestor de contenidos', 'achievement' => '+50 artículos publicados con SEO optimizado', 'benefit' => 'Posicionamiento orgánico y autoridad digital', 'color' => 'violet'],
+                ['section' => 'pablo', 'name' => 'pablo_sec_landing', 'tech' => 'Laravel 11 / Livewire', 'desc' => 'Landing page para seguridad y consultoría', 'achievement' => 'Diseño conversional con tasa de conversión del 8%', 'benefit' => 'Generación de leads calificados', 'color' => 'violet'],
+                ['section' => 'pablo', 'name' => 'pablo_nua', 'tech' => 'JavaScript / HTML', 'desc' => 'Herramienta de análisis y visualización de datos', 'achievement' => 'Procesamiento de datos en tiempo real', 'benefit' => 'Dashboard interactivo para la toma de decisiones', 'color' => 'violet'],
+                ['section' => 'pablo', 'name' => 'pablo_tash', 'tech' => 'Laravel 11 / Livewire', 'desc' => 'Sistema de tareas y productividad personal', 'achievement' => 'Gestión de +500 tareas completadas', 'benefit' => 'Aumento de productividad personal en un 35%', 'color' => 'violet'],
+
+                // GL
+                ['section' => 'gl', 'name' => 'gl_portfolio', 'tech' => 'Laravel 13 / Flux 2', 'desc' => 'Portafolio profesional — Este mismo proyecto', 'achievement' => 'Catálogo completo de logros de +40 proyectos', 'benefit' => 'Visibilidad unificada del impacto profesional', 'color' => 'blue'],
+                ['section' => 'gl', 'name' => 'gl', 'tech' => 'Laravel 13 / Livewire 4', 'desc' => 'Proyecto base de experimentación con Laravel 13', 'achievement' => 'Entorno de pruebas con las últimas características del framework', 'benefit' => 'Curva de aprendizaje y validación tecnológica', 'color' => 'blue'],
+                ['section' => 'gl', 'name' => 'gl_pokemon_game', 'tech' => 'TypeScript / Canvas API', 'desc' => 'Videojuego estilo Pokémon en navegador', 'achievement' => 'Motor de juego funcional con sprites y batallas', 'benefit' => 'Demostración de habilidades en game dev y TypeScript', 'color' => 'blue'],
+                ['section' => 'gl', 'name' => 'gl_sgc', 'tech' => 'HTML5 / CSS3', 'desc' => 'Sistema genérico de control — Prototipo', 'achievement' => 'Prototipo funcional para pruebas de concepto', 'benefit' => 'Validación rápida de ideas antes del desarrollo completo', 'color' => 'blue'],
+                ['section' => 'gl', 'name' => 'gl_sgc_back', 'tech' => 'HTML5 / CSS3', 'desc' => 'Backend del sistema de control', 'achievement' => 'API básica funcional para integraciones', 'benefit' => 'Base para futuros sistemas de gestión', 'color' => 'blue'],
+                ['section' => 'gl', 'name' => 'gl_javascript', 'tech' => 'JavaScript', 'desc' => 'Laboratorio de JavaScript — Algoritmos y utilidades', 'achievement' => '+30 algoritmos implementados y documentados', 'benefit' => 'Base de conocimiento reutilizable en otros proyectos', 'color' => 'blue'],
             ];
             @endphp
-            @foreach($minpi as $repo)
-            <div class="p-6 bg-gray-900/60 backdrop-blur-sm rounded-xl border border-gray-800 hover:border-emerald-500/30 transition-all duration-300 glow-card" data-aos="fade-up" data-aos-delay="{{ $loop->index * 50 }}">
-                <div class="flex items-center gap-2 mb-3">
-                    <span class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">{{ $repo['tech'] }}</span>
+
+            @php $sectionMap = ['minpi' => ['title' => 'Asesoría', 'accent' => 'Tecnológica', 'color' => 'emerald', 'bg' => ''], 'sunai' => ['title' => 'Desarrollo', 'accent' => 'Full-Stack', 'color' => 'amber', 'bg' => 'bg-gray-900/20'], 'pablo' => ['title' => 'Sector', 'accent' => 'Privado', 'color' => 'violet', 'bg' => ''], 'gl' => ['title' => 'Innovación', 'accent' => '& Experimentación', 'color' => 'blue', 'bg' => 'bg-gray-900/20']]; @endphp
+
+            @foreach (['minpi', 'sunai', 'pablo', 'gl'] as $secId)
+            @php $sec = $sectionMap[$secId]; $projs = array_filter($proyectos, fn($p) => $p['section'] === $secId); $colorMap = ['emerald' => ['text' => 'text-emerald-400', 'bg' => 'bg-emerald-500/10', 'border' => 'hover:border-emerald-500/30'], 'amber' => ['text' => 'text-amber-400', 'bg' => 'bg-amber-500/10', 'border' => 'hover:border-amber-500/30'], 'violet' => ['text' => 'text-violet-400', 'bg' => 'bg-violet-500/10', 'border' => 'hover:border-violet-500/30'], 'blue' => ['text' => 'text-blue-400', 'bg' => 'bg-blue-500/10', 'border' => 'hover:border-blue-500/30']]; $c = $colorMap[$sec['color']]; @endphp
+
+            <div class="mb-12 section-header">
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 text-white">{{ $sec['title'] }} <span class="accent-{{ $sec['color'] }}">{{ $sec['accent'] }}</span></h2>
+                @if ($secId === 'minpi') <p class="text-gray-400 mt-2 max-w-xl">Sistemas de datos geoespaciales, gestión documental y automatización de procesos gubernamentales.</p>
+                @elseif ($secId === 'sunai') <p class="text-gray-400 mt-2 max-w-xl">Sistemas de gestión interna, intranets corporativas y automatización de procesos.</p>
+                @elseif ($secId === 'pablo') <p class="text-gray-400 mt-2 max-w-xl">Plataformas de negocio, landing pages, herramientas de salud y bienestar.</p>
+                @elseif ($secId === 'gl') <p class="text-gray-400 mt-2 max-w-xl">Proyectos personales, experimentación técnica y herramientas de estudio.</p>
+                @endif
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
+                @foreach ($projs as $repo)
+                <div class="p-6 bg-gray-900/60 backdrop-blur-sm rounded-xl border border-gray-800 {{ $c['border'] }} transition-all duration-300 glow-card" data-aos="fade-up" data-aos-delay="{{ $loop->index * 50 }}">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs font-mono {{ $c['text'] }} {{ $c['bg'] }} px-2 py-0.5 rounded">{{ $repo['tech'] }}</span>
+                    </div>
+                    <h3 class="text-white font-semibold mb-1">{{ $repo['name'] }}</h3>
+                    <p class="text-gray-400 text-sm mb-3">{{ $repo['desc'] }}</p>
+                    <p class="{{ $c['text'] }} text-xs font-medium mb-1">{{ $repo['achievement'] }}</p>
+                    <p class="text-gray-500 text-xs">{{ $repo['benefit'] }}</p>
                 </div>
-                <h3 class="text-white font-semibold mb-1">{{ $repo['name'] }}</h3>
-                <p class="text-gray-400 text-sm mb-3">{{ $repo['desc'] }}</p>
-                <p class="text-emerald-400 text-xs font-medium mb-1">{{ $repo['achievement'] }}</p>
-                <p class="text-gray-500 text-xs">{{ $repo['benefit'] }}</p>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-
-{{-- ═══════════════════ NODE: SUNAI ═══════════════════ --}}
-<section id="sunai" class="py-20 md:py-28 bg-gray-900/20 node-sunai">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div data-aos="fade-up" class="mb-12">
-            <span class="section-badge sunai">
-                <i class="devicon-laravel-original text-xs"></i>
-                Nodo Sunai
-            </span>
-            <h2 class="text-3xl md:text-4xl font-bold mt-2 text-white">Desarrollo <span class="text-amber-400">Full-Stack</span></h2>
-            <p class="text-gray-400 mt-2 max-w-xl">Sistemas de gestion interna, intranets corporativas y automatizacion de procesos.</p>
-            <div class="tech-icon-strip mt-3">
-                <i class="devicon-laravel-original" title="Laravel"></i>
-                <i class="devicon-livewire-plain text-pink-400" title="Livewire"></i>
-                <i class="devicon-mysql-original" title="MySQL"></i>
-                <i class="devicon-docker-plain" title="Docker"></i>
-                <i class="devicon-tailwindcss-original" title="Tailwind"></i>
-            </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            @php
-            $sunai = [
-                ['name' => 'sunai_sgim', 'tech' => 'Laravel 13 / Filament 5', 'desc' => 'Sistema de Gestion Integral Multidisciplinario', 'achievement' => 'Integracion de 6 modulos operativos en un solo sistema', 'benefit' => 'Visibilidad completa de la operacion en tiempo real'],
-                ['name' => 'sunai_intranet', 'tech' => 'Laravel 11 / Filament 5', 'desc' => 'Intranet corporativa con portal de empleados', 'achievement' => '+500 usuarios activos con perfiles personalizados', 'benefit' => 'Comunicacion interna y colaboracion unificada'],
-                ['name' => 'sunai_sigaci_2025', 'tech' => 'Laravel 11 / Filament 5', 'desc' => 'Sistema de Gestion de Archivo y Control Interno', 'achievement' => 'Archivo digital con +50K documentos clasificados', 'benefit' => 'Consultas de archivo reducidas de dias a segundos'],
-                ['name' => 'sunai_sigaci', 'tech' => 'JavaScript (legacy)', 'desc' => 'Version legacy del sistema de archivo', 'achievement' => 'Base estable que opero por 3 anos sin incidentes', 'benefit' => 'Continuidad operativa garantizada durante la migracion'],
-                ['name' => 'sunai_sigaci_old', 'tech' => 'Laravel 10 / Blade (Publico)', 'desc' => 'Version publica del sistema SIGACI (codigo abierto)', 'achievement' => 'Unico repositorio publico — Referencia para otros entes', 'benefit' => 'Transparencia y reutilizacion por otras instituciones'],
-                ['name' => 'sunai_intranet_old', 'tech' => 'HTML/CSS clasico', 'desc' => 'Primera version de la intranet corporativa', 'achievement' => 'Punto de partida para la digitalizacion del ente', 'benefit' => 'Lecciones aprendidas aplicadas en la version actual'],
-            ];
-            @endphp
-            @foreach($sunai as $repo)
-            <div class="p-6 bg-gray-900/60 backdrop-blur-sm rounded-xl border border-gray-800 hover:border-amber-500/30 transition-all duration-300 glow-card" data-aos="fade-up" data-aos-delay="{{ $loop->index * 50 }}">
-                <div class="flex items-center gap-2 mb-3">
-                    <span class="text-xs font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded">{{ $repo['tech'] }}</span>
-                </div>
-                <h3 class="text-white font-semibold mb-1">{{ $repo['name'] }}</h3>
-                <p class="text-gray-400 text-sm mb-3">{{ $repo['desc'] }}</p>
-                <p class="text-amber-400 text-xs font-medium mb-1">{{ $repo['achievement'] }}</p>
-                <p class="text-gray-500 text-xs">{{ $repo['benefit'] }}</p>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-
-{{-- ═══════════════════ NODE: PABLO ═══════════════════ --}}
-<section id="pablo" class="py-20 md:py-28 node-pablo">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div data-aos="fade-up" class="mb-12">
-            <span class="section-badge pablo">
-                <i class="devicon-laravel-original text-xs"></i>
-                Nodo Pablo
-            </span>
-            <h2 class="text-3xl md:text-4xl font-bold mt-2 text-white">Sector <span class="text-violet-400">Privado</span></h2>
-            <p class="text-gray-400 mt-2 max-w-xl">Plataformas de negocio, landing pages, herramientas de salud y bienestar.</p>
-            <div class="tech-icon-strip mt-3">
-                <i class="devicon-laravel-original" title="Laravel"></i>
-                <i class="devicon-livewire-plain text-pink-400" title="Livewire"></i>
-                <i class="devicon-tailwindcss-original" title="Tailwind"></i>
-                <i class="devicon-alpinejs-original" title="Alpine.js"></i>
-                <i class="devicon-docker-plain" title="Docker"></i>
-            </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            @php
-            $pablo = [
-                ['name' => 'pablo_foro_crecimiento', 'tech' => 'Laravel 13 / Flux 2', 'desc' => 'App web + Landing page para canal de YouTube FORO DE CRECIMIENTO', 'achievement' => 'Plataforma de comunidad con autenticacion y foro', 'benefit' => 'Crecimiento de audiencia y engagement digital'],
-                ['name' => 'pablo_constructor_synergy', 'tech' => 'Laravel 11 / Livewire', 'desc' => 'Plataforma de sinergia constructora — Gestion de proyectos', 'achievement' => 'Coordinacion de +20 proyectos de construccion', 'benefit' => 'Reduccion de retrasos en entregas en un 40%'],
-                ['name' => 'pablo_constructor_base', 'tech' => 'Laravel 11 / Livewire', 'desc' => 'Base de datos de proyectos constructores', 'achievement' => 'Catalogo de +100 proyectos con toda su documentacion', 'benefit' => 'Consulta rapida de historial de proyectos'],
-                ['name' => 'pablo_constructor_plannea', 'tech' => 'Laravel 11 / Livewire', 'desc' => 'Planificacion y seguimiento de obras', 'achievement' => 'Seguimiento semanal de avance de obras', 'benefit' => 'Control de presupuesto y tiempos reales'],
-                ['name' => 'pablo_kyusho_center', 'tech' => 'Laravel 11 / Livewire', 'desc' => 'Centro de artes marciales — Gestion de estudiantes', 'achievement' => '+200 estudiantes registrados con progreso trazable', 'benefit' => 'Administracion digital del centro de entrenamiento'],
-                ['name' => 'pablo_training', 'tech' => 'Laravel 11 / Livewire', 'desc' => 'Plataforma de entrenamiento personalizado', 'achievement' => 'Planes de entrenamiento personalizados por usuario', 'benefit' => 'Seguimiento de progreso y resultados medibles'],
-                ['name' => 'pablo_saludencasa', 'tech' => 'JavaScript / HTML', 'desc' => 'Plataforma de salud y bienestar en casa', 'achievement' => '+1K usuarios activos en la plataforma', 'benefit' => 'Acceso a servicios de salud desde casa'],
-                ['name' => 'pablo_blog', 'tech' => 'Laravel 11 / Livewire', 'desc' => 'Blog personal con gestor de contenidos', 'achievement' => '+50 articulos publicados con SEO optimizado', 'benefit' => 'Posicionamiento organico y autoridad digital'],
-                ['name' => 'pablo_sec_landing', 'tech' => 'Laravel 11 / Livewire', 'desc' => 'Landing page para seguridad y consultoria', 'achievement' => 'Diseno conversional con tasa de conversion del 8%', 'benefit' => 'Generacion de leads calificados'],
-                ['name' => 'pablo_nua', 'tech' => 'JavaScript / HTML', 'desc' => 'Herramienta de analisis y visualizacion de datos', 'achievement' => 'Procesamiento de datos en tiempo real', 'benefit' => 'Dashboard interactivo para la toma de decisiones'],
-                ['name' => 'pablo_tash', 'tech' => 'Laravel 11 / Livewire', 'desc' => 'Sistema de tareas y productividad personal', 'achievement' => 'Gestion de +500 tareas completadas', 'benefit' => 'Aumento de productividad personal en un 35%'],
-            ];
-            @endphp
-            @foreach($pablo as $repo)
-            <div class="p-6 bg-gray-900/60 backdrop-blur-sm rounded-xl border border-gray-800 hover:border-violet-500/30 transition-all duration-300 glow-card" data-aos="fade-up" data-aos-delay="{{ $loop->index * 50 }}">
-                <div class="flex items-center gap-2 mb-3">
-                    <span class="text-xs font-mono text-violet-400 bg-violet-500/10 px-2 py-0.5 rounded">{{ $repo['tech'] }}</span>
-                </div>
-                <h3 class="text-white font-semibold mb-1">{{ $repo['name'] }}</h3>
-                <p class="text-gray-400 text-sm mb-3">{{ $repo['desc'] }}</p>
-                <p class="text-violet-400 text-xs font-medium mb-1">{{ $repo['achievement'] }}</p>
-                <p class="text-gray-500 text-xs">{{ $repo['benefit'] }}</p>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-
-{{-- ═══════════════════ NODE: GENIO LOCO ═══════════════════ --}}
-<section id="gl" class="py-20 md:py-28 bg-gray-900/20 node-gl">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div data-aos="fade-up" class="mb-12">
-            <span class="section-badge gl">
-                <i class="devicon-typescript-plain text-xs"></i>
-                Nodo GL
-            </span>
-            <h2 class="text-3xl md:text-4xl font-bold mt-2 text-white">Innovacion <span class="text-[#0066FF]">& Experimentacion</span></h2>
-            <p class="text-gray-400 mt-2 max-w-xl">Proyectos personales, experimentacion tecnica y herramientas de estudio.</p>
-            <div class="tech-icon-strip mt-3">
-                <i class="devicon-laravel-original" title="Laravel"></i>
-                <i class="devicon-livewire-plain text-pink-400" title="Livewire"></i>
-                <i class="devicon-typescript-plain" title="TypeScript"></i>
-                <i class="devicon-javascript-plain" title="JavaScript"></i>
-                <i class="devicon-html5-plain" title="HTML5"></i>
-            </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            @php
-            $gl = [
-                ['name' => 'gl_portfolio', 'tech' => 'Laravel 13 / Flux 2', 'desc' => 'Portfolio profesional — Este mismo proyecto', 'achievement' => 'Catalogo completo de logros de +40 proyectos', 'benefit' => 'Visibilidad unificada del impacto profesional'],
-                ['name' => 'gl', 'tech' => 'Laravel 13 / Livewire 4', 'desc' => 'Proyecto base de experimentacion con Laravel 13', 'achievement' => 'Entorno de pruebas con las ultimas caracteristicas del framework', 'benefit' => 'Curva de aprendizaje y validacion tecnologica'],
-                ['name' => 'gl_pokemon_game', 'tech' => 'TypeScript / Canvas API', 'desc' => 'Videojuego estilo Pokemon en navegador', 'achievement' => 'Motor de juego funcional con sprites y batallas', 'benefit' => 'Demostracion de habilidades en game dev y TypeScript'],
-                ['name' => 'gl_sgc', 'tech' => 'HTML5 / CSS3', 'desc' => 'Sistema generico de control — Prototipo', 'achievement' => 'Prototipo funcional para pruebas de concepto', 'benefit' => 'Validacion rapida de ideas antes del desarrollo completo'],
-                ['name' => 'gl_sgc_back', 'tech' => 'HTML5 / CSS3', 'desc' => 'Backend del sistema de control', 'achievement' => 'API basica funcional para integraciones', 'benefit' => 'Base para futuros sistemas de gestion'],
-                ['name' => 'gl_javascript', 'tech' => 'JavaScript', 'desc' => 'Laboratorio de JavaScript — Algoritmos y utilidades', 'achievement' => '+30 algoritmos implementados y documentados', 'benefit' => 'Base de conocimiento reutilizable en otros proyectos'],
-            ];
-            @endphp
-            @foreach($gl as $repo)
-            <div class="p-6 bg-gray-900/60 backdrop-blur-sm rounded-xl border border-gray-800 hover:border-blue-500/30 transition-all duration-300 glow-card" data-aos="fade-up" data-aos-delay="{{ $loop->index * 50 }}">
-                <div class="flex items-center gap-2 mb-3">
-                    <span class="text-xs font-mono text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded">{{ $repo['tech'] }}</span>
-                </div>
-                <h3 class="text-white font-semibold mb-1">{{ $repo['name'] }}</h3>
-                <p class="text-gray-400 text-sm mb-3">{{ $repo['desc'] }}</p>
-                <p class="text-blue-400 text-xs font-medium mb-1">{{ $repo['achievement'] }}</p>
-                <p class="text-gray-500 text-xs">{{ $repo['benefit'] }}</p>
+                @endforeach
             </div>
             @endforeach
         </div>
@@ -339,8 +220,8 @@
 {{-- ═══════════════════ CTA ═══════════════════ --}}
 <section class="relative py-16 overflow-hidden bg-gradient-to-r from-[#0066FF] to-violet-700">
     <div class="relative max-w-3xl mx-auto px-4 text-center">
-        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4" data-aos="fade-up">Listo para construir el proximo gran proyecto?</h2>
-        <p class="text-white/70 mb-6" data-aos="fade-up" data-aos-delay="100">Mas de 40 proyectos demuestran que la tecnologia bien aplicada transforma realidades.</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4" data-aos="fade-up">¿Listo para construir el próximo gran proyecto?</h2>
+        <p class="text-white/70 mb-6" data-aos="fade-up" data-aos-delay="100">Más de 40 proyectos demuestran que la tecnología bien aplicada transforma realidades.</p>
         <a href="https://github.com/deiferd3g" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-bold rounded-xl hover:bg-gray-100 transition shadow-xl" data-aos="fade-up" data-aos-delay="200">
             <i class="devicon-github-original text-xl"></i>
             Ver en GitHub
@@ -351,8 +232,8 @@
 {{-- ═══════════════════ FOOTER ═══════════════════ --}}
 <footer class="bg-gray-950 border-t border-gray-800 text-gray-500 py-8">
     <div class="max-w-5xl mx-auto px-4 text-center text-sm">
-        <p>&copy; {{ date('Y') }} Deifer Garanton. Portfolio construido con Laravel {{ $laravelVersion ?? '13' }} + Livewire + Flux.</p>
-        <p class="mt-1">Vegapunk Protocol — 40+ repositorios, 4 nodos operativos, 1 mision.</p>
+        <p>&copy; {{ date('Y') }} Deifer Garantón. Portafolio construido con Laravel {{ $laravelVersion ?? '13' }} + Livewire + Flux.</p>
+        <p class="mt-1">Vegapunk Protocol — 40+ repositorios, 4 nodos operativos, 1 misión.</p>
     </div>
 </footer>
 
