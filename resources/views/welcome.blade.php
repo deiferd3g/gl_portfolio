@@ -13,6 +13,7 @@
     <style>
         :root { --primary: #0066FF; --accent: #7C3AED; }
         body { background: #030712; }
+        .hero-overlay { background: linear-gradient(135deg, rgba(3,7,18,.92) 0%, rgba(3,7,18,.7) 50%, rgba(3,7,18,.92) 100%), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920&q=80') center/cover fixed; }
         .gradient-text { background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .glow-card { box-shadow: 0 0 30px -10px rgba(0,102,255,.15); transition: box-shadow .4s, transform .4s; }
         .glow-card:hover { box-shadow: 0 0 50px -8px rgba(0,102,255,.25); transform: translateY(-2px); }
@@ -75,7 +76,7 @@
 
 {{-- ═══════════════════ HERO ═══════════════════ --}}
 <section id="inicio" class="relative min-h-screen flex items-center pt-16 overflow-hidden code-bg">
-    <div class="absolute inset-0 bg-gradient-to-b from-gray-950 via-blue-950/5 to-gray-950"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-gray-950 via-blue-950/20 to-gray-950"></div>
     <div class="absolute top-1/4 -left-20 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]"></div>
     <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-violet-600/8 rounded-full blur-[100px]"></div>
 
