@@ -3,128 +3,164 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Portafolio profesional de Deifer Garantón — Ingeniero, Arquitecto de Sistemas, Desarrollador Full-Stack. Más de 40 proyectos que transforman la gestión pública y privada.">
-    <title>Deifer Garantón — Portafolio</title>
+    <meta name="description" content="Portafolio profesional de Deifer Garantón — Ingeniero, Arquitecto de Sistemas, Desarrollador Full-Stack TALL Stack. Más de 40 proyectos que transforman la gestión pública y privada en Venezuela.">
+    <meta name="keywords" content="Laravel, Livewire, TALL Stack, PostgreSQL, PostGIS, Docker, Venezuela, desarrollador full-stack">
+    <meta name="author" content="Deifer Garantón">
+    <meta property="og:title" content="Deifer Garantón — Portafolio Profesional">
+    <meta property="og:description" content="Arquitecto de sistemas TALL Stack. +40 proyectos transformando la gestión pública y privada.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Deifer Garantón — Arquitecto de Sistemas | TALL Stack</title>
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700,800" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root { --primary: #0066FF; --accent: #7C3AED; }
+        :root { --primary: #0066FF; --accent: #7C3AED; --surface: #0f172a; }
         body { background: #030712; }
-        .hero-overlay { background: linear-gradient(135deg, rgba(3,7,18,.92) 0%, rgba(3,7,18,.7) 50%, rgba(3,7,18,.92) 100%), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920&q=80') center/cover fixed; }
+        .hero-overlay { background: linear-gradient(135deg, rgba(3,7,18,.94) 0%, rgba(3,7,18,.6) 40%, rgba(3,7,18,.94) 100%), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920&q=80') center/cover fixed; }
         .gradient-text { background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .glow-card { box-shadow: 0 0 30px -10px rgba(0,102,255,.15); transition: box-shadow .4s, transform .4s; }
-        .glow-card:hover { box-shadow: 0 0 50px -8px rgba(0,102,255,.25); transform: translateY(-2px); }
+        .glow-card { box-shadow: 0 0 30px -10px rgba(0,102,255,.12); transition: box-shadow .4s, transform .3s, border-color .3s; }
+        .glow-card:hover { box-shadow: 0 0 50px -8px rgba(0,102,255,.22); transform: translateY(-3px); border-color: rgba(0,102,255,.3); }
         .tech-strip { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
-        .tech-strip i { font-size: 1.5rem; opacity: 0.8; transition: opacity .2s, transform .2s; }
-        .tech-strip i:hover { opacity: 1; transform: scale(1.15); }
-        .section-header h2 { font-weight: 800; }
+        .tech-strip i { font-size: 1.5rem; opacity: 0.75; transition: opacity .2s, transform .2s; }
+        .tech-strip i:hover { opacity: 1; transform: scale(1.2); }
+        .section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.06), transparent); }
+        .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; animation: pulse-dot 2s infinite; }
+        @keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #030712; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
     </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Instrument Sans"', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
 </head>
 <body class="font-sans antialiased bg-gray-950 text-gray-100">
 
 <!-- NAVBAR -->
 <nav class="fixed top-0 inset-x-0 z-50 bg-gray-950/80 backdrop-blur-xl border-b border-gray-800/50" data-aos="fade-down">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
             <a href="#" class="flex items-center gap-2.5 group">
-                <div class="w-8 h-8 rounded-lg bg-[#0066FF] flex items-center justify-center shadow-lg shadow-blue-500/25 transition-transform group-hover:scale-110">
+                <div class="w-8 h-8 rounded-lg bg-[#0066FF] flex items-center justify-center shadow-lg shadow-blue-500/25 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
                     <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
                 </div>
-                <span class="font-bold text-white text-lg">DG <span class="text-[#0066FF]">Portafolio</span></span>
+                <span class="font-bold text-white text-lg tracking-tight">DG <span class="text-[#0066FF]">Portfolio</span></span>
             </a>
-            <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-300">
-                <a href="#inicio" class="hover:text-[#0066FF] transition">Inicio</a>
-                <a href="#minpi" class="hover:text-[#0066FF] transition">MINPI</a>
-                <a href="#sunai" class="hover:text-[#0066FF] transition">Sunai</a>
-                <a href="#pablo" class="hover:text-[#0066FF] transition">Pablo</a>
-                <a href="#gl" class="hover:text-[#0066FF] transition">GL</a>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#inicio" class="hover:text-[#0066FF] transition-colors duration-200">Inicio</a>
+                <a href="#minpi" class="hover:text-[#0066FF] transition-colors duration-200">MINPI</a>
+                <a href="#sunai" class="hover:text-[#0066FF] transition-colors duration-200">Sunai</a>
+                <a href="#pablo" class="hover:text-[#0066FF] transition-colors duration-200">Pablo</a>
+                <a href="#gl" class="hover:text-[#0066FF] transition-colors duration-200">GL</a>
             </div>
+            <a href="https://github.com/deiferd3g" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-3 py-2 text-sm border border-gray-700 hover:border-blue-500/50 rounded-lg transition-all duration-200 hover:bg-blue-500/5 hover:text-white text-gray-400">
+                <i class="devicon-github-original text-lg"></i>
+                <span>GitHub</span>
+            </a>
         </div>
     </div>
 </nav>
 
 <!-- HERO -->
 <section id="inicio" class="relative min-h-screen flex items-center pt-16 overflow-hidden hero-overlay">
-    <div class="absolute inset-0 bg-gradient-to-b from-gray-950 via-blue-950/20 to-gray-950"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-gray-950 via-blue-950/15 to-gray-950"></div>
     <div class="absolute top-1/4 -left-20 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]"></div>
     <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-violet-600/8 rounded-full blur-[100px]"></div>
+    <div class="absolute top-1/3 right-1/3 w-64 h-64 bg-emerald-500/5 rounded-full blur-[80px]"></div>
     <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
         <div data-aos="fade-up" data-aos-delay="100">
             <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 rounded-full text-xs font-semibold mb-6">
                 <span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-                Ingeniero · Arquitecto · Desarrollador Full-Stack
+                Ingeniero · Arquitecto TALL Stack · DevOps
             </div>
         </div>
-        <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6" data-aos="fade-up" data-aos-delay="200">
+        <h1 class="text-5xl md:text-7xl font-extrabold leading-[1.1] mb-6" data-aos="fade-up" data-aos-delay="200">
             <span class="text-gray-300">Hola, soy</span><br>
             <span class="gradient-text">Deifer Garantón</span>
         </h1>
-        <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="300">
-            Arquitecto de sistemas, desarrollador TALL Stack y estratega tecnológico.
-            <strong class="text-white">Más de 40 proyectos</strong> que transforman la gestión pública y privada.
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+            Arquitecto de sistemas, especialista <strong class="text-white">TALL Stack</strong> y estratega tecnológico.
+            <strong class="text-white">+40 proyectos</strong> que transforman la gestión pública y privada
+            desde Venezuela para el mundo.
         </p>
         <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="400">
-            <a href="#minpi" class="inline-flex items-center gap-2 px-6 py-3 bg-[#0066FF] hover:bg-blue-700 text-white font-semibold rounded-xl transition shadow-lg shadow-blue-500/25">
+            <a href="#minpi" class="inline-flex items-center gap-2 px-6 py-3 bg-[#0066FF] hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5">
                 Explorar Proyectos
                 <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
             </a>
-            <a href="https://github.com/deiferd3g" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 border border-gray-700 hover:border-blue-500/50 rounded-xl transition hover:bg-blue-500/5">
+            <a href="https://github.com/deiferd3g" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 border border-gray-700 hover:border-blue-500/50 rounded-xl transition-all duration-200 hover:bg-blue-500/5 hover:text-white text-gray-300 hover:-translate-y-0.5">
                 <i class="devicon-github-original text-xl"></i> GitHub
             </a>
         </div>
-        <div class="flex flex-wrap justify-center gap-8 mt-12 pt-8 border-t border-gray-800" data-aos="fade-up" data-aos-delay="500">
-            <div><div class="text-3xl font-bold text-[#0066FF]">40+</div><div class="text-sm text-gray-500">Repositorios</div></div>
-            <div><div class="text-3xl font-bold text-emerald-400">4</div><div class="text-sm text-gray-500">Nodos Operativos</div></div>
-            <div><div class="text-3xl font-bold text-violet-400">7+</div><div class="text-sm text-gray-500">Años de Experiencia</div></div>
-            <div><div class="text-3xl font-bold text-amber-400">14</div><div class="text-sm text-gray-500">Tecnologías</div></div>
+        <div class="flex flex-wrap justify-center gap-10 mt-12 pt-8 border-t border-gray-800/60" data-aos="fade-up" data-aos-delay="500">
+            <div class="text-center"><div class="text-3xl font-bold text-[#0066FF]">40+</div><div class="text-sm text-gray-500 mt-1">Repositorios</div></div>
+            <div class="text-center"><div class="text-3xl font-bold text-emerald-400">4</div><div class="text-sm text-gray-500 mt-1">Nodos Operativos</div></div>
+            <div class="text-center"><div class="text-3xl font-bold text-violet-400">7+</div><div class="text-sm text-gray-500 mt-1">Años de Experiencia</div></div>
+            <div class="text-center"><div class="text-3xl font-bold text-amber-400">15+</div><div class="text-sm text-gray-500 mt-1">Tecnologías</div></div>
         </div>
     </div>
 </section>
 
 <!-- STACK BAR -->
-<section class="py-16 border-y border-gray-800/50 bg-gray-900/20">
+<section class="py-16 border-y border-gray-800/40 bg-gray-900/20">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-wrap justify-center gap-6 items-center" data-aos="fade-up">
-            <i class="devicon-laravel-original text-2xl" title="Laravel"></i>
-            <i class="devicon-livewire-plain text-2xl text-pink-400" title="Livewire"></i>
-            <i class="devicon-tailwindcss-original text-2xl" title="Tailwind CSS"></i>
-            <i class="devicon-alpinejs-original text-2xl" title="Alpine.js"></i>
-            <i class="devicon-postgresql-plain text-2xl" title="PostgreSQL"></i>
-            <i class="devicon-mysql-original text-2xl" title="MySQL"></i>
-            <i class="devicon-docker-plain text-2xl" title="Docker"></i>
-            <i class="devicon-nginx-original text-2xl" title="Nginx"></i>
-            <i class="devicon-apache-plain text-2xl" title="Apache"></i>
-            <i class="devicon-flutter-plain text-2xl" title="Flutter"></i>
-            <i class="devicon-vuejs-plain text-2xl" title="Vue.js"></i>
-            <i class="devicon-bootstrap-plain text-2xl" title="Bootstrap"></i>
-            <i class="devicon-typescript-plain text-2xl" title="TypeScript"></i>
-            <i class="devicon-git-plain text-2xl" title="Git"></i>
+        <div class="text-center text-xs font-semibold text-gray-600 uppercase tracking-widest mb-6" data-aos="fade-up">Stack Tecnológico</div>
+        <div class="flex flex-wrap justify-center gap-8 items-center" data-aos="fade-up">
+            <i class="devicon-laravel-original text-3xl" title="Laravel"></i>
+            <i class="devicon-livewire-plain text-3xl text-pink-400" title="Livewire"></i>
+            <i class="devicon-tailwindcss-original text-3xl text-cyan-400" title="Tailwind CSS"></i>
+            <i class="devicon-alpinejs-original text-3xl" title="Alpine.js"></i>
+            <i class="devicon-postgresql-plain text-3xl text-blue-400" title="PostgreSQL"></i>
+            <i class="devicon-mysql-original text-3xl" title="MySQL"></i>
+            <i class="devicon-docker-plain text-3xl text-sky-400" title="Docker"></i>
+            <i class="devicon-nginx-original text-3xl text-green-500" title="Nginx"></i>
+            <i class="devicon-flutter-plain text-3xl text-blue-300" title="Flutter"></i>
+            <i class="devicon-vuejs-plain text-3xl text-green-400" title="Vue.js"></i>
+            <i class="devicon-typescript-plain text-3xl text-blue-500" title="TypeScript"></i>
+            <i class="devicon-git-plain text-3xl text-orange-500" title="Git"></i>
+            <i class="devicon-filament-plain text-3xl text-amber-400" title="Filament"></i>
         </div>
     </div>
 </section>
 
-<!-- PROJECT SECTIONS -->
+<div class="section-divider mx-auto max-w-5xl"></div>
+
+<!-- PROJECT SECTIONS (injected by JS) -->
 <div id="app"></div>
 
 <!-- CTA -->
-<section class="relative py-16 overflow-hidden bg-gradient-to-r from-[#0066FF] to-violet-700">
+<section class="relative py-20 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0066FF] to-violet-700 opacity-95"></div>
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-30"></div>
     <div class="relative max-w-3xl mx-auto px-4 text-center">
-        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4" data-aos="fade-up">¿Listo para construir el próximo gran proyecto?</h2>
-        <p class="text-white/70 mb-6" data-aos="fade-up" data-aos-delay="100">Más de 40 proyectos demuestran que la tecnología bien aplicada transforma realidades.</p>
-        <a href="https://github.com/deiferd3g" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-bold rounded-xl hover:bg-gray-100 transition shadow-xl" data-aos="fade-up" data-aos-delay="200">
-            <i class="devicon-github-original text-xl"></i> Ver en GitHub
-        </a>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4" data-aos="fade-up">¿Listo para tu próximo gran proyecto?</h2>
+        <p class="text-blue-100/80 mb-8 text-lg" data-aos="fade-up" data-aos-delay="100">+40 proyectos demuestran que la tecnología bien aplicada transforma realidades. Hablemos de la tuya.</p>
+        <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+            <a href="https://github.com/deiferd3g" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-bold rounded-xl hover:bg-gray-100 transition-all duration-200 shadow-xl hover:shadow-2xl hover:-translate-y-0.5">
+                <i class="devicon-github-original text-xl"></i> Ver en GitHub
+            </a>
+        </div>
     </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-gray-950 border-t border-gray-800 text-gray-500 py-8">
+<footer class="bg-gray-950 border-t border-gray-800/50 text-gray-500 py-10">
     <div class="max-w-5xl mx-auto px-4 text-center text-sm">
-        <p>&copy; 2026 Deifer Garantón. Portafolio construido con Laravel + Livewire + Flux.</p>
+        <p>&copy; 2026 Deifer Garantón. Construido con <span class="text-[#0066FF]">&lt;/&gt;</span> desde Venezuela.</p>
         <p class="mt-1">Vegapunk Protocol — 40+ repositorios, 4 nodos operativos, 1 misión.</p>
+        <div class="flex justify-center gap-4 mt-4">
+            <a href="https://github.com/deiferd3g" target="_blank" class="text-gray-600 hover:text-[#0066FF] transition-colors" title="GitHub"><i class="devicon-github-original text-xl"></i></a>
+        </div>
     </div>
 </footer>
 
@@ -133,100 +169,72 @@
 const sections = [
   {
     id: 'minpi', title: 'Asesoría', accent: 'Tecnológica', accentClass: 'text-emerald-400',
-    desc: 'Sistemas de datos geoespaciales, gestión documental y automatización de procesos gubernamentales.',
+    desc: 'Sistemas de datos geoespaciales, gestión documental y automatización para la administración pública. Transformación digital institucional con Laravel + Filament.',
     color: 'emerald',
+    icon: 'devicon-postgresql-plain',
     projects: [
-      {name: 'minpi_gis_v2', tech: 'Laravel 13 / Filament 5', desc: 'Sistema de Información Geográfica para planificación territorial', achievement: 'Georreferenciación de +10K puntos de interés', benefit: 'Toma de decisiones territoriales con datos precisos'},
-      {name: 'minpi_midai', tech: 'Laravel 13 / Filament 5', desc: 'Módulo Integral de Datos para la Administración Interna', achievement: 'Centralización de 5 departamentos en un solo sistema', benefit: 'Reducción de tiempos administrativos en un 60%'},
-      {name: 'minpi_gh', tech: 'Laravel 13 / Filament 5', desc: 'Gestión de Historias — Sistema de expedientes y seguimiento', achievement: '+5K expedientes digitalizados y trazables', benefit: 'Eliminación del papeleo físico en un 80%'},
-      {name: 'minpi_acreditacion', tech: 'Laravel 13 / Filament 5', desc: 'Sistema de acreditación y certificación de personal', achievement: 'Proceso de acreditación reducido de 15 a 3 días', benefit: 'Agilización de trámites para +500 funcionarios'},
-      {name: 'minpi_atencion', tech: 'Laravel 10 / Blade', desc: 'Sistema de atención al ciudadano y gestión de solicitudes', achievement: 'Atención a +2K ciudadanos con seguimiento en línea', benefit: 'Transparencia y eficiencia en la atención pública'},
-      {name: 'minpi_web', tech: 'Laravel 10 / Blade', desc: 'Portal web institucional con gestor de contenidos', achievement: '+100K visitas/mes con contenido dinámico', benefit: 'Comunicación institucional efectiva y actualizada'},
-      {name: 'minpi_seguridad', tech: 'Laravel 10 / Blade', desc: 'Sistema integral de seguridad y control de acceso', achievement: 'Control de acceso para 3 sedes con reportes en tiempo real', benefit: 'Reducción de incidentes de seguridad en un 90%'},
-      {name: 'minpi_saime', tech: 'Laravel 11 / Blade', desc: 'Integración con datos SAIME para verificación de identidad', achievement: 'Validación automática de identidad en segundos', benefit: 'Eliminación de fraudes por suplantación de identidad'},
-      {name: 'minpi_tecnologia', tech: 'Laravel 11 / Blade', desc: 'Gestión de activos tecnológicos e inventario TI', achievement: 'Inventario de +1K activos tecnológicos auditables', benefit: 'Ahorro del 30% en compras duplicadas'},
-      {name: 'minpi_sala_f', tech: 'Laravel 11 / Blade', desc: 'Sala de Fusión — Coordinación interinstitucional', achievement: 'Coordinación entre 5 instituciones en tiempo real', benefit: 'Eliminación de silos de información'},
-      {name: 'minpi_sala_2026', tech: 'Laravel 11 / Blade', desc: 'Plataforma de sala situacional 2026', achievement: 'Dashboard en vivo con +20 indicadores clave', benefit: 'Toma de decisiones basada en datos en tiempo real'},
-      {name: 'minpi_gestion_humana', tech: 'Laravel 10 / Blade', desc: 'Gestión de recursos humanos y nómina', achievement: 'Automatización de nómina para +200 empleados', benefit: 'Reducción de errores de cálculo al 0%'},
-      {name: 'minpi_geo_f', tech: 'Laravel 10 / Blade', desc: 'Geografía Fiscal — Catastro y tributación territorial', achievement: 'Mapa catastral con +15K parcelas georreferenciadas', benefit: 'Incremento de recaudación fiscal en un 25%'},
-      {name: 'minpi_pp', tech: 'Laravel 13 / Filament 5', desc: 'Planificación y presupuesto por proyectos', achievement: 'Seguimiento presupuestario de +50 proyectos activos', benefit: 'Optimización del gasto público en un 15%'},
-      {name: 'minpi_bloque_historico', tech: 'Laravel 10 / Blade', desc: 'Archivo histórico digitalizado', achievement: 'Digitalización de +10K documentos históricos', benefit: 'Preservación de la memoria institucional'},
-      {name: 'minpi_risin', tech: 'Laravel 11 / Blade', desc: 'Registro de información sindical', achievement: 'Base de datos sindical unificada', benefit: 'Transparencia en la gestión sindical'},
-    ]
+      {name: 'minpi_gis_v2', tech: 'Laravel 13 · Filament 5 · PostGIS', desc: 'Sistema de Información Geográfica para planificación territorial', achievement: 'Georreferenciación de +10K puntos de interés', benefit: 'Decisiones territoriales con datos precisos'},      {name: 'minpi_midai', tech: 'Laravel 13 · Filament 5', desc: 'Módulo Integral de Datos para Administración Interna', achievement: '5 departamentos centralizados en 1 sistema', benefit: 'Reducción de tiempos administrativos -60%'},      {name: 'minpi_gh', tech: 'Laravel 13 · Filament 5', desc: 'Gestión de Historias — Expedientes y seguimiento', achievement: '+5K expedientes digitalizados trazables', benefit: 'Eliminación de papeleo físico -80%'},      {name: 'minpi_atencion', tech: 'Laravel 10 · Blade', desc: 'Atención al ciudadano y gestión de solicitudes', achievement: '+2K ciudadanos atendidos con seguimiento online', benefit: 'Transparencia en la atención pública'},      {name: 'minpi_web', tech: 'Laravel 10 · Blade', desc: 'Portal web institucional con CMS propio', achievement: '+100K visitas/mes con contenido dinámico', benefit: 'Comunicación institucional actualizada'},      {name: 'minpi_tecnologia', tech: 'Laravel 11 · Blade', desc: 'Gestión de activos tecnológicos e inventario TI', achievement: 'Inventario de +1K activos auditables', benefit: 'Ahorro -30% en compras duplicadas'},      {name: 'minpi_saime', tech: 'Laravel 11 · Blade', desc: 'Integración SAIME para verificación de identidad', achievement: 'Validación automática en segundos', benefit: 'Eliminación de fraudes por suplantación'},      {name: 'minpi_sala_f', tech: 'Laravel 11 · Blade', desc: 'Sala de Fusión — Coordinación interinstitucional', achievement: '5 instituciones coordinadas en tiempo real', benefit: 'Eliminación de silos de información'},      {name: 'minpi_risin', tech: 'Laravel 11 · Blade', desc: 'Registro de Información Sindical', achievement: 'Base de datos sindical unificada', benefit: 'Transparencia en gestión sindical'},      {name: 'minpi_seguridad', tech: 'Laravel 10 · Blade', desc: 'Control de acceso y seguridad integral', achievement: '3 sedes monitoreadas en tiempo real', benefit: 'Reducción de incidentes -90%'},      {name: 'minpi_gestion_humana', tech: 'Laravel 10 · Blade', desc: 'Gestión de RRHH y nómina automatizada', achievement: 'Nómina automatizada para +200 empleados', benefit: 'Cero errores de cálculo'},      {name: 'minpi_geo_f', tech: 'Laravel 10 · Blade', desc: 'Catastro y tributación territorial', achievement: '+15K parcelas georreferenciadas', benefit: 'Incremento recaudación fiscal +25%'},      {name: 'minpi_pp', tech: 'Laravel 13 · Filament 5', desc: 'Planificación y presupuesto por proyectos', achievement: '+50 proyectos activos con seguimiento', benefit: 'Optimización del gasto público -15%'},      {name: 'minpi_judenain', tech: 'Blade · Laravel', desc: 'Gestión jurídica y documental', achievement: 'Digitalización de procesos legales', benefit: 'Consultas jurídicas reducidas de días a horas'},      {name: 'minpi_bienes', tech: 'Laravel · Blade', desc: 'Gestión de bienes y activos fijos', achievement: 'Inventario patrimonial completo', benefit: 'Control de activos en tiempo real'},      {name: 'minpi_directorio', tech: 'Laravel · Blade', desc: 'Directorio institucional unificado', achievement: 'Base de contactos centralizada', benefit: 'Comunicación organizacional eficiente'},    ]
   },
   {
     id: 'sunai', title: 'Desarrollo', accent: 'Full-Stack', accentClass: 'text-amber-400',
-    desc: 'Sistemas de gestión interna, intranets corporativas y automatización de procesos.',
+    desc: 'Sistemas de gestión interna, intranets corporativas y automatización de procesos institucionales. Arquitectura Laravel + Filament para el sector público.',
     color: 'amber',
+    icon: 'devicon-laravel-original',
     projects: [
-      {name: 'sunai_sgim', tech: 'Laravel 13 / Filament 5', desc: 'Sistema de Gestión Integral Multidisciplinario', achievement: 'Integración de 6 módulos operativos en un solo sistema', benefit: 'Visibilidad completa de la operación en tiempo real'},
-      {name: 'sunai_intranet', tech: 'Laravel 11 / Filament 5', desc: 'Intranet corporativa con portal de empleados', achievement: '+500 usuarios activos con perfiles personalizados', benefit: 'Comunicación interna y colaboración unificada'},
-      {name: 'sunai_sigaci_2025', tech: 'Laravel 11 / Filament 5', desc: 'Sistema de Gestión de Archivo y Control Interno', achievement: 'Archivo digital con +50K documentos clasificados', benefit: 'Consultas de archivo reducidas de días a segundos'},
-      {name: 'sunai_sigaci', tech: 'JavaScript (legacy)', desc: 'Versión legacy del sistema de archivo', achievement: 'Base estable que operó por 3 años sin incidentes', benefit: 'Continuidad operativa garantizada durante la migración'},
-      {name: 'sunai_sigaci_old', tech: 'Laravel 10 / Blade (Público)', desc: 'Versión pública del sistema SIGACI (código abierto)', achievement: 'Único repositorio público — Referencia para otros entes', benefit: 'Transparencia y reutilización por otras instituciones'},
-      {name: 'sunai_intranet_old', tech: 'HTML/CSS clásico', desc: 'Primera versión de la intranet corporativa', achievement: 'Punto de partida para la digitalización del ente', benefit: 'Lecciones aprendidas aplicadas en la versión actual'},
-    ]
+      {name: 'sunai_intranet', tech: 'Laravel 13 · Livewire 4 · Flux 2', desc: 'Portal interno institucional — Noticias, cumpleaños, calendario, SIGEFIRRHH, constancias y recibos de pago', achievement: '+500 usuarios activos con perfiles personalizados', benefit: 'Comunicación interna y gestión unificada'},      {name: 'sunai_web_2026', tech: 'Laravel 13 · Livewire', desc: 'Portal web institucional 2026', achievement: 'Rediseño completo con arquitectura moderna', benefit: 'Experiencia ciudadana renovada y accesible'},      {name: 'sunai_sgim', tech: 'Laravel 13 · Filament 5', desc: 'Sistema de Gestión Integral Multidisciplinario', achievement: '6 módulos operativos en un solo sistema', benefit: 'Visibilidad completa de la operación en tiempo real'},      {name: 'sunai_sigaci_2025', tech: 'Laravel 11 · Filament 5', desc: 'Gestión de Archivo y Control Interno', achievement: '+50K documentos clasificados digitalmente', benefit: 'Consultas de archivo reducidas a segundos'},    ]
   },
   {
     id: 'pablo', title: 'Sector', accent: 'Privado', accentClass: 'text-violet-400',
-    desc: 'Plataformas de negocio, landing pages, herramientas de salud y bienestar.',
+    desc: 'Plataformas de negocio, landing pages, herramientas de salud, bienestar y gestión empresarial. Soluciones web para emprendedores y PyMEs.',
     color: 'violet',
+    icon: 'devicon-vuejs-plain',
     bgAlt: true,
     projects: [
-      {name: 'pablo_foro_crecimiento', tech: 'Laravel 13 / Flux 2', desc: 'App web + Landing page para canal de YouTube FORO DE CRECIMIENTO', achievement: 'Plataforma de comunidad con autenticación y foro', benefit: 'Crecimiento de audiencia y engagement digital'},
-      {name: 'pablo_constructor_synergy', tech: 'Laravel 11 / Livewire', desc: 'Plataforma de sinergia constructora — Gestión de proyectos', achievement: 'Coordinación de +20 proyectos de construcción', benefit: 'Reducción de retrasos en entregas en un 40%'},
-      {name: 'pablo_constructor_base', tech: 'Laravel 11 / Livewire', desc: 'Base de datos de proyectos constructores', achievement: 'Catálogo de +100 proyectos con toda su documentación', benefit: 'Consulta rápida de historial de proyectos'},
-      {name: 'pablo_constructor_plannea', tech: 'Laravel 11 / Livewire', desc: 'Planificación y seguimiento de obras', achievement: 'Seguimiento semanal de avance de obras', benefit: 'Control de presupuesto y tiempos reales'},
-      {name: 'pablo_kyusho_center', tech: 'Laravel 11 / Livewire', desc: 'Centro de artes marciales — Gestión de estudiantes', achievement: '+200 estudiantes registrados con progreso trazable', benefit: 'Administración digital del centro de entrenamiento'},
-      {name: 'pablo_training', tech: 'Laravel 11 / Livewire', desc: 'Plataforma de entrenamiento personalizado', achievement: 'Planes de entrenamiento personalizados por usuario', benefit: 'Seguimiento de progreso y resultados medibles'},
-      {name: 'pablo_saludencasa', tech: 'JavaScript / HTML', desc: 'Plataforma de salud y bienestar en casa', achievement: '+1K usuarios activos en la plataforma', benefit: 'Acceso a servicios de salud desde casa'},
-      {name: 'pablo_blog', tech: 'Laravel 11 / Livewire', desc: 'Blog personal con gestor de contenidos', achievement: '+50 artículos publicados con SEO optimizado', benefit: 'Posicionamiento orgánico y autoridad digital'},
-      {name: 'pablo_sec_landing', tech: 'Laravel 11 / Livewire', desc: 'Landing page para seguridad y consultoría', achievement: 'Diseño conversional con tasa de conversión del 8%', benefit: 'Generación de leads calificados'},
-      {name: 'pablo_nua', tech: 'JavaScript / HTML', desc: 'Herramienta de análisis y visualización de datos', achievement: 'Procesamiento de datos en tiempo real', benefit: 'Dashboard interactivo para la toma de decisiones'},
-      {name: 'pablo_tash', tech: 'Laravel 11 / Livewire', desc: 'Sistema de tareas y productividad personal', achievement: 'Gestión de +500 tareas completadas', benefit: 'Aumento de productividad personal en un 35%'},
-    ]
+      {name: 'pablo_foro_crecimiento', tech: 'Laravel 13 · Flux 2 · Livewire', desc: 'App web + Landing page para canal YouTube FORO DE CRECIMIENTO', achievement: 'Plataforma comunitaria con autenticación y foro', benefit: 'Crecimiento de audiencia y engagement digital'},      {name: 'pablo_constructor_synergy', tech: 'Laravel 11 · Livewire', desc: 'Plataforma de sinergia para gestión de proyectos constructores', achievement: '20+ proyectos de construcción coordinados', benefit: 'Reducción de retrasos en entregas -40%'},      {name: 'pablo_constructor_plannea', tech: 'Laravel 11 · Livewire', desc: 'Planificación y seguimiento de obras', achievement: 'Seguimiento semanal de avance de obras', benefit: 'Control de presupuesto y tiempos reales'},      {name: 'pablo_constructor_base', tech: 'Laravel 11 · Livewire', desc: 'Base de datos de proyectos constructores', achievement: 'Catálogo de +100 proyectos documentados', benefit: 'Consulta rápida de historial de proyectos'},      {name: 'pablo_kyusho_center', tech: 'Laravel 11 · Livewire', desc: 'Centro de artes marciales — Gestión de estudiantes', achievement: '+200 estudiantes con progreso trazable', benefit: 'Administración digital del centro'},      {name: 'pablo_training', tech: 'Laravel 11 · Livewire', desc: 'Plataforma de entrenamiento personalizado', achievement: 'Planes personalizados por usuario', benefit: 'Progreso y resultados medibles'},      {name: 'pablo_saludencasa', tech: 'JavaScript · HTML', desc: 'Salud y bienestar desde casa', achievement: '+1K usuarios activos', benefit: 'Acceso a servicios de salud domiciliarios'},      {name: 'pablo_blog', tech: 'Laravel 11 · Livewire', desc: 'Blog personal con gestor de contenidos SEO', achievement: '+50 artículos optimizados', benefit: 'Posicionamiento orgánico y autoridad digital'},      {name: 'pablo_nua', tech: 'JavaScript · HTML', desc: 'Análisis y visualización de datos', achievement: 'Procesamiento de datos en tiempo real', benefit: 'Dashboard interactivo para decisiones'},      {name: 'pablo_tash', tech: 'Laravel 11 · Livewire', desc: 'Sistema de tareas y productividad', achievement: '+500 tareas gestionadas', benefit: 'Aumento de productividad +35%'},    ]
   },
   {
-    id: 'gl', title: 'Innovación', accent: '& Experimentación', accentClass: 'text-[#0066FF]',
-    desc: 'Proyectos personales, experimentación técnica y herramientas de estudio.',
+    id: 'gl', title: 'Innovación', accent: '& Laboratorio', accentClass: 'text-[#0066FF]',
+    desc: 'Proyectos personales, experimentación técnica, herramientas de estudio y juegos. Donde la tecnología encuentra su límite creativo.',
     color: 'blue',
+    icon: 'devicon-typescript-plain',
     projects: [
-      {name: 'gl_portfolio', tech: 'Laravel 13 / Flux 2', desc: 'Portafolio profesional — Este mismo proyecto', achievement: 'Catálogo completo de logros de +40 proyectos', benefit: 'Visibilidad unificada del impacto profesional'},
-      {name: 'gl', tech: 'Laravel 13 / Livewire 4', desc: 'Proyecto base de experimentación con Laravel 13', achievement: 'Entorno de pruebas con las últimas características del framework', benefit: 'Curva de aprendizaje y validación tecnológica'},
-      {name: 'gl_pokemon_game', tech: 'TypeScript / Canvas API', desc: 'Videojuego estilo Pokémon en navegador', achievement: 'Motor de juego funcional con sprites y batallas', benefit: 'Demostración de habilidades en game dev y TypeScript'},
-      {name: 'gl_sgc', tech: 'HTML5 / CSS3', desc: 'Sistema genérico de control — Prototipo', achievement: 'Prototipo funcional para pruebas de concepto', benefit: 'Validación rápida de ideas antes del desarrollo completo'},
-      {name: 'gl_sgc_back', tech: 'HTML5 / CSS3', desc: 'Backend del sistema de control', achievement: 'API básica funcional para integraciones', benefit: 'Base para futuros sistemas de gestión'},
-      {name: 'gl_javascript', tech: 'JavaScript', desc: 'Laboratorio de JavaScript — Algoritmos y utilidades', achievement: '+30 algoritmos implementados y documentados', benefit: 'Base de conocimiento reutilizable en otros proyectos'},
-    ]
+      {name: 'gl_portfolio', tech: 'Laravel 13 · Flux 2', desc: 'Portafolio profesional — Este mismo proyecto', achievement: 'Catálogo completo de +40 proyectos', benefit: 'Visibilidad unificada del impacto profesional'},      {name: 'gl', tech: 'Laravel 13 · Livewire 4', desc: 'Laboratorio de experimentación Laravel 13', achievement: 'Entorno de pruebas con últimas características', benefit: 'Validación tecnológica continua'},      {name: 'gl_pokemon_game', tech: 'TypeScript · Canvas API', desc: 'Videojuego estilo Pokémon en navegador', achievement: 'Motor funcional con sprites y batallas', benefit: 'Game dev y TypeScript avanzado'},      {name: 'recipe_book', tech: 'C++', desc: 'Libro de recetas — Algoritmos y utilidades', achievement: 'Implementaciones algorítmicas documentadas', benefit: 'Base de conocimiento reutilizable'},    ]
   }
 ];
 
 const colors = {
-  emerald: { text: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'hover:border-emerald-500/30' },
-  amber:  { text: 'text-amber-400',  bg: 'bg-amber-500/10',  border: 'hover:border-amber-500/30'  },
-  violet: { text: 'text-violet-400', bg: 'bg-violet-500/10', border: 'hover:border-violet-500/30' },
-  blue:   { text: 'text-blue-400',   bg: 'bg-blue-500/10',   border: 'hover:border-blue-500/30'   }
+  emerald: { text: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'hover:border-emerald-500/30', glow: '0, 168, 120' },
+  amber:  { text: 'text-amber-400',  bg: 'bg-amber-500/10',  border: 'hover:border-amber-500/30',  glow: '245, 158, 11' },
+  violet: { text: 'text-violet-400', bg: 'bg-violet-500/10', border: 'hover:border-violet-500/30', glow: '139, 92, 246' },
+  blue:   { text: 'text-blue-400',   bg: 'bg-blue-500/10',   border: 'hover:border-blue-500/30',   glow: '59, 130, 246' }
 };
 
 const app = document.getElementById('app');
 sections.forEach((sec, si) => {
   const el = document.createElement('section');
   el.id = sec.id;
-  el.className = `py-20 md:py-28${sec.bgAlt ? ' bg-gray-900/20' : ''}`;
+  el.className = `py-20 md:py-28${sec.bgAlt ? ' bg-gray-900/20' : ''}${si > 0 ? ' section-divider' : ''}`;
   const c = colors[sec.color];
   let html = `<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="section-header mb-12" data-aos="fade-up">
-      <h2 class="text-3xl md:text-4xl font-bold mt-2 text-white">${sec.title} <span class="${sec.accentClass}">${sec.accent}</span></h2>
-      <p class="text-gray-400 mt-2 max-w-xl">${sec.desc}</p>
+    <div class="section-header mb-14" data-aos="fade-up">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-xs font-semibold ${c.text} ${c.bg} px-3 py-1 rounded-full tracking-wider uppercase">${sec.id}</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold mt-1 text-white">${sec.title} <span class="${sec.accentClass}">${sec.accent}</span></h2>
+      <p class="text-gray-400 mt-2 max-w-2xl leading-relaxed">${sec.desc}</p>
     </div>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">`;
   sec.projects.forEach((p, i) => {
-    html += `<div class="p-6 bg-gray-900/60 backdrop-blur-sm rounded-xl border border-gray-800 ${c.border} transition-all duration-300 glow-card" data-aos="fade-up" data-aos-delay="${i*50}">
-      <div class="flex items-center gap-2 mb-3"><span class="text-xs font-mono ${c.text} ${c.bg} px-2 py-0.5 rounded">${p.tech}</span></div>
-      <h3 class="text-white font-semibold mb-1">${p.name}</h3>
-      <p class="text-gray-400 text-sm mb-3">${p.desc}</p>
-      <p class="${c.text} text-xs font-medium mb-1">${p.achievement}</p>
-      <p class="text-gray-500 text-xs">${p.benefit}</p>
+    html += `<div class="p-6 bg-gray-900/60 backdrop-blur-sm rounded-xl border border-gray-800 ${c.border} transition-all duration-300 glow-card group" data-aos="fade-up" data-aos-delay="${Math.min(i*40, 400)}" style="--glow-color: ${c.glow}">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="text-xs font-mono ${c.text} ${c.bg} px-2 py-0.5 rounded">${p.tech}</span>
+      </div>
+      <h3 class="text-white font-semibold mb-1 group-hover:text-${sec.color}-300 transition-colors duration-200">${p.name}</h3>
+      <p class="text-gray-400 text-sm mb-3 leading-relaxed">${p.desc}</p>
+      <div class="border-t border-gray-800/50 pt-3 mt-3">
+        <p class="${c.text} text-xs font-medium mb-1">✦ ${p.achievement}</p>
+        <p class="text-gray-500 text-xs">→ ${p.benefit}</p>
+      </div>
     </div>`;
   });
   html += '</div></div>';
