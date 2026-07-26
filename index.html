@@ -166,10 +166,10 @@
     </div>
 
     <div class="flex flex-wrap justify-center gap-6 mt-6" id="stats">
-      <div class="text-center"><div class="text-xl font-bold text-[#ea9216] mono" data-count="40">0</div><div class="text-[.6rem] text-[#eeeeee]/30 mt-0.5 mono uppercase tracking-widest">Repos</div></div>
-      <div class="text-center"><div class="text-xl font-bold text-[#eeeeee] mono" data-count="4">0</div><div class="text-[.6rem] text-[#eeeeee]/30 mt-0.5 mono uppercase tracking-widest">Nodos</div></div>
-      <div class="text-center"><div class="text-xl font-bold text-[#eeeeee]/70 mono" data-count="7">0</div><div class="text-[.6rem] text-[#eeeeee]/30 mt-0.5 mono uppercase tracking-widest">Años</div></div>
-      <div class="text-center"><div class="text-xl font-bold text-[#ea9216] mono" data-count="15">0</div><div class="text-[.6rem] text-[#eeeeee]/30 mt-0.5 mono uppercase tracking-widest">Techs</div></div>
+      <div class="text-center"><div class="text-xl font-bold text-[#ea9216] mono" id="stat-repos">0</div><div class="text-[.6rem] text-[#eeeeee]/30 mt-0.5 mono uppercase tracking-widest">Repos</div></div>
+      <div class="text-center"><div class="text-xl font-bold text-[#eeeeee] mono" id="stat-nodos">0</div><div class="text-[.6rem] text-[#eeeeee]/30 mt-0.5 mono uppercase tracking-widest">Nodos</div></div>
+      <div class="text-center"><div class="text-xl font-bold text-[#eeeeee]/70 mono" id="stat-years">0</div><div class="text-[.6rem] text-[#eeeeee]/30 mt-0.5 mono uppercase tracking-widest">Años</div></div>
+      <div class="text-center"><div class="text-xl font-bold text-[#ea9216] mono" id="stat-techs">0</div><div class="text-[.6rem] text-[#eeeeee]/30 mt-0.5 mono uppercase tracking-widest">Techs</div></div>
     </div>
   </div>
 </section>
@@ -352,20 +352,55 @@ function typeNext() {
 }
 typeNext();
 
-// 2. Counter animation
-function animateCounters() {
-  document.querySelectorAll('[data-count]').forEach(el => {
-    const target = parseInt(el.dataset.count);
+// 2. Live counters from GitHub API
+async function fetchGitHubStats() {
+  try {
+    const [reposRes, eventsRes] = await Promise.all([
+      fetch('https://api.github.com/users/deiferd3g/repos?per_page=100'),
+      fetch('https://api.github.com/users/deiferd3g/events?per_page=1')
+    ]);
+    const repos = await reposRes.json();
+    
+    const totalRepos = repos.length;
+    const langs = new Set(repos.filter(r => r.language).map(r => r.language));
+    const totalLangs = langs.size;
+    
+    // Calculate years since first repo
+    const dates = repos.map(r => new Date(r.created_at).getTime());
+    const firstDate = Math.min(...dates);
+    const years = Math.max(1, Math.floor((Date.now() - firstDate) / (365.25 * 24 * 60 * 60 * 1000)));
+    
+    // Nodos: repos con descripciones que mencionan minpi/sunai/pablo/gl
+    const nodos = repos.filter(r => 
+      r.description && /minpi|sunai|pablo|vegapunk|command.center|gl_/i.test(r.description)
+    ).length + 1; // +1 por servidor
+    
+    return { repos: totalRepos, nodos: Math.max(4, nodos), years, techs: totalLangs };
+  } catch {
+    return { repos: 50, nodos: 5, years: 3, techs: 9 }; // fallback
+  }
+}
+
+async function animateCounters() {
+  const stats = await fetchGitHubStats();
+  const map = {
+    'stat-repos': stats.repos,
+    'stat-nodos': stats.nodos,
+    'stat-years': stats.years,
+    'stat-techs': stats.techs,
+  };
+  
+  Object.entries(map).forEach(([id, target]) => {
+    const el = document.getElementById(id);
+    if (!el) return;
     anime({
-      targets: el,
-      innerHTML: [0, target],
+      targets: {v: 0},
+      v: target,
       duration: 1200,
       delay: 200,
       ease: 'easeOutQuart',
       round: 1,
-      update: (anim) => {
-        el.textContent = Math.round(anim.progress * target / 100);
-      }
+      update: (anim) => { el.textContent = Math.round(anim.v); }
     });
   });
 }
