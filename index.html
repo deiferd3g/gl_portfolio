@@ -3,402 +3,270 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Deifer Garantón · Ingeniero de Software</title>
-  <meta name="description" content="Ingeniero de software, arquitecto TALL Stack. +50 proyectos transformando gestión pública y privada.">
-  <meta name="author" content="Deifer Garantón">
-  <meta property="og:title" content="Deifer Garantón · Portfolio">
-  <meta property="og:description" content="Arquitecto TALL Stack · +50 proyectos.">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.bunny.net">
+  <title>Deifer Garantón · Prototipos Hero</title>
   <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700,800|jetbrains-mono:400,500" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    :root {
-      --ink: #313841;
-      --paper: #eeeeee;
-      --sun: #ea9216;
-      --ocean: #3a4750;
-      --dim: rgba(238,238,238,.35);
-    }
+    :root { --ink: #313841; --paper: #eeeeee; --sun: #ea9216; --ocean: #3a4750; }
     body { background: var(--ink); color: var(--paper); font-family: 'Instrument Sans', system-ui, sans-serif; }
     .mono { font-family: 'JetBrains Mono', monospace; }
     .sun { color: var(--sun); }
     .bg-sun { background: var(--sun); }
-    .border-ocean { border-color: var(--ocean); }
-    .card {
-      background: rgba(58,71,80,.55); backdrop-filter: blur(6px);
-      border: 1px solid rgba(238,238,238,.06);
-      transition: border .25s, box-shadow .25s, transform .2s;
-    }
-    .card:hover {
-      border-color: rgba(234,146,22,.3);
-      box-shadow: 0 0 40px -12px rgba(234,146,22,.12);
-      transform: translateY(-2px);
-    }
+    .card { background: rgba(58,71,80,.55); backdrop-filter: blur(6px); border: 1px solid rgba(238,238,238,.06); border-radius: .75rem; padding: 1.25rem; }
+    .nav-hero { display: flex; gap: .35rem; flex-wrap: wrap; }
+    .nav-hero button { padding: .35rem .75rem; border-radius: .5rem; font-size: .65rem; font-family: 'JetBrains Mono', monospace; border: 1px solid rgba(238,238,238,.08); background: transparent; color: rgba(238,238,238,.4); cursor: pointer; transition: all .15s; white-space: nowrap; }
+    .nav-hero button:hover { border-color: rgba(234,146,22,.3); color: var(--paper); }
+    .nav-hero button.active { background: rgba(234,146,22,.15); border-color: rgba(234,146,22,.4); color: var(--sun); }
+    .hero-panel { display: none; animation: fadeIn .4s ease; }
+    .hero-panel.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--ink); }
     ::-webkit-scrollbar-thumb { background: var(--ocean); border-radius: 3px; }
-
-    /* modal */
-    .modal-overlay {
-      position: fixed; inset: 0; z-index: 100;
-      background: rgba(0,0,0,.7); backdrop-filter: blur(8px);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; pointer-events: none;
-      transition: opacity .3s;
-    }
-    .modal-overlay.active {
-      opacity: 1; pointer-events: auto;
-    }
-    .modal-box {
-      background: var(--ocean); border: 1px solid rgba(238,238,238,.1);
-      border-radius: 1rem; max-width: 520px; width: 90%; max-height: 85vh; overflow-y: auto;
-      padding: 1.5rem; transform: translateY(20px) scale(.95);
-      transition: transform .3s ease;
-    }
-    .modal-overlay.active .modal-box {
-      transform: translateY(0) scale(1);
-    }
-
-    /* avatar placeholder */
-    .avatar-ring {
-      width: 96px; height: 96px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--sun), #d4820a);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2rem; font-weight: 800; color: #313841;
-      box-shadow: 0 0 30px -8px rgba(234,146,22,.3);
-      position: relative;
-    }
-    .avatar-ring::after {
-      content: ''; position: absolute; inset: -3px; border-radius: 50%;
-      border: 2px solid rgba(234,146,22,.2);
-    }
-
-    .tech-tag {
-      display: inline-flex; align-items: center; gap: 4px;
-      padding: 2px 8px; border-radius: 999px;
-      font-size: .6rem; font-weight: 600;
-      background: rgba(234,146,22,.12); color: var(--sun);
-      border: 1px solid rgba(234,146,22,.15);
-    }
   </style>
   <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Instrument Sans"','system-ui','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}}</script>
 </head>
-<body>
+<body class="min-h-screen flex flex-col">
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modal">
-  <div class="modal-box">
-    <div class="flex items-start justify-between mb-4">
-      <div>
-        <h3 class="text-lg font-bold text-[#eeeeee]" id="modal-title"></h3>
-        <p class="text-[.65rem] mono text-[#eeeeee]/40" id="modal-tag"></p>
-      </div>
-      <button onclick="closeModal()" class="text-[#eeeeee]/40 hover:text-[#eeeeee] text-xl leading-none transition-colors">&times;</button>
-    </div>
-    <div id="modal-screenshot" class="rounded-lg overflow-hidden mb-4 bg-[#313841] aspect-video flex items-center justify-center">
-      <span class="text-[#eeeeee]/20 mono text-xs">[captura pendiente]</span>
-    </div>
-    <p class="text-sm text-[#eeeeee]/70 leading-relaxed" id="modal-desc"></p>
-    <div class="flex flex-wrap gap-1.5 mt-3" id="modal-techs"></div>
-    <a id="modal-link" href="#" target="_blank" class="inline-flex items-center gap-1.5 mt-4 text-xs mono text-[#ea9216] hover:text-[#eeeeee] transition-colors">
-      <i class="devicon-github-original text-sm"></i> ver en github →
-    </a>
-  </div>
-</div>
-
-<!-- NAV -->
 <header class="fixed top-0 inset-x-0 z-50 bg-[#313841]/80 backdrop-blur-xl border-b border-[#3a4750]">
   <div class="max-w-5xl mx-auto px-4 sm:px-6">
     <div class="flex items-center justify-between h-14">
-      <a href="#" class="flex items-center gap-2 mono text-sm">
-        <span class="w-7 h-7 rounded flex items-center justify-center bg-[#ea9216] text-[#313841] text-[10px] font-bold">DG</span>
-        <span class="text-[#eeeeee]/40">~/</span><span class="text-[#eeeeee]">deifer</span>
-      </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm text-[#eeeeee]/50 mono">
-        <a href="#trayectoria" class="hover:text-[#eeeeee] transition-colors">trayectoria</a>
-        <a href="#proyectos" class="hover:text-[#eeeeee] transition-colors">proyectos</a>
-        <a href="#stack" class="hover:text-[#eeeeee] transition-colors">stack</a>
-      </nav>
-      <a href="https://github.com/deiferd3g" target="_blank" class="flex items-center gap-1.5 text-xs text-[#eeeeee]/50 hover:text-[#eeeeee] border border-[#3a4750] hover:border-[#ea9216]/40 rounded-lg px-3 py-1.5 transition-all mono">
-        <i class="devicon-github-original text-sm"></i> deiferd3g
-      </a>
+      <span class="mono text-sm text-[#eeeeee]/30">prototipos · hero</span>
+      <span class="mono text-[.6rem] text-[#eeeeee]/20">selecciona uno</span>
     </div>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="min-h-screen flex items-center pt-14 overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-b from-[#313841] via-[#3a4750]/20 to-[#313841]"></div>
-  <div class="relative w-full max-w-4xl mx-auto px-4 sm:px-6 py-20">
-    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-      <!-- avatar -->
-      <div class="avatar-ring shrink-0" data-aos="fade-up">
-        <span>DG</span>
-      </div>
-      <!-- info -->
-      <div class="text-center md:text-left" data-aos="fade-up" data-aos-delay="100">
-        <div class="flex items-center gap-2 justify-center md:justify-start mb-2">
-          <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
-          <span class="text-[.6rem] mono text-[#eeeeee]/40 uppercase tracking-wider">Disponible</span>
+<main class="flex-1 pt-14">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+
+    <!-- selector de variantes -->
+    <div class="nav-hero mb-8" id="hero-nav">
+      <button class="active" data-hero="1">01 · Terminal</button>
+      <button data-hero="2">02 · Editorial</button>
+      <button data-hero="3">03 · Dashboard</button>
+      <button data-hero="4">04 · Minimal</button>
+      <button data-hero="5">05 · Carta</button>
+    </div>
+
+    <!-- ── 01 · TERMINAL ── -->
+    <div class="hero-panel active" data-hero="1">
+      <div class="card">
+        <div class="flex items-center gap-1.5 mb-4">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#ea9216]"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-[#eeeeee]/30"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-[#3a4750]"></span>
+          <span class="text-[.5rem] text-[#eeeeee]/20 mono ml-2">/home/deifer</span>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight">
-          Deifer <span class="sun">Garantón</span>
-        </h1>
-        <p class="text-[#eeeeee]/60 text-sm mt-1 mono">Ingeniero de Software · Arquitecto TALL Stack</p>
-        <p class="text-[#eeeeee]/50 text-sm mt-3 max-w-lg leading-relaxed">
-          Polymath tecnológico — de la arquitectura de sistemas al código que transforma instituciones.
-          Especialista en el ecosistema <strong class="text-[#eeeeee]">Laravel</strong>, bases de datos 
-          <strong class="text-[#eeeeee]">PostgreSQL/PostGIS</strong> e infraestructura 
-          <strong class="text-[#eeeeee]">Docker</strong>.
+        <div class="mono text-sm leading-relaxed space-y-1">
+          <p class="text-[#eeeeee]/30"># ./presentacion.sh</p>
+          <p class="text-[#eeeeee]/70 mt-2">
+            <span class="text-[#ea9216]">deifer</span><span class="text-[#eeeeee]/30">@</span><span class="text-[#eeeeee]">dev</span><span class="text-[#eeeeee]/30"> ~ $ </span>
+            <span class="text-[#eeeeee]">whoami</span>
+          </p>
+          <p class="text-[#eeeeee] mt-1"><span class="text-[#ea9216]">→</span> Ingeniero de Software · Arquitecto TALL Stack</p>
+          <p class="text-[#eeeeee]/70 mt-2">
+            <span class="text-[#ea9216]">deifer</span><span class="text-[#eeeeee]/30">@</span><span class="text-[#eeeeee]">dev</span><span class="text-[#eeeeee]/30"> ~ $ </span>
+            <span class="text-[#eeeeee]">cat perfil.md</span>
+          </p>
+          <div class="text-[#eeeeee]/60 mt-1 ml-4 border-l-2 border-[#3a4750] pl-3 space-y-1">
+            <p>Polymath tecnológico · Venezuela · 1993</p>
+            <p>Stack: Laravel, Livewire, PostgreSQL, Docker</p>
+            <p>+50 proyectos · 3 sectores · 1 propósito</p>
+            <p>Actualmente: Consultoría + AI Agent Engineering</p>
+            <p>Ing. Deifer Gabriel Garantón Goyo</p>
+          </div>
+          <p class="text-[#eeeeee]/70 mt-2">
+            <span class="text-[#ea9216]">deifer</span><span class="text-[#eeeeee]/30">@</span><span class="text-[#eeeeee]">dev</span><span class="text-[#eeeeee]/30"> ~ $ </span>
+            <span class="text-[#ea9216] animate-pulse">█</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 02 · EDITORIAL ── -->
+    <div class="hero-panel" data-hero="2">
+      <div class="card text-center md:text-left">
+        <div class="flex flex-col md:flex-row items-center gap-6">
+          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-[#ea9216] to-[#d4820a] flex items-center justify-center text-2xl font-black text-[#313841] shrink-0 shadow-lg shadow-[#ea9216]/20">DG</div>
+          <div>
+            <span class="text-[.55rem] mono text-[#eeeeee]/30 uppercase tracking-[.15em]">Ingeniero de Software</span>
+            <h1 class="text-2xl sm:text-3xl font-extrabold mt-1 leading-tight">
+              Deifer <span class="sun">Garantón</span>
+            </h1>
+            <p class="text-sm text-[#eeeeee]/60 mt-2 max-w-lg leading-relaxed">
+              Arquitecto de sistemas con alma de polymath. <strong class="text-[#eeeeee]">+50 proyectos</strong> 
+              que cruzan el sector público, la empresa privada y la experimentación técnica. 
+              Mi lenguaje es <strong class="text-[#eeeeee]">Laravel</strong>, mi mapa es 
+              <strong class="text-[#eeeeee]">PostGIS</strong>, mi taller es 
+              <strong class="text-[#eeeeee]">Docker</strong>.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mt-3 justify-center md:justify-start">
+              <span class="tech-tag">Laravel</span>
+              <span class="tech-tag">Livewire</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">Venezuela</span>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 pt-3 border-t border-[#3a4750] flex flex-wrap gap-x-6 gap-y-1 text-xs text-[#eeeeee]/40 mono">
+          <span>🎂 1993</span>
+          <span>📍 Venezuela</span>
+          <span>⚡ TALL Stack</span>
+          <span>🔭 AI Agents</span>
+          <span>🎨 Polímata</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 03 · DASHBOARD ── -->
+    <div class="hero-panel" data-hero="3">
+      <div class="card">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          <span class="text-[.55rem] mono text-[#eeeeee]/30">profile · deifer garantón</span>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <div class="text-[.5rem] mono text-[#eeeeee]/20 uppercase tracking-widest mb-1">Nombre</div>
+            <div class="text-sm font-semibold">Ing. Deifer Gabriel Garantón Goyo</div>
+            <div class="text-xs text-[#eeeeee]/50 mt-1">aka <span class="mono sun">deiferd3g</span></div>
+          </div>
+          <div>
+            <div class="text-[.5rem] mono text-[#eeeeee]/20 uppercase tracking-widest mb-1">Rol</div>
+            <div class="text-sm font-semibold">Arquitecto de Software</div>
+            <div class="text-xs text-[#eeeeee]/50 mt-1">TALL Stack · DevOps · AI Agent Engineering</div>
+          </div>
+          <div>
+            <div class="text-[.5rem] mono text-[#eeeeee]/20 uppercase tracking-widest mb-1">Stack Principal</div>
+            <div class="flex flex-wrap gap-1 mt-1">
+              <span class="tech-tag">Laravel 13</span>
+              <span class="tech-tag">Livewire 4</span>
+              <span class="tech-tag">Flux 2</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">PostGIS</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">Filament</span>
+            </div>
+          </div>
+          <div>
+            <div class="text-[.5rem] mono text-[#eeeeee]/20 uppercase tracking-widest mb-1">Métrica</div>
+            <div class="grid grid-cols-3 gap-2 mt-1">
+              <div><div class="text-base font-bold sun">50+</div><div class="text-[.5rem] text-[#eeeeee]/30 mono">proyectos</div></div>
+              <div><div class="text-base font-bold text-[#eeeeee]">13</div><div class="text-[.5rem] text-[#eeeeee]/30 mono">tecnologías</div></div>
+              <div><div class="text-base font-bold text-[#eeeeee]/60">5</div><div class="text-[.5rem] text-[#eeeeee]/30 mono">años</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 pt-3 border-t border-[#3a4750]">
+          <div class="text-[.5rem] mono text-[#eeeeee]/20 uppercase tracking-widest mb-2">Sectores</div>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs text-[#eeeeee]/60 bg-[#3a4750]/50 px-2 py-1 rounded">🏛️ Gestión Pública</span>
+            <span class="text-xs text-[#eeeeee]/60 bg-[#3a4750]/50 px-2 py-1 rounded">🏢 Sector Privado</span>
+            <span class="text-xs text-[#eeeeee]/60 bg-[#3a4750]/50 px-2 py-1 rounded">🧪 Laboratorio Técnico</span>
+            <span class="text-xs text-[#eeeeee]/60 bg-[#3a4750]/50 px-2 py-1 rounded">🤖 AI Agent Engineering</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 04 · MINIMAL ── -->
+    <div class="hero-panel" data-hero="4">
+      <div class="card text-center max-w-lg mx-auto">
+        <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#ea9216] to-[#d4820a] flex items-center justify-center text-xl font-black text-[#313841] mx-auto shadow-lg shadow-[#ea9216]/20">DG</div>
+        <h1 class="text-2xl font-bold mt-4">Deifer Garantón</h1>
+        <p class="text-xs text-[#eeeeee]/40 mono mt-0.5">Ingeniero de Software · Arquitecto TALL Stack</p>
+        <p class="text-sm text-[#eeeeee]/50 mt-3 max-w-sm mx-auto leading-relaxed">
+          Construyo sistemas que transforman instituciones. 
+          <strong class="text-[#eeeeee]">+50 proyectos</strong> en producción, 
+          desde la gestión pública venezolana hasta plataformas privadas 
+          y experimentación técnica con IA.
         </p>
-        <div class="flex flex-wrap gap-3 mt-5 justify-center md:justify-start">
-          <a href="#proyectos" class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#ea9216] hover:bg-[#d4820a] text-[#313841] font-semibold rounded-lg text-sm shadow-lg shadow-[#ea9216]/20 transition-all active:scale-[.97]">
-            ver proyectos →
-          </a>
-          <a href="https://github.com/deiferd3g" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 border border-[#3a4750] hover:border-[#ea9216]/30 rounded-lg text-sm text-[#eeeeee]/50 hover:text-[#eeeeee] transition-all active:scale-[.97]">
-            <i class="devicon-github-original text-base"></i> github
-          </a>
+        <div class="flex justify-center gap-4 mt-4 text-xs mono text-[#eeeeee]/30">
+          <span><span class="sun">✦</span> Laravel</span>
+          <span><span class="sun">✦</span> Livewire</span>
+          <span><span class="sun">✦</span> PostGIS</span>
+          <span><span class="sun">✦</span> Docker</span>
+        </div>
+        <div class="mt-4 pt-3 border-t border-[#3a4750] flex justify-center gap-4 text-[.55rem] text-[#eeeeee]/25 mono">
+          <span>1993 · Venezuela</span>
+          <span class="sun">●</span>
+          <span>vegapunk protocol</span>
         </div>
       </div>
     </div>
 
-    <!-- stats -->
-    <div class="grid grid-cols-3 gap-4 max-w-md mx-auto md:mx-0 mt-10 pt-6 border-t border-[#3a4750]">
-      <div class="text-center md:text-left"><div class="text-lg font-bold sun mono" id="stat-repos">0</div><div class="text-[.55rem] text-[#eeeeee]/30 mt-0.5 mono uppercase tracking-widest">Repos</div></div>
-      <div class="text-center md:text-left"><div class="text-lg font-bold text-[#eeeeee] mono" id="stat-techs">0</div><div class="text-[.55rem] text-[#eeeeee]/30 mt-0.5 mono uppercase tracking-widest">Tecnologías</div></div>
-      <div class="text-center md:text-left"><div class="text-lg font-bold text-[#eeeeee]/60 mono" id="stat-years">0</div><div class="text-[.55rem] text-[#eeeeee]/30 mt-0.5 mono uppercase tracking-widest">Años</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- TRAYECTORIA -->
-<section id="trayectoria" class="py-16 border-t border-[#3a4750]">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6">
-    <div class="mb-8" data-aos="fade-up">
-      <span class="tech-tag">$ whoami</span>
-      <h2 class="text-xl sm:text-2xl font-bold mt-2 text-[#eeeeee]">Trayectoria</h2>
-    </div>
-
-    <div class="space-y-6" data-aos="fade-up" data-aos-delay="80">
-      <div class="card rounded-lg p-5">
-        <div class="flex items-start gap-3">
-          <span class="text-lg mt-0.5 sun">01</span>
+    <!-- ── 05 · CARTA ── -->
+    <div class="hero-panel" data-hero="5">
+      <div class="card max-w-xl mx-auto">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#ea9216] to-[#d4820a] flex items-center justify-center text-sm font-black text-[#313841]">DG</div>
           <div>
-            <h3 class="text-sm font-semibold text-[#eeeeee]">Sector Público · Arquitectura Institucional</h3>
-            <p class="text-xs text-[#eeeeee]/50 mt-1 leading-relaxed">
-              Diseño e implementación de sistemas de información geográfica (PostGIS), 
-              gestión documental, portales institucionales y automatización de procesos 
-              gubernamentales. Más de una docena de sistemas que centralizan operaciones, 
-              digitalizan expedientes y optimizan la toma de decisiones con datos en tiempo real.
-            </p>
+            <div class="text-sm font-semibold">Deifer Garantón</div>
+            <div class="text-[.55rem] mono text-[#eeeeee]/30">Ingeniero de Software · Venezuela</div>
           </div>
         </div>
-      </div>
-
-      <div class="card rounded-lg p-5">
-        <div class="flex items-start gap-3">
-          <span class="text-lg mt-0.5 sun">02</span>
-          <div>
-            <h3 class="text-sm font-semibold text-[#eeeeee]">Sector Privado · Desarrollo Web & Consultoría</h3>
-            <p class="text-xs text-[#eeeeee]/50 mt-1 leading-relaxed">
-              Plataformas de negocio, landing pages, herramientas de salud y bienestar, 
-              gestión empresarial. Desde foros de comunidad hasta sistemas de planificación 
-              de obras. Soluciones web completas para emprendedores y PyMEs usando el stack TALL.
-            </p>
-          </div>
+        <div class="text-sm text-[#eeeeee]/60 leading-relaxed space-y-2">
+          <p>
+            Soy ingeniero de software y arquitecto de sistemas, especializado en el 
+            <strong class="text-[#eeeeee]">ecosistema TALL</strong> 
+            (Tailwind, Alpine.js, Laravel, Livewire). He dedicado los últimos años a 
+            transformar la gestión pública venezolana con sistemas de información 
+            geográfica, expedientes digitales y automatización de procesos.
+          </p>
+          <p>
+            También desarrollo para el sector privado — plataformas de negocio, 
+            landing pages, herramientas de salud — y mantengo un laboratorio técnico 
+            donde experimento con nuevas tecnologías, videojuegos en navegador 
+            y agentes de IA autónomos.
+          </p>
+          <p>
+            Mi stack se extiende por <strong class="text-[#eeeeee]">PostgreSQL/PostGIS</strong>, 
+            <strong class="text-[#eeeeee]">Docker</strong>, 
+            <strong class="text-[#eeeeee]">Filament</strong>, 
+            <strong class="text-[#eeeeee]">Flutter</strong> y 
+            <strong class="text-[#eeeeee]">Vue.js</strong>. 
+            Actualmente explorando AI Agent Engineering con Hermes Agent.
+          </p>
         </div>
-      </div>
-
-      <div class="card rounded-lg p-5">
-        <div class="flex items-start gap-3">
-          <span class="text-lg mt-0.5 sun">03</span>
-          <div>
-            <h3 class="text-sm font-semibold text-[#eeeeee]">Infraestructura & DevOps</h3>
-            <p class="text-xs text-[#eeeeee]/50 mt-1 leading-relaxed">
-              Arquitectura Docker multi-tenant con PostgreSQL, Nginx, automatización SSL. 
-              Experiencia en Proxmox, migraciones de bases de datos, y despliegue de 
-              aplicaciones Laravel en entornos de producción tanto on-premise como cloud.
-            </p>
-          </div>
+        <div class="mt-4 pt-3 border-t border-[#3a4750] flex items-center justify-between text-[.55rem]">
+          <span class="text-[#eeeeee]/25 mono">deiferd3g · github</span>
+          <span class="sun">vegapunk / 2026</span>
         </div>
       </div>
     </div>
 
-    <div class="mt-8" data-aos="fade-up">
-      <h3 class="text-xs mono text-[#eeeeee]/30 uppercase tracking-widest mb-3">Rol actual</h3>
-      <div class="card rounded-lg p-4 flex items-center gap-3">
-        <span class="text-xl sun">⚡</span>
-        <div>
-          <p class="text-sm font-medium text-[#eeeeee]">Consultoría · Desarrollo · AI Agent Engineering</p>
-          <p class="text-xs text-[#eeeeee]/40 mono">vegapunk protocol — hermes agent · autonomous systems</p>
-        </div>
-      </div>
+    <!-- info -->
+    <div class="mt-6 text-center text-[.55rem] text-[#eeeeee]/20 mono">
+      <p>5 variantes de hero · dime cuál prefieres y la desarrollo completa</p>
     </div>
+
   </div>
-</section>
+</main>
 
-<!-- PROYECTO DESTACADO: gl_portfolio -->
-<section id="proyectos" class="py-16 border-t border-[#3a4750] bg-[#3a4750]/10">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6">
-    <div class="mb-8" data-aos="fade-up">
-      <span class="tech-tag">destacado</span>
-      <h2 class="text-xl sm:text-2xl font-bold mt-2 text-[#eeeeee]">Proyecto actual</h2>
-      <p class="text-xs text-[#eeeeee]/50 mt-0.5">Haz clic en la tarjeta para ver los detalles</p>
-    </div>
-
-    <div data-aos="fade-up" data-aos-delay="60">
-      <!-- card clickeable -->
-      <div class="card rounded-xl p-5 cursor-pointer group" onclick="openProject()">
-        <div class="flex items-start gap-4">
-          <div class="w-12 h-12 rounded-lg bg-[#ea9216]/15 border border-[#ea9216]/20 flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
-            <i class="devicon-laravel-original"></i>
-          </div>
-          <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2 mb-1">
-              <span class="tech-tag text-[.5rem]">Laravel 13 · Flux 2 · Livewire</span>
-              <span class="text-[.5rem] text-[#eeeeee]/30 mono">2026</span>
-            </div>
-            <h3 class="text-base font-bold text-[#eeeeee] group-hover:sun transition-colors">gl_portfolio</h3>
-            <p class="text-xs text-[#eeeeee]/50 mt-0.5">Portafolio profesional — este sitio web</p>
-            <div class="flex items-center gap-2 mt-2">
-              <span class="text-[.55rem] text-[#eeeeee]/30 mono">✦ Catálogo de +50 proyectos</span>
-              <span class="text-[.55rem] text-[#eeeeee]/20">·</span>
-              <span class="text-[.55rem] text-[#eeeeee]/30 mono">✦ Diseñado con Impeccable</span>
-            </div>
-            <div class="mt-3 flex items-center gap-1.5 text-[.6rem] mono text-[#ea9216] opacity-0 group-hover:opacity-100 transition-opacity">
-              click para ver detalles →
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- espacio para futuros proyectos -->
-    <div class="mt-6 text-center text-[.6rem] text-[#eeeeee]/20 mono" data-aos="fade-up">
-      [ más proyectos se agregarán manualmente ]
-    </div>
-  </div>
-</section>
-
-<!-- STACK -->
-<section id="stack" class="py-16 border-t border-[#3a4750]">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6">
-    <div class="mb-8 text-center" data-aos="fade-up">
-      <span class="tech-tag">tecnologías</span>
-      <h2 class="text-xl sm:text-2xl font-bold mt-2 text-[#eeeeee]">Stack</h2>
-    </div>
-    <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="60">
-      <i class="devicon-laravel-original text-2xl" title="Laravel"></i>
-      <i class="devicon-livewire-plain text-2xl text-pink-400" title="Livewire"></i>
-      <i class="devicon-tailwindcss-original text-2xl text-cyan-400" title="Tailwind CSS"></i>
-      <i class="devicon-postgresql-plain text-2xl text-blue-400" title="PostgreSQL"></i>
-      <i class="devicon-mysql-original text-2xl" title="MySQL"></i>
-      <i class="devicon-docker-plain text-2xl text-sky-400" title="Docker"></i>
-      <i class="devicon-nginx-original text-2xl text-green-500" title="Nginx"></i>
-      <i class="devicon-flutter-plain text-2xl text-blue-300" title="Flutter"></i>
-      <i class="devicon-vuejs-plain text-2xl text-green-400" title="Vue.js"></i>
-      <i class="devicon-typescript-plain text-2xl text-blue-500" title="TypeScript"></i>
-      <i class="devicon-filament-plain text-2xl text-amber-400" title="Filament"></i>
-      <i class="devicon-bootstrap-plain text-2xl text-purple-400" title="Bootstrap"></i>
-      <i class="devicon-git-plain text-2xl text-orange-500" title="Git"></i>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="py-14 border-t border-[#3a4750] bg-[#3a4750]/15 text-center">
-  <div class="max-w-xl mx-auto px-4">
-    <h2 class="text-lg sm:text-xl font-bold text-[#eeeeee]" data-aos="fade-up">¿Colaboramos?</h2>
-    <p class="text-xs text-[#eeeeee]/50 mt-1 mb-5" data-aos="fade-up" data-aos-delay="50">+50 proyectos demuestran que la tecnología bien aplicada transforma realidades.</p>
-    <a href="https://github.com/deiferd3g" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#ea9216] hover:bg-[#d4820a] text-[#313841] font-semibold rounded-lg text-sm shadow-lg shadow-[#ea9216]/20 transition-all active:scale-[.97]" data-aos="fade-up" data-aos-delay="100">
-      <i class="devicon-github-original text-lg"></i> /deiferd3g
-    </a>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="border-t border-[#3a4750] py-8 text-center text-[.55rem] text-[#eeeeee]/25 mono">
-  <p>© 2026 · Deifer Garantón · hecho en venezuela</p>
-  <p class="mt-0.5">vegapunk protocol · arquitectura · código · propósito</p>
-</footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/4.0.0/anime.min.js"></script>
 <script>
-AOS.init({duration:400,once:true,offset:30,easing:'ease-out-cubic'});
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
-  e.preventDefault();
-  const t=document.querySelector(a.getAttribute('href'));
-  if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
-}));
-
-/* GITHUB STATS LIVE */
-async function fetchStats() {
-  try {
-    const r=await fetch('https://api.github.com/users/deiferd3g/repos?per_page=100');
-    const repos=await r.json();
-    const total=repos.length;
-    const langs=new Set(repos.filter(r=>r.language).map(r=>r.language));
-    const dates=repos.map(r=>new Date(r.created_at).getTime());
-    const years=Math.max(1,Math.floor((Date.now()-Math.min(...dates))/(365.25*24*60*60*1000)));
-    return {repos:total,techs:langs.size,years};
-  } catch {
-    return {repos:50,techs:13,years:2};
-  }
-}
-
-async function animateCounters() {
-  const s=await fetchStats();
-  const map={'stat-repos':s.repos,'stat-techs':s.techs,'stat-years':s.years};
-  Object.entries(map).forEach(([id,target])=>{
-    const el=document.getElementById(id);
-    if(!el) return;
-    anime({targets:{v:0},v:target,duration:1200,delay:300,ease:'easeOutQuart',round:1,
-      update:(a)=>{el.textContent=Math.round(a.v);}
-    });
-  });
-}
-animateCounters();
-
-/* MODAL */
-function openProject() {
-  document.getElementById('modal-title').textContent = 'gl_portfolio';
-  document.getElementById('modal-tag').textContent = 'laravel 13 · flux 2 · livewire 4';
-  document.getElementById('modal-desc').innerHTML = `
-    Portafolio profesional construido con <strong class="text-[#eeeeee]">Laravel 13</strong>, 
-    <strong class="text-[#eeeeee]">Flux 2</strong> y <strong class="text-[#eeeeee]">Livewire 4</strong>. 
-    Diseñado con el sistema de comandos <strong class="text-[#eeeeee]">Impeccable</strong> 
-    de Paul Bakaus — critique → polish → layout → typeset → animate.
-    <br><br>
-    Paleta personal TA (#313841 · #3a4750 · #ea9216 · #eeeeee), animaciones con 
-    <strong class="text-[#eeeeee]">Anime.js</strong>, stats en vivo desde GitHub API.
-    <br><br>
-    <em class="text-[#eeeeee]/30">Screenshots del proyecto se agregarán manualmente.</em>
-  `;
-  document.getElementById('modal-techs').innerHTML = `
-    <span class="tech-tag">Laravel 13</span>
-    <span class="tech-tag">Flux 2</span>
-    <span class="tech-tag">Livewire 4</span>
-    <span class="tech-tag">Tailwind 4</span>
-    <span class="tech-tag">Anime.js</span>
-    <span class="tech-tag">GitHub Pages</span>
-  `;
-  document.getElementById('modal-link').href = 'https://github.com/deiferd3g/gl_portfolio';
-  document.getElementById('modal').classList.add('active');
-  anime({targets:'.modal-box',translateY:[20,0],scale:[.95,1],duration:300,ease:'easeOutCubic'});
-}
-
-function closeModal() {
-  document.getElementById('modal').classList.remove('active');
-}
-
-document.getElementById('modal').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
+// navegación entre variantes
+const nav = document.getElementById('hero-nav');
+nav.addEventListener('click', e => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  const id = btn.dataset.hero;
+  nav.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.hero-panel').forEach(p => p.classList.remove('active'));
+  document.querySelector(`.hero-panel[data-hero="${id}"]`).classList.add('active');
 });
-document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
 </script>
+<style>
+.tech-tag {
+  display: inline-flex; align-items: center;
+  padding: 1px 7px; border-radius: 999px;
+  font-size: .55rem; font-weight: 500; font-family: 'JetBrains Mono', monospace;
+  background: rgba(234,146,22,.1); color: var(--sun);
+  border: 1px solid rgba(234,146,22,.12);
+}
+</style>
 </body>
 </html>
