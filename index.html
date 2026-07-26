@@ -3,58 +3,132 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Deifer Garantón — Arquitecto de Sistemas | TALL Stack</title>
-  <meta name="description" content="Arquitecto de sistemas TALL Stack. +40 proyectos transformando la gestión pública y privada en Venezuela. Laravel, Livewire, PostgreSQL, Docker.">
+  <title>Deifer Garantón · TALL Stack Dev</title>
+  <meta name="description" content="Arquitecto TALL Stack. +40 proyectos transformando gestión pública y privada en Venezuela.">
   <meta name="author" content="Deifer Garantón">
-  <meta property="og:title" content="Deifer Garantón — Portafolio">
-  <meta property="og:description" content="Arquitecto de sistemas TALL Stack. +40 proyectos.">
+  <meta property="og:title" content="Deifer Garantón · Portfolio">
+  <meta property="og:description" content="+40 proyectos TALL Stack.">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.bunny.net">
-  <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700,800" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700,800|jetbrains-mono:400,500" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
-      --blue: #0066FF;
-      --violet: #7C3AED;
+      --ink: #0a0b0e;
+      --paper: #f4f3ee;
+      --sangre: #c73121;
+      --plata: #8c8c8c;
+      --oro: #bf8b2e;
+      --hierro: #2b2d30;
+      --acero: #4a4d54;
     }
-    body { background: #030712; }
-    .hero-wall { background: linear-gradient(135deg, rgba(3,7,18,.95) 0%, rgba(3,7,18,.55) 45%, rgba(3,7,18,.95) 100%), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920&q=80') center/cover fixed; }
-    .label-blue { background: linear-gradient(135deg, var(--blue), var(--violet)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .card { background: rgba(15,23,42,.65); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,.06); transition: border-color .25s, box-shadow .25s, transform .2s; }
-    .card:hover { border-color: rgba(0,102,255,.3); box-shadow: 0 0 40px -10px rgba(0,102,255,.18); transform: translateY(-2px); }
+    body {
+      background: var(--ink);
+      color: var(--paper);
+      font-family: 'Instrument Sans', system-ui, sans-serif;
+    }
+    code, .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .sangre { color: var(--sangre); }
+    .plata { color: var(--plata); }
+    .oro { color: var(--oro); }
+    .bg-sangre { background: var(--sangre); }
+    .bg-hierro { background: var(--hierro); }
+    .border-hierro { border-color: var(--hierro); }
+
+    .card {
+      background: rgba(43,45,48,.55);
+      border: 1px solid rgba(255,255,255,.04);
+      transition: border .25s, box-shadow .25s, transform .2s;
+    }
+    .card:hover {
+      border-color: rgba(191,139,46,.3);
+      box-shadow: 0 0 40px -12px rgba(191,139,46,.12);
+      transform: translateY(-2px);
+    }
     .card:active { transform: translateY(0); }
+
+    .pill {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 2px 9px; border-radius: 999px;
+      font-size: .6rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: .05em;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #030712; }
-    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
-    @keyframes breathe { 0%,100%{opacity:.5} 50%{opacity:.12} }
-    .orb { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; }
-    .pill { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; font-size: .65rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
-    a, button { transition: all .15s ease; }
-    [data-aos] { pointer-events: none; }
-    .aos-animate { pointer-events: auto; }
+    ::-webkit-scrollbar-track { background: var(--ink); }
+    ::-webkit-scrollbar-thumb { background: var(--hierro); border-radius: 3px; }
+
+    /* terminal scanlines */
+    .scan::after {
+      content: '';
+      position: fixed; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,.008) 2px, rgba(255,255,255,.008) 4px);
+      pointer-events: none; z-index: 9999;
+    }
+
+    /* typing cursor */
+    .cursor-blink {
+      display: inline-block;
+      width: 8px; height: 1.1em;
+      background: var(--sangre);
+      vertical-align: text-bottom;
+      margin-left: 2px;
+    }
+
+    .glitch {
+      position: relative;
+    }
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute; inset: 0;
+      opacity: .08;
+    }
+    .glitch::before {
+      color: var(--sangre);
+      animation: glitch1 3s infinite;
+    }
+    .glitch::after {
+      color: var(--plata);
+      animation: glitch2 3s infinite;
+    }
+
+    @keyframes glitch1 {
+      0%, 90%, 100% { transform: translate(0); }
+      92% { transform: translate(-1px, 1px); }
+      94% { transform: translate(1px, -1px); }
+      96% { transform: translate(-1px); }
+    }
+    @keyframes glitch2 {
+      0%, 90%, 100% { transform: translate(0); }
+      93% { transform: translate(2px, -1px); }
+      95% { transform: translate(-2px, 1px); }
+      97% { transform: translate(1px); }
+    }
   </style>
-  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Instrument Sans"','system-ui','sans-serif']}}}}</script>
+  <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Instrument Sans"','system-ui','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}}</script>
 </head>
-<body class="font-sans antialiased bg-gray-950 text-gray-100">
+<body class="scan">
 
 <!-- NAV -->
-<header class="fixed top-0 inset-x-0 z-50 bg-gray-950/80 backdrop-blur-xl border-b border-white/5" data-aos="fade-down">
+<header class="fixed top-0 inset-x-0 z-50 bg-[#0a0b0e]/80 backdrop-blur-xl border-b border-[#2b2d30]">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-14">
-      <a href="#" class="flex items-center gap-2 group">
-        <span class="w-7 h-7 rounded-lg bg-[#0066FF] flex items-center justify-center text-white text-xs font-bold shadow-lg shadow-blue-500/20 transition-transform group-hover:scale-110">DG</span>
-        <span class="font-bold text-sm tracking-tight text-white"><span class="text-blue-500">/</span>portfolio</span>
+      <a href="#" class="flex items-center gap-2 group mono text-sm">
+        <span class="w-7 h-7 rounded flex items-center justify-center bg-sangre text-[#f4f3ee] text-[10px] font-bold transition-transform group-hover:scale-110">DG</span>
+        <span class="text-[#8c8c8c] group-hover:text-[#f4f3ee] transition-colors">~/portfolio</span>
       </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm text-gray-400">
-        <a href="#minpi" class="hover:text-white transition-colors">MINPI</a>
-        <a href="#sunai" class="hover:text-white transition-colors">Sunai</a>
-        <a href="#pablo" class="hover:text-white transition-colors">Pablo</a>
-        <a href="#gl" class="hover:text-white transition-colors">GL</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-[#8c8c8c] mono">
+        <a href="#minpi" class="hover:text-[#f4f3ee] transition-colors">minpi</a>
+        <a href="#sunai" class="hover:text-[#f4f3ee] transition-colors">sunai</a>
+        <a href="#pablo" class="hover:text-[#f4f3ee] transition-colors">pablo</a>
+        <a href="#gl" class="hover:text-[#f4f3ee] transition-colors">gl</a>
       </nav>
-      <a href="https://github.com/deiferd3g" target="_blank" class="flex items-center gap-1.5 text-xs text-gray-500 hover:text-white border border-white/5 hover:border-white/20 rounded-lg px-3 py-1.5 transition-all">
+      <a href="https://github.com/deiferd3g" target="_blank" class="flex items-center gap-1.5 text-xs text-[#8c8c8c] hover:text-[#f4f3ee] border border-[#2b2d30] hover:border-[#4a4d54] rounded-lg px-3 py-1.5 transition-all mono">
         <i class="devicon-github-original text-sm"></i>
         <span class="hidden sm:inline">deiferd3g</span>
       </a>
@@ -62,60 +136,61 @@
   </div>
 </header>
 
-<!-- HERO -->
-<section class="relative min-h-screen flex items-center overflow-hidden hero-wall">
-  <div class="orb w-72 h-72 bg-blue-600/10 -top-20 -left-20"></div>
-  <div class="orb w-64 h-64 bg-violet-600/8 -bottom-12 right-1/4"></div>
-  <div class="relative w-full max-w-4xl mx-auto px-4 sm:px-6 py-28 text-center">
-    <div data-aos="fade-up" data-aos-delay="80">
-      <span class="pill border border-blue-500/15 bg-blue-500/8 text-blue-400">
-        <span class="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></span>
-        Arquitecto · TALL Stack · DevOps
-      </span>
+<!-- HERO — typewriter terminal -->
+<section id="inicio" class="relative min-h-screen flex items-center overflow-hidden pt-14">
+  <div class="absolute inset-0 bg-gradient-to-b from-[#0a0b0e] via-[#0f1014] to-[#0a0b0e]"></div>
+  <div class="relative w-full max-w-4xl mx-auto px-4 sm:px-6 py-20">
+    <div class="mb-12" id="terminal">
+      <div class="bg-[#0f1014] border border-[#2b2d30] rounded-xl overflow-hidden shadow-2xl max-w-2xl mx-auto">
+        <div class="flex items-center gap-1.5 px-3 py-2 bg-[#1a1c20] border-b border-[#2b2d30]">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#c73121]"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-[#bf8b2e]"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-[#2b2d30]"></span>
+          <span class="text-[.55rem] text-[#4a4d54] mono ml-2">portfolio.sh</span>
+        </div>
+        <div class="px-4 py-5 mono text-xs sm:text-sm leading-relaxed">
+          <p class="text-[#4a4d54]"># ./welcome.sh</p>
+          <p class="mt-1 text-[#8c8c8c]"><span class="text-[#bf8b2e]">deifer</span><span class="text-[#4a4d54]">@</span><span class="text-[#c73121]">vegapun</span><span class="text-[#4a4d54]">k</span><span class="text-[#8c8c8c]"> ~ $ </span><span id="typewriter"></span><span class="cursor-blink" id="cursor"></span></p>
+          <div id="terminal-output" class="mt-3 text-[#8c8c8c] hidden">
+            <p class="text-[#f4f3ee]"><span class="text-[#bf8b2e]">>></span> Arquitecto TALL Stack</p>
+            <p class="text-[#f4f3ee] mt-1"><span class="text-[#bf8b2e]">>></span> +40 proyectos · 4 nodos operativos</p>
+            <p class="text-[#f4f3ee] mt-1"><span class="text-[#bf8b2e]">>></span> Laravel · Livewire · PostgreSQL · Docker</p>
+            <div class="flex gap-3 mt-4">
+              <a href="#minpi" class="inline-flex items-center gap-2 px-4 py-2 bg-[#c73121] hover:bg-[#a8291b] text-[#f4f3ee] font-semibold rounded-lg text-xs transition-all active:scale-[.97] shadow-lg shadow-[#c73121]/20">
+                explorar proyectos →
+              </a>
+              <a href="https://github.com/deiferd3g" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 border border-[#2b2d30] hover:border-[#4a4d54] rounded-lg text-xs text-[#8c8c8c] hover:text-[#f4f3ee] transition-all active:scale-[.97]">
+                <i class="devicon-github-original text-sm"></i> github
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <h1 class="text-[clamp(2.5rem,7vw,4.5rem)] font-extrabold leading-[1.08] tracking-tight mt-6 mb-5" data-aos="fade-up" data-aos-delay="140">
-      <span class="text-gray-300">Soy</span>
-      <span class="label-blue">Deifer Garantón</span>
-    </h1>
-    <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="200">
-      Arquitecto de sistemas <strong class="text-white font-semibold">TALL Stack</strong> —<br class="hidden sm:block">
-      <strong class="text-white font-semibold">+40 proyectos</strong> transformando gestión pública y privada desde Venezuela.
-    </p>
-    <div class="flex flex-wrap justify-center gap-3 mt-8" data-aos="fade-up" data-aos-delay="260">
-      <a href="#minpi" class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0066FF] hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all active:scale-[.97]">
-        Explorar proyectos
-        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-      </a>
-      <a href="https://github.com/deiferd3g" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 border border-white/10 hover:border-blue-500/30 rounded-xl text-gray-300 hover:text-white transition-all active:scale-[.97]">
-        <i class="devicon-github-original text-lg"></i>
-        GitHub
-      </a>
-    </div>
-    <div class="flex flex-wrap justify-center gap-8 mt-12 pt-7 border-t border-white/5" data-aos="fade-up" data-aos-delay="320">
-      <div class="text-center"><div class="text-2xl font-bold text-blue-500">40+</div><div class="text-xs text-gray-500 mt-0.5">Repos</div></div>
-      <div class="text-center"><div class="text-2xl font-bold text-emerald-400">4</div><div class="text-xs text-gray-500 mt-0.5">Nodos</div></div>
-      <div class="text-center"><div class="text-2xl font-bold text-violet-400">7+</div><div class="text-xs text-gray-500 mt-0.5">Años</div></div>
-      <div class="text-center"><div class="text-2xl font-bold text-amber-400">15</div><div class="text-xs text-gray-500 mt-0.5">Techs</div></div>
+
+    <div class="flex flex-wrap justify-center gap-6 mt-6" id="stats">
+      <div class="text-center"><div class="text-xl font-bold text-[#bf8b2e] mono" data-count="40">0</div><div class="text-[.6rem] text-[#4a4d54] mt-0.5 mono uppercase tracking-widest">Repos</div></div>
+      <div class="text-center"><div class="text-xl font-bold text-[#c73121] mono" data-count="4">0</div><div class="text-[.6rem] text-[#4a4d54] mt-0.5 mono uppercase tracking-widest">Nodos</div></div>
+      <div class="text-center"><div class="text-xl font-bold text-[#8c8c8c] mono" data-count="7">0</div><div class="text-[.6rem] text-[#4a4d54] mt-0.5 mono uppercase tracking-widest">Años</div></div>
+      <div class="text-center"><div class="text-xl font-bold text-[#bf8b2e] mono" data-count="15">0</div><div class="text-[.6rem] text-[#4a4d54] mt-0.5 mono uppercase tracking-widest">Techs</div></div>
     </div>
   </div>
 </section>
 
 <!-- STACK -->
-<section class="py-10 border-y border-white/5">
+<section class="py-8 border-y border-[#2b2d30]">
   <div class="max-w-5xl mx-auto px-4">
-    <div class="text-center text-[.6rem] font-semibold text-gray-600 uppercase tracking-[.15em] mb-5" data-aos="fade-up">Stack</div>
-    <div class="flex flex-wrap justify-center gap-6 items-center" data-aos="fade-up">
-      <i class="devicon-laravel-original text-2xl" title="Laravel"></i>
-      <i class="devicon-livewire-plain text-2xl text-pink-400" title="Livewire"></i>
-      <i class="devicon-tailwindcss-original text-2xl text-cyan-400" title="Tailwind CSS"></i>
-      <i class="devicon-postgresql-plain text-2xl text-blue-400" title="PostgreSQL"></i>
-      <i class="devicon-mysql-original text-2xl" title="MySQL"></i>
-      <i class="devicon-docker-plain text-2xl text-sky-400" title="Docker"></i>
-      <i class="devicon-nginx-original text-2xl text-green-500" title="Nginx"></i>
-      <i class="devicon-flutter-plain text-2xl text-blue-300" title="Flutter"></i>
-      <i class="devicon-vuejs-plain text-2xl text-green-400" title="Vue.js"></i>
-      <i class="devicon-typescript-plain text-2xl text-blue-500" title="TypeScript"></i>
-      <i class="devicon-filament-plain text-2xl text-amber-400" title="Filament"></i>
+    <div class="text-center text-[.55rem] font-semibold text-[#4a4d54] uppercase tracking-[.15em] mono mb-4">Stack</div>
+    <div class="flex flex-wrap justify-center gap-5 items-center opacity-60" id="stack-icons">
+      <i class="devicon-laravel-original text-xl" title="Laravel"></i>
+      <i class="devicon-livewire-plain text-xl text-pink-400" title="Livewire"></i>
+      <i class="devicon-tailwindcss-original text-xl text-cyan-400" title="Tailwind CSS"></i>
+      <i class="devicon-postgresql-plain text-xl text-blue-400" title="PostgreSQL"></i>
+      <i class="devicon-docker-plain text-xl text-sky-400" title="Docker"></i>
+      <i class="devicon-nginx-original text-xl text-green-500" title="Nginx"></i>
+      <i class="devicon-flutter-plain text-xl text-blue-300" title="Flutter"></i>
+      <i class="devicon-typescript-plain text-xl text-blue-500" title="TypeScript"></i>
+      <i class="devicon-filament-plain text-xl text-amber-400" title="Filament"></i>
     </div>
   </div>
 </section>
@@ -124,106 +199,103 @@
 <div id="app"></div>
 
 <!-- CTA -->
-<section class="relative py-16 overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-r from-[#0066FF] to-violet-700/95"></div>
-  <div class="orb w-96 h-96 bg-white/5 -top-20 -right-20 blur-[120px]"></div>
+<section class="relative py-14 overflow-hidden bg-[#0f1014] border-t border-[#2b2d30]">
   <div class="relative max-w-2xl mx-auto px-4 text-center">
-    <h2 class="text-2xl sm:text-3xl font-bold text-white" data-aos="fade-up">¿Listo para el próximo proyecto?</h2>
-    <p class="text-blue-100/80 mt-2 mb-6" data-aos="fade-up" data-aos-delay="80">+40 proyectos demuestran que la tecnología bien aplicada transforma realidades.</p>
-    <a href="https://github.com/deiferd3g" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 font-semibold rounded-xl hover:bg-gray-100 shadow-xl hover:shadow-2xl transition-all active:scale-[.97]" data-aos="fade-up" data-aos-delay="140">
-      <i class="devicon-github-original text-lg"></i>
-      Ver en GitHub
+    <p class="mono text-[.55rem] text-[#4a4d54] uppercase tracking-widest" data-aos="fade-up">$ contact</p>
+    <h2 class="text-xl sm:text-2xl font-bold mt-2 text-[#f4f3ee]" data-aos="fade-up" data-aos-delay="60">¿Listo para el próximo proyecto?</h2>
+    <p class="text-[#8c8c8c] text-sm mt-1 mb-5" data-aos="fade-up" data-aos-delay="100">+40 proyectos demuestran que la tecnología bien aplicada transforma realidades.</p>
+    <a href="https://github.com/deiferd3g" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#c73121] hover:bg-[#a8291b] text-[#f4f3ee] font-semibold rounded-lg text-sm shadow-lg shadow-[#c73121]/20 transition-all active:scale-[.97]" data-aos="fade-up" data-aos-delay="140">
+      <i class="devicon-github-original text-lg"></i> /deiferd3g
     </a>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="border-t border-white/5 py-8 text-center text-xs text-gray-600">
-  <p>© 2026 Deifer Garantón · Construido desde Venezuela</p>
-  <p class="mt-0.5">Vegapunk Protocol — 40+ repos · 4 nodos · 1 misión</p>
+<footer class="border-t border-[#2b2d30] py-8 text-center text-[.6rem] text-[#4a4d54] mono">
+  <p>© 2026 Deifer Garantón · vegapunk protocol</p>
+  <p class="mt-0.5">const mision = ['40+ repos','4 nodos','1 propósito'];</p>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/4.0.0/anime.min.js" crossorigin="anonymous"></script>
 <script>
-const sections = [
-  { id:'minpi', title:'Asesoría', accent:'Tecnológica', c:'emerald',
-    desc:'Gestión territorial, expedientes digitales y automatización gubernamental con Laravel + Filament.',
+const projects = [
+  { id:'minpi', title:'Asesoría', accent:'Tecnológica', c:'sangre',
+    desc:'Gestión territorial, expedientes digitales y automatización gubernamental.',
     p:[
-      {n:'minpi_gis_v2',t:'Laravel 13 · Filament 5 · PostGIS',d:'SIG para planificación territorial',a:'+10K puntos georreferenciados',b:'Decisiones con datos precisos'},
-      {n:'minpi_midai',t:'Laravel 13 · Filament 5',d:'Datos para administración interna',a:'5 deptos. centralizados',b:'Tiempos administrativos -60%'},
-      {n:'minpi_gh',t:'Laravel 13 · Filament 5',d:'Expedientes y seguimiento',a:'+5K expedientes digitales',b:'Papel físico -80%'},
-      {n:'minpi_atencion',t:'Laravel 10 · Blade',d:'Atención al ciudadano',a:'+2K ciudadanos con seguimiento',b:'Transparencia pública'},
-      {n:'minpi_web',t:'Laravel 10 · Blade',d:'Portal web institucional',a:'+100K visitas/mes',b:'Comunicación actualizada'},
-      {n:'minpi_tecnologia',t:'Laravel 11 · Blade',d:'Activos e inventario TI',a:'+1K activos auditables',b:'Ahorro -30% en compras'},
-      {n:'minpi_saime',t:'Laravel 11 · Blade',d:'Verificación de identidad',a:'Validación en segundos',b:'Fraude por suplantación 0'},
-      {n:'minpi_risin',t:'Laravel 11 · Blade',d:'Registro sindical',a:'Base sindical unificada',b:'Gestión transparente'},
-      {n:'minpi_seguridad',t:'Laravel 10 · Blade',d:'Control de acceso integral',a:'3 sedes monitoreadas',b:'Incidentes -90%'},
+      {n:'minpi_gis_v2',t:'Laravel 13 · Filament · PostGIS',d:'SIG para planificación territorial',a:'+10K puntos georref.',b:'Decisiones con datos precisos'},
+      {n:'minpi_midai',t:'Laravel 13 · Filament',d:'Datos para administración interna',a:'5 deptos. centralizados',b:'Tiempos -60%'},
+      {n:'minpi_gh',t:'Laravel 13 · Filament',d:'Expedientes y seguimiento',a:'+5K expedientes digitales',b:'Papel -80%'},
+      {n:'minpi_atencion',t:'Laravel 10 · Blade',d:'Atención al ciudadano',a:'+2K ciudadanos online',b:'Transparencia pública'},
+      {n:'minpi_web',t:'Laravel 10 · Blade',d:'Portal institucional CMS',a:'+100K visitas/mes',b:'Comunicación actualizada'},
+      {n:'minpi_tecnologia',t:'Laravel 11 · Blade',d:'Activos e inventario TI',a:'+1K activos auditables',b:'Ahorro -30% compras'},
+      {n:'minpi_saime',t:'Laravel 11 · Blade',d:'Verificación de identidad',a:'Validación en segundos',b:'Fraude 0'},
       {n:'minpi_geo_f',t:'Laravel 10 · Blade',d:'Catastro y tributación',a:'+15K parcelas georref.',b:'Recaudación +25%'},
-      {n:'minpi_pp',t:'Laravel 13 · Filament 5',d:'Presupuesto por proyectos',a:'+50 proyectos activos',b:'Gasto público -15%'},
-      {n:'minpi_gestion_humana',t:'Laravel 10 · Blade',d:'RRHH y nómina',a:'+200 empleados automatizados',b:'Cero errores de cálculo'},
-      {n:'minpi_sala_f',t:'Laravel 11 · Blade',d:'Coordinación interinst.',a:'5 instituciones en línea',b:'Silos de info eliminados'},
-      {n:'minpi_judenain',t:'Blade · Laravel',d:'Gestión jurídica',a:'Procesos digitalizados',b:'Consultas en horas'},
-      {n:'minpi_bienes',t:'Laravel · Blade',d:'Activos fijos',a:'Inventario patrimonial',b:'Control en tiempo real'},
+      {n:'minpi_pp',t:'Laravel 13 · Filament',d:'Presupuesto por proyectos',a:'+50 proyectos activos',b:'Gasto -15%'},
+      {n:'minpi_sala_f',t:'Laravel 11 · Blade',d:'Coordinación interinstitucional',a:'5 instituciones en línea',b:'Silos eliminados'},
+      {n:'minpi_gestion_humana',t:'Laravel 10 · Blade',d:'RRHH y nómina',a:'+200 empleados',b:'Cero errores'},
+      {n:'minpi_risin',t:'Laravel 11 · Blade',d:'Registro sindical',a:'Base unificada',b:'Gestión transparente'},
+      {n:'minpi_seguridad',t:'Laravel 10 · Blade',d:'Control de acceso',a:'3 sedes monitoreadas',b:'Incidentes -90%'},
     ]},
-  { id:'sunai', title:'Desarrollo', accent:'Full-Stack', c:'amber',
-    desc:'Intranets corporativas y portales institucionales con Laravel + Livewire para el sector público.',
+  { id:'sunai', title:'Desarrollo', accent:'Full-Stack', c:'plata',
+    desc:'Intranets corporativas y portales institucionales.',
     p:[
-      {n:'sunai_intranet',t:'Laravel 13 · Livewire 4',d:'Portal interno — noticias, SIGEFIRRHH, constancias',a:'+500 usuarios activos',b:'Gestión unificada'},
-      {n:'sunai_web_2026',t:'Laravel 13 · Livewire',d:'Portal web institucional',a:'Rediseño completo moderno',b:'Experiencia ciudadana renovada'},
-      {n:'sunai_sgim',t:'Laravel 13 · Filament 5',d:'Gestión Integral Multidisciplinario',a:'6 módulos en 1 sistema',b:'Visibilidad operativa total'},
-      {n:'sunai_sigaci_2025',t:'Laravel 11 · Filament 5',d:'Archivo y control interno',a:'+50K documentos clasificados',b:'Consultas en segundos'},
+      {n:'sunai_intranet',t:'Laravel 13 · Livewire 4',d:'Portal interno SIGEFIRRHH',a:'+500 usuarios activos',b:'Gestión unificada'},
+      {n:'sunai_web_2026',t:'Laravel 13 · Livewire',d:'Portal web institucional',a:'Rediseño completo',b:'Experiencia renovada'},
+      {n:'sunai_sgim',t:'Laravel 13 · Filament',d:'Gestión Integral Multidisciplinario',a:'6 módulos integrados',b:'Visibilidad total'},
+      {n:'sunai_sigaci_2025',t:'Laravel 11 · Filament',d:'Archivo y control interno',a:'+50K documentos',b:'Consultas en segundos'},
     ]},
-  { id:'pablo', title:'Sector', accent:'Privado', c:'violet', alt:true,
-    desc:'Plataformas de negocio, landing pages, salud y bienestar para emprendedores y PyMEs.',
+  { id:'pablo', title:'Sector', accent:'Privado', c:'oro', alt:true,
+    desc:'Plataformas de negocio, landing pages, salud y bienestar.',
     p:[
-      {n:'pablo_foro_crecimiento',t:'Laravel 13 · Flux 2',d:'Comunidad + landing para FORO DE CRECIMIENTO',a:'Plataforma con autenticación y foro',b:'Engagement digital'},
-      {n:'pablo_constructor_synergy',t:'Laravel 11 · Livewire',d:'Gestión de proyectos constructores',a:'20+ proyectos coordinados',b:'Retrasos -40%'},
-      {n:'pablo_constructor_plannea',t:'Laravel 11 · Livewire',d:'Planificación de obras',a:'Seguimiento semanal de avance',b:'Control presupuestario'},
-      {n:'pablo_constructor_base',t:'Laravel 11 · Livewire',d:'Base de proyectos constructores',a:'+100 proyectos documentados',b:'Historial consultable'},
-      {n:'pablo_kyusho_center',t:'Laravel 11 · Livewire',d:'Gestión de artes marciales',a:'+200 estudiantes trazables',b:'Admin digital del centro'},
+      {n:'pablo_foro_crecimiento',t:'Laravel 13 · Flux',d:'Comunidad + landing FORO DE CRECIMIENTO',a:'Autenticación y foro',b:'Engagement digital'},
+      {n:'pablo_constructor_synergy',t:'Laravel 11 · Livewire',d:'Gestión proyectos constructores',a:'20+ proyectos coordinados',b:'Retrasos -40%'},
+      {n:'pablo_constructor_plannea',t:'Laravel 11 · Livewire',d:'Planificación de obras',a:'Seguimiento semanal',b:'Control presupuestario'},
+      {n:'pablo_constructor_base',t:'Laravel 11 · Livewire',d:'Base proyectos constructores',a:'+100 proyectos',b:'Historial consultable'},
+      {n:'pablo_kyusho_center',t:'Laravel 11 · Livewire',d:'Gestión artes marciales',a:'+200 estudiantes',b:'Admin digital'},
       {n:'pablo_training',t:'Laravel 11 · Livewire',d:'Entrenamiento personalizado',a:'Planes por usuario',b:'Progreso medible'},
-      {n:'pablo_saludencasa',t:'JavaScript · HTML',d:'Salud y bienestar en casa',a:'+1K usuarios activos',b:'Acceso domiciliario'},
-      {n:'pablo_blog',t:'Laravel 11 · Livewire',d:'Blog con gestor SEO',a:'+50 artículos optimizados',b:'Autoridad digital'},
-      {n:'pablo_nua',t:'JavaScript · HTML',d:'Visualización de datos',a:'Procesamiento en tiempo real',b:'Dashboard interactivo'},
-      {n:'pablo_tash',t:'Laravel 11 · Livewire',d:'Productividad personal',a:'+500 tareas gestionadas',b:'Productividad +35%'},
+      {n:'pablo_saludencasa',t:'JavaScript · HTML',d:'Salud y bienestar',a:'+1K usuarios',b:'Acceso domiciliario'},
+      {n:'pablo_blog',t:'Laravel 11 · Livewire',d:'Blog con gestor SEO',a:'+50 artículos',b:'Autoridad digital'},
+      {n:'pablo_nua',t:'JavaScript · HTML',d:'Visualización de datos',a:'Tiempo real',b:'Dashboard interactivo'},
+      {n:'pablo_tash',t:'Laravel 11 · Livewire',d:'Productividad personal',a:'+500 tareas',b:'Productividad +35%'},
     ]},
-  { id:'gl', title:'Innovación', accent:'& Laboratorio', c:'blue',
-    desc:'Proyectos personales, experimentación técnica y game dev.',
+  { id:'gl', title:'Innovación', accent:'& Laboratorio', c:'hierro',
+    desc:'Proyectos personales, experimentación y game dev.',
     p:[
-      {n:'gl_portfolio',t:'Laravel 13 · Flux 2',d:'Este portafolio',a:'Catálogo de +40 proyectos',b:'Impacto profesional unificado'},
-      {n:'gl',t:'Laravel 13 · Livewire 4',d:'Laboratorio Laravel 13',a:'Últimas características probadas',b:'Validación tecnológica'},
-      {n:'gl_pokemon_game',t:'TypeScript · Canvas',d:'Videojuego Pokémon en navegador',a:'Motor con sprites y batallas',b:'Game dev + TypeScript'},
+      {n:'gl_portfolio',t:'Laravel 13 · Flux',d:'Este portafolio',a:'Catálogo +40 proyectos',b:'Impacto unificado'},
+      {n:'gl',t:'Laravel 13 · Livewire 4',d:'Laboratorio Laravel 13',a:'Últimas features',b:'Validación tecnológica'},
+      {n:'gl_pokemon_game',t:'TypeScript · Canvas',d:'Videojuego Pokémon',a:'Motor con sprites',b:'Game dev + TS'},
       {n:'recipe_book',t:'C++',d:'Algoritmos y utilidades',a:'Implementaciones documentadas',b:'Base reutilizable'},
     ]},
 ];
 
 const colors = {
-  emerald:{t:'text-emerald-400',b:'bg-emerald-500/10',bt:'border-emerald-500/20'},
-  amber:{t:'text-amber-400',b:'bg-amber-500/10',bt:'border-amber-500/20'},
-  violet:{t:'text-violet-400',b:'bg-violet-500/10',bt:'border-violet-500/20'},
-  blue:{t:'text-blue-400',b:'bg-blue-500/10',bt:'border-blue-500/20'},
+  sangre:{t:'text-[#c73121]',b:'bg-[#c73121]/10',bt:'border-[#c73121]/20'},
+  plata:{t:'text-[#8c8c8c]',b:'bg-[#8c8c8c]/10',bt:'border-[#8c8c8c]/20'},
+  oro:{t:'text-[#bf8b2e]',b:'bg-[#bf8b2e]/10',bt:'border-[#bf8b2e]/20'},
+  hierro:{t:'text-[#4a4d54]',b:'bg-[#4a4d54]/10',bt:'border-[#4a4d54]/20'},
 };
 
 const app = document.getElementById('app');
-sections.forEach((sec,i)=>{
+projects.forEach((sec,i)=>{
   const el = document.createElement('section');
   el.id = sec.id;
-  el.className = `${i>0?'border-t border-white/5 ':''}${sec.alt?'bg-gray-900/20 ':''}py-16 md:py-20`;
+  el.className = `${i>0?'border-t border-[#2b2d30] ':''}${sec.alt?'bg-[#0f1014] ':''}py-14 md:py-18`;
   const c = colors[sec.c];
   el.innerHTML = `<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="mb-10" data-aos="fade-up">
-      <span class="pill ${c.b} ${c.t} border ${c.bt}">${sec.id}</span>
-      <h2 class="text-2xl sm:text-3xl font-bold mt-2 text-white">${sec.title} <span class="${c.t}">${sec.accent}</span></h2>
-      <p class="text-gray-400 text-sm mt-1 max-w-xl">${sec.desc}</p>
+    <div class="mb-8" data-aos="fade-up">
+      <span class="pill ${c.b} ${c.t} ${c.bt}">${sec.id}/${sec.accent.toLowerCase()}</span>
+      <h2 class="text-xl sm:text-2xl font-bold mt-2 text-[#f4f3ee]">${sec.title} <span class="${c.t}">${sec.accent}</span></h2>
+      <p class="text-[#8c8c8c] text-xs mt-0.5 max-w-xl mono">// ${sec.desc}</p>
     </div>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      ${sec.p.map((p,j)=>`<div class="card rounded-xl p-5" data-aos="fade-up" data-aos-delay="${Math.min(j*30,300)}">
-        <span class="text-[.6rem] font-mono ${c.t} ${c.b} px-1.5 py-0.5 rounded">${p.t}</span>
-        <h3 class="text-white font-semibold text-sm mt-2">${p.n}</h3>
-        <p class="text-gray-400 text-xs mt-0.5 leading-relaxed">${p.d}</p>
-        <div class="border-t border-white/5 mt-3 pt-3">
-          <p class="${c.t} text-[.65rem] font-medium">${p.a}</p>
-          <p class="text-gray-500 text-[.6rem] mt-0.5">${p.b}</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      ${sec.p.map((p,j)=>`<div class="card rounded-lg p-4" data-aos="fade-up" data-aos-delay="${Math.min(j*25,250)}">
+        <span class="text-[.55rem] font-mono ${c.t} ${c.b} px-1.5 py-0.5 rounded">${p.t}</span>
+        <h3 class="text-[#f4f3ee] font-semibold text-sm mt-2">${p.n}</h3>
+        <p class="text-[#8c8c8c] text-xs mt-0.5 leading-relaxed">${p.d}</p>
+        <div class="border-t border-[#2b2d30] mt-3 pt-3">
+          <p class="${c.t} text-[.6rem] font-medium mono">✦ ${p.a}</p>
+          <p class="text-[#4a4d54] text-[.55rem] mt-0.5 mono">→ ${p.b}</p>
         </div>
       </div>`).join('')}
     </div>
@@ -231,12 +303,131 @@ sections.forEach((sec,i)=>{
   app.appendChild(el);
 });
 
-AOS.init({duration:500,once:true,offset:40,easing:'ease-out-cubic'});
+AOS.init({duration:450,once:true,offset:30,easing:'ease-out-cubic'});
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
   e.preventDefault();
   const t=document.querySelector(a.getAttribute('href'));
   if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
 }));
+
+/* ── ANIME.JS ── */
+
+// 1. Typewriter effect en el hero
+const line = 'soy Deifer Garantón';
+const tw = document.getElementById('typewriter');
+const cursor = document.getElementById('cursor');
+const output = document.getElementById('terminal-output');
+let idx = 0;
+
+function typeNext() {
+  if (idx < line.length) {
+    tw.textContent += line[idx];
+    idx++;
+    setTimeout(typeNext, 55 + Math.random()*30);
+  } else {
+    // blink cursor a few times then show output
+    anime({
+      targets: cursor,
+      opacity: [1,0],
+      duration: 300,
+      loop: 5,
+      direction: 'alternate',
+      ease: 'steps(1)',
+      complete: () => {
+        cursor.style.display = 'none';
+        output.classList.remove('hidden');
+        // slide output in
+        anime({ targets: output, opacity: [0,1], translateY: [8,0], duration: 400, ease: 'easeOutCubic' });
+        // animate stats
+        animateCounters();
+        // animate stack
+        anime({
+          targets: '#stack-icons i',
+          opacity: [0.1, 0.6],
+          translateY: [10, 0],
+          delay: anime.stagger(60),
+          duration: 500,
+          ease: 'easeOutCubic'
+        });
+      }
+    });
+  }
+}
+typeNext();
+
+// 2. Counter animation
+function animateCounters() {
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = parseInt(el.dataset.count);
+    anime({
+      targets: el,
+      innerHTML: [0, target],
+      duration: 1200,
+      delay: 200,
+      ease: 'easeOutQuart',
+      round: 1,
+      update: (anim) => {
+        el.textContent = Math.round(anim.progress * target / 100);
+      }
+    });
+  });
+}
+
+// 3. Parallax sutil en las cards al hacer scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const cards = entry.target.querySelectorAll('.card');
+      anime({
+        targets: cards,
+        opacity: [0, 1],
+        translateY: [20, 0],
+        delay: anime.stagger(40),
+        duration: 500,
+        ease: 'easeOutCubic'
+      });
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('section .grid').forEach(g => observer.observe(g));
+
+// 4. Hover glow en cards con anime
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    anime({
+      targets: card,
+      scale: 1.01,
+      duration: 200,
+      ease: 'easeOutQuad'
+    });
+  });
+  card.addEventListener('mouseleave', () => {
+    anime({
+      targets: card,
+      scale: 1,
+      duration: 200,
+      ease: 'easeOutQuad'
+    });
+  });
+});
+
+// 5. Glitch title animation
+anime({
+  targets: '.glitch',
+  keyframes: [
+    { translateX: -1, translateY: 1 },
+    { translateX: 2, translateY: -1 },
+    { translateX: -1, translateY: 0 },
+    { translateX: 1, translateY: -1 },
+    { translateX: 0, translateY: 0 }
+  ],
+  duration: 3000,
+  loop: true,
+  ease: 'steps(1)',
+  delay: (el, i) => i * 3000
+});
 </script>
 </body>
 </html>
