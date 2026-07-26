@@ -16,13 +16,11 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
-      --ink: #0a0b0e;
-      --paper: #f4f3ee;
-      --sangre: #c73121;
-      --plata: #8c8c8c;
-      --oro: #bf8b2e;
-      --hierro: #2b2d30;
-      --acero: #4a4d54;
+      --ink: #313841;
+      --paper: #eeeeee;
+      --accent: #ea9216;
+      --surface: #3a4750;
+      --dim: rgba(238,238,238,.35);
     }
     body {
       background: var(--ink);
@@ -31,21 +29,20 @@
     }
     code, .mono { font-family: 'JetBrains Mono', monospace; }
 
-    .sangre { color: var(--sangre); }
-    .plata { color: var(--plata); }
-    .oro { color: var(--oro); }
-    .bg-sangre { background: var(--sangre); }
-    .bg-hierro { background: var(--hierro); }
-    .border-hierro { border-color: var(--hierro); }
+    .accent { color: var(--accent); }
+    .dim { color: var(--dim); }
+    .bg-ink { background: var(--ink); }
+    .bg-surface { background: var(--surface); }
+    .border-surface { border-color: rgba(58,71,80,.5); }
 
     .card {
-      background: rgba(43,45,48,.55);
-      border: 1px solid rgba(255,255,255,.04);
+      background: rgba(58,71,80,.55);
+      border: 1px solid rgba(238,238,238,.06);
       transition: border .25s, box-shadow .25s, transform .2s;
     }
     .card:hover {
-      border-color: rgba(191,139,46,.3);
-      box-shadow: 0 0 40px -12px rgba(191,139,46,.12);
+      border-color: rgba(234,146,22,.3);
+      box-shadow: 0 0 40px -12px rgba(234,146,22,.12);
       transform: translateY(-2px);
     }
     .card:active { transform: translateY(0); }
@@ -55,13 +52,13 @@
       padding: 2px 9px; border-radius: 999px;
       font-size: .6rem; font-weight: 600; text-transform: uppercase;
       letter-spacing: .05em;
-      border: 1px solid rgba(255,255,255,.06);
+      border: 1px solid rgba(238,238,238,.08);
     }
 
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--ink); }
-    ::-webkit-scrollbar-thumb { background: var(--hierro); border-radius: 3px; }
-
+    ::-webkit-scrollbar-thumb { background: var(--surface); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #4a5a66; }
     /* terminal scanlines */
     .scan::after {
       content: '';
@@ -74,7 +71,7 @@
     .cursor-blink {
       display: inline-block;
       width: 8px; height: 1.1em;
-      background: var(--sangre);
+      background: var(--accent);
       vertical-align: text-bottom;
       margin-left: 2px;
     }
@@ -89,7 +86,7 @@
       opacity: .08;
     }
     .glitch::before {
-      color: var(--sangre);
+      color: var(--accent);
       animation: glitch1 3s infinite;
     }
     .glitch::after {
@@ -115,20 +112,20 @@
 <body class="scan">
 
 <!-- NAV -->
-<header class="fixed top-0 inset-x-0 z-50 bg-[#0a0b0e]/80 backdrop-blur-xl border-b border-[#2b2d30]">
+<header class="fixed top-0 inset-x-0 z-50 bg-[#313841]/80 backdrop-blur-xl border-b border-[#3a4750]">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-14">
       <a href="#" class="flex items-center gap-2 group mono text-sm">
-        <span class="w-7 h-7 rounded flex items-center justify-center bg-sangre text-[#f4f3ee] text-[10px] font-bold transition-transform group-hover:scale-110">DG</span>
-        <span class="text-[#8c8c8c] group-hover:text-[#f4f3ee] transition-colors">~/portfolio</span>
+        <span class="w-7 h-7 rounded flex items-center justify-center bg-[#ea9216] text-[#313841] text-[10px] font-bold transition-transform group-hover:scale-110">DG</span>
+        <span class="text-[#eeeeee]/50 group-hover:text-[#eeeeee] transition-colors">~/portfolio</span>
       </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm text-[#8c8c8c] mono">
-        <a href="#minpi" class="hover:text-[#f4f3ee] transition-colors">minpi</a>
-        <a href="#sunai" class="hover:text-[#f4f3ee] transition-colors">sunai</a>
-        <a href="#pablo" class="hover:text-[#f4f3ee] transition-colors">pablo</a>
-        <a href="#gl" class="hover:text-[#f4f3ee] transition-colors">gl</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-[#eeeeee]/50 mono">
+        <a href="#minpi" class="hover:text-[#eeeeee] transition-colors">minpi</a>
+        <a href="#sunai" class="hover:text-[#eeeeee] transition-colors">sunai</a>
+        <a href="#pablo" class="hover:text-[#eeeeee] transition-colors">pablo</a>
+        <a href="#gl" class="hover:text-[#eeeeee] transition-colors">gl</a>
       </nav>
-      <a href="https://github.com/deiferd3g" target="_blank" class="flex items-center gap-1.5 text-xs text-[#8c8c8c] hover:text-[#f4f3ee] border border-[#2b2d30] hover:border-[#4a4d54] rounded-lg px-3 py-1.5 transition-all mono">
+      <a href="https://github.com/deiferd3g" target="_blank" class="flex items-center gap-1.5 text-xs text-[#eeeeee]/50 hover:text-[#eeeeee] border border-[#3a4750] hover:border-[#ea9216]/50 rounded-lg px-3 py-1.5 transition-all mono">
         <i class="devicon-github-original text-sm"></i>
         <span class="hidden sm:inline">deiferd3g</span>
       </a>
@@ -138,28 +135,28 @@
 
 <!-- HERO — typewriter terminal -->
 <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden pt-14">
-  <div class="absolute inset-0 bg-gradient-to-b from-[#0a0b0e] via-[#0f1014] to-[#0a0b0e]"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-[#313841] via-[#3a4750]/30 to-[#313841]"></div>
   <div class="relative w-full max-w-4xl mx-auto px-4 sm:px-6 py-20">
     <div class="mb-12" id="terminal">
-      <div class="bg-[#0f1014] border border-[#2b2d30] rounded-xl overflow-hidden shadow-2xl max-w-2xl mx-auto">
-        <div class="flex items-center gap-1.5 px-3 py-2 bg-[#1a1c20] border-b border-[#2b2d30]">
-          <span class="w-2.5 h-2.5 rounded-full bg-[#c73121]"></span>
-          <span class="w-2.5 h-2.5 rounded-full bg-[#bf8b2e]"></span>
-          <span class="w-2.5 h-2.5 rounded-full bg-[#2b2d30]"></span>
-          <span class="text-[.55rem] text-[#4a4d54] mono ml-2">portfolio.sh</span>
+      <div class="bg-[#3a4750]/50 border border-[#3a4750] rounded-xl overflow-hidden shadow-2xl max-w-2xl mx-auto">
+        <div class="flex items-center gap-1.5 px-3 py-2 bg-[#3a4750] border-b border-[#313841]">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#ea9216]"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-[#eeeeee]/30"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-[#3a4750]"></span>
+          <span class="text-[.55rem] text-[#eeeeee]/30 mono ml-2">portfolio.sh</span>
         </div>
         <div class="px-4 py-5 mono text-xs sm:text-sm leading-relaxed">
-          <p class="text-[#4a4d54]"># ./welcome.sh</p>
-          <p class="mt-1 text-[#8c8c8c]"><span class="text-[#bf8b2e]">deifer</span><span class="text-[#4a4d54]">@</span><span class="text-[#c73121]">vegapun</span><span class="text-[#4a4d54]">k</span><span class="text-[#8c8c8c]"> ~ $ </span><span id="typewriter"></span><span class="cursor-blink" id="cursor"></span></p>
-          <div id="terminal-output" class="mt-3 text-[#8c8c8c] hidden">
-            <p class="text-[#f4f3ee]"><span class="text-[#bf8b2e]">>></span> Arquitecto TALL Stack</p>
-            <p class="text-[#f4f3ee] mt-1"><span class="text-[#bf8b2e]">>></span> +40 proyectos · 4 nodos operativos</p>
-            <p class="text-[#f4f3ee] mt-1"><span class="text-[#bf8b2e]">>></span> Laravel · Livewire · PostgreSQL · Docker</p>
+          <p class="text-[#eeeeee]/30"># ./welcome.sh</p>
+          <p class="mt-1 text-[#eeeeee]/70"><span class="text-[#ea9216]">deifer</span><span class="text-[#eeeeee]/40">@</span><span class="text-[#eeeeee]">vegapun</span><span class="text-[#eeeeee]/40">k</span><span class="text-[#eeeeee]/70"> ~ $ </span><span id="typewriter"></span><span class="cursor-blink" id="cursor"></span></p>
+          <div id="terminal-output" class="mt-3 text-[#eeeeee]/70 hidden">
+            <p class="text-[#eeeeee]"><span class="text-[#ea9216]">>></span> Arquitecto TALL Stack</p>
+            <p class="text-[#eeeeee] mt-1"><span class="text-[#ea9216]">>></span> +40 proyectos · 4 nodos operativos</p>
+            <p class="text-[#eeeeee] mt-1"><span class="text-[#ea9216]">>></span> Laravel · Livewire · PostgreSQL · Docker</p>
             <div class="flex gap-3 mt-4">
-              <a href="#minpi" class="inline-flex items-center gap-2 px-4 py-2 bg-[#c73121] hover:bg-[#a8291b] text-[#f4f3ee] font-semibold rounded-lg text-xs transition-all active:scale-[.97] shadow-lg shadow-[#c73121]/20">
+              <a href="#minpi" class="inline-flex items-center gap-2 px-4 py-2 bg-[#ea9216] hover:bg-[#d4820a] text-[#313841] font-semibold rounded-lg text-xs transition-all active:scale-[.97] shadow-lg shadow-[#ea9216]/20">
                 explorar proyectos →
               </a>
-              <a href="https://github.com/deiferd3g" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 border border-[#2b2d30] hover:border-[#4a4d54] rounded-lg text-xs text-[#8c8c8c] hover:text-[#f4f3ee] transition-all active:scale-[.97]">
+              <a href="https://github.com/deiferd3g" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 border border-[#3a4750] hover:border-[#ea9216]/40 rounded-lg text-xs text-[#eeeeee]/50 hover:text-[#eeeeee] transition-all active:scale-[.97]">
                 <i class="devicon-github-original text-sm"></i> github
               </a>
             </div>
@@ -169,18 +166,18 @@
     </div>
 
     <div class="flex flex-wrap justify-center gap-6 mt-6" id="stats">
-      <div class="text-center"><div class="text-xl font-bold text-[#bf8b2e] mono" data-count="40">0</div><div class="text-[.6rem] text-[#4a4d54] mt-0.5 mono uppercase tracking-widest">Repos</div></div>
-      <div class="text-center"><div class="text-xl font-bold text-[#c73121] mono" data-count="4">0</div><div class="text-[.6rem] text-[#4a4d54] mt-0.5 mono uppercase tracking-widest">Nodos</div></div>
-      <div class="text-center"><div class="text-xl font-bold text-[#8c8c8c] mono" data-count="7">0</div><div class="text-[.6rem] text-[#4a4d54] mt-0.5 mono uppercase tracking-widest">Años</div></div>
-      <div class="text-center"><div class="text-xl font-bold text-[#bf8b2e] mono" data-count="15">0</div><div class="text-[.6rem] text-[#4a4d54] mt-0.5 mono uppercase tracking-widest">Techs</div></div>
+      <div class="text-center"><div class="text-xl font-bold text-[#ea9216] mono" data-count="40">0</div><div class="text-[.6rem] text-[#eeeeee]/30 mt-0.5 mono uppercase tracking-widest">Repos</div></div>
+      <div class="text-center"><div class="text-xl font-bold text-[#eeeeee] mono" data-count="4">0</div><div class="text-[.6rem] text-[#eeeeee]/30 mt-0.5 mono uppercase tracking-widest">Nodos</div></div>
+      <div class="text-center"><div class="text-xl font-bold text-[#eeeeee]/70 mono" data-count="7">0</div><div class="text-[.6rem] text-[#eeeeee]/30 mt-0.5 mono uppercase tracking-widest">Años</div></div>
+      <div class="text-center"><div class="text-xl font-bold text-[#ea9216] mono" data-count="15">0</div><div class="text-[.6rem] text-[#eeeeee]/30 mt-0.5 mono uppercase tracking-widest">Techs</div></div>
     </div>
   </div>
 </section>
 
 <!-- STACK -->
-<section class="py-8 border-y border-[#2b2d30]">
+<section class="py-8 border-y border-[#3a4750]">
   <div class="max-w-5xl mx-auto px-4">
-    <div class="text-center text-[.55rem] font-semibold text-[#4a4d54] uppercase tracking-[.15em] mono mb-4">Stack</div>
+    <div class="text-center text-[.55rem] font-semibold text-[#eeeeee]/30 uppercase tracking-[.15em] mono mb-4">Stack</div>
     <div class="flex flex-wrap justify-center gap-5 items-center opacity-60" id="stack-icons">
       <i class="devicon-laravel-original text-xl" title="Laravel"></i>
       <i class="devicon-livewire-plain text-xl text-pink-400" title="Livewire"></i>
@@ -199,19 +196,19 @@
 <div id="app"></div>
 
 <!-- CTA -->
-<section class="relative py-14 overflow-hidden bg-[#0f1014] border-t border-[#2b2d30]">
+<section class="relative py-14 overflow-hidden bg-[#3a4750]/30 border-t border-[#3a4750]">
   <div class="relative max-w-2xl mx-auto px-4 text-center">
-    <p class="mono text-[.55rem] text-[#4a4d54] uppercase tracking-widest" data-aos="fade-up">$ contact</p>
-    <h2 class="text-xl sm:text-2xl font-bold mt-2 text-[#f4f3ee]" data-aos="fade-up" data-aos-delay="60">¿Listo para el próximo proyecto?</h2>
-    <p class="text-[#8c8c8c] text-sm mt-1 mb-5" data-aos="fade-up" data-aos-delay="100">+40 proyectos demuestran que la tecnología bien aplicada transforma realidades.</p>
-    <a href="https://github.com/deiferd3g" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#c73121] hover:bg-[#a8291b] text-[#f4f3ee] font-semibold rounded-lg text-sm shadow-lg shadow-[#c73121]/20 transition-all active:scale-[.97]" data-aos="fade-up" data-aos-delay="140">
+    <p class="mono text-[.55rem] text-[#eeeeee]/30 uppercase tracking-widest" data-aos="fade-up">$ contact</p>
+    <h2 class="text-xl sm:text-2xl font-bold mt-2 text-[#eeeeee]" data-aos="fade-up" data-aos-delay="60">¿Listo para el próximo proyecto?</h2>
+    <p class="text-[#eeeeee]/50 text-sm mt-1 mb-5" data-aos="fade-up" data-aos-delay="100">+40 proyectos demuestran que la tecnología bien aplicada transforma realidades.</p>
+    <a href="https://github.com/deiferd3g" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#ea9216] hover:bg-[#d4820a] text-[#313841] font-semibold rounded-lg text-sm shadow-lg shadow-[#ea9216]/20 transition-all active:scale-[.97]" data-aos="fade-up" data-aos-delay="140">
       <i class="devicon-github-original text-lg"></i> /deiferd3g
     </a>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="border-t border-[#2b2d30] py-8 text-center text-[.6rem] text-[#4a4d54] mono">
+<footer class="border-t border-[#3a4750] py-8 text-center text-[.6rem] text-[#eeeeee]/30 mono">
   <p>© 2026 Deifer Garantón · vegapunk protocol</p>
   <p class="mt-0.5">const mision = ['40+ repos','4 nodos','1 propósito'];</p>
 </footer>
@@ -270,32 +267,32 @@ const projects = [
 ];
 
 const colors = {
-  sangre:{t:'text-[#c73121]',b:'bg-[#c73121]/10',bt:'border-[#c73121]/20'},
-  plata:{t:'text-[#8c8c8c]',b:'bg-[#8c8c8c]/10',bt:'border-[#8c8c8c]/20'},
-  oro:{t:'text-[#bf8b2e]',b:'bg-[#bf8b2e]/10',bt:'border-[#bf8b2e]/20'},
-  hierro:{t:'text-[#4a4d54]',b:'bg-[#4a4d54]/10',bt:'border-[#4a4d54]/20'},
+  sangre:{t:'text-[#ea9216]',b:'bg-[#ea9216]/10',bt:'border-[#ea9216]/20'},
+  plata:{t:'text-[#eeeeee]/70',b:'bg-[#eeeeee]/8',bt:'border-[#eeeeee]/15'},
+  oro:{t:'text-[#ea9216]',b:'bg-[#ea9216]/10',bt:'border-[#ea9216]/20'},
+  hierro:{t:'text-[#eeeeee]/40',b:'bg-[#eeeeee]/5',bt:'border-[#eeeeee]/10'},
 };
 
 const app = document.getElementById('app');
 projects.forEach((sec,i)=>{
   const el = document.createElement('section');
   el.id = sec.id;
-  el.className = `${i>0?'border-t border-[#2b2d30] ':''}${sec.alt?'bg-[#0f1014] ':''}py-14 md:py-18`;
+  el.className = `${i>0?'border-t border-[#3a4750] ':''}${sec.alt?'bg-[#3a4750]/20 ':''}py-14 md:py-18`;
   const c = colors[sec.c];
   el.innerHTML = `<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mb-8" data-aos="fade-up">
       <span class="pill ${c.b} ${c.t} ${c.bt}">${sec.id}/${sec.accent.toLowerCase()}</span>
-      <h2 class="text-xl sm:text-2xl font-bold mt-2 text-[#f4f3ee]">${sec.title} <span class="${c.t}">${sec.accent}</span></h2>
-      <p class="text-[#8c8c8c] text-xs mt-0.5 max-w-xl mono">// ${sec.desc}</p>
+      <h2 class="text-xl sm:text-2xl font-bold mt-2 text-[#eeeeee]">${sec.title} <span class="${c.t}">${sec.accent}</span></h2>
+      <p class="text-[#eeeeee]/50 text-xs mt-0.5 max-w-xl mono">// ${sec.desc}</p>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
       ${sec.p.map((p,j)=>`<div class="card rounded-lg p-4" data-aos="fade-up" data-aos-delay="${Math.min(j*25,250)}">
         <span class="text-[.55rem] font-mono ${c.t} ${c.b} px-1.5 py-0.5 rounded">${p.t}</span>
-        <h3 class="text-[#f4f3ee] font-semibold text-sm mt-2">${p.n}</h3>
-        <p class="text-[#8c8c8c] text-xs mt-0.5 leading-relaxed">${p.d}</p>
-        <div class="border-t border-[#2b2d30] mt-3 pt-3">
+        <h3 class="text-[#eeeeee] font-semibold text-sm mt-2">${p.n}</h3>
+        <p class="text-[#eeeeee]/50 text-xs mt-0.5 leading-relaxed">${p.d}</p>
+        <div class="border-t border-[#3a4750] mt-3 pt-3">
           <p class="${c.t} text-[.6rem] font-medium mono">✦ ${p.a}</p>
-          <p class="text-[#4a4d54] text-[.55rem] mt-0.5 mono">→ ${p.b}</p>
+          <p class="text-[#eeeeee]/30 text-[.55rem] mt-0.5 mono">→ ${p.b}</p>
         </div>
       </div>`).join('')}
     </div>
