@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Deifer Garantón · Backend & Systems Architecture</title>
-<meta name="description" content="Arquitecto de software backend. +50 proyectos. Laravel, PostgreSQL, Docker, sistemas distribuidos.">
-<meta property="og:title" content="Deifer Garantón · Backend & Architecture">
+<title>Deifer Garantón · Software Engineer & Systems Architect</title>
+<meta name="description" content="Backend engineer, arquitecto de sistemas. Laravel, PostGIS, Docker. +50 proyectos. 7 años de experiencia.">
+<meta property="og:title" content="Deifer Garantón · Software Engineer">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700,800|jetbrains-mono:400,500" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-:root{--bg:#0e0f12;--surface:#17191d;--border:#22252b;--text:#e4e0d8;--dim:#7a7a7a;--accent:#d97a0c;--accent-dim:rgba(217,122,12,.12)}
+:root{--bg:#0c0d10;--surface:#15171b;--border:#1e2128;--text:#e1ddd4;--dim:#6b6b6b;--accent:#d97706;--accent-dim:rgba(217,119,6,.1);--radius:12px}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--text);font-family:'Instrument Sans',system-ui,sans-serif}
+body{background:var(--bg);color:var(--text);font-family:'Instrument Sans',system-ui,sans-serif;overflow-x:hidden}
 .mono{font-family:'JetBrains Mono',monospace}
 ::selection{background:var(--accent-dim);color:var(--text)}
 ::-webkit-scrollbar{width:4px}
@@ -22,45 +22,52 @@ body{background:var(--bg);color:var(--text);font-family:'Instrument Sans',system
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
 
 .accent{color:var(--accent)}
-.bg-accent{background:var(--accent)}
+.bg-accent{background:var(--accent);color:var(--bg)}
 .border-sub{border-color:var(--border)}
 
-.surface{background:var(--surface);border:1px solid var(--border);border-radius:12px}
-.surface-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;transition:border-color .2s,box-shadow .2s,transform .2s}
-.surface-card:hover{border-color:var(--accent);box-shadow:0 8px 32px -16px rgba(217,122,12,.08);transform:translateY(-2px)}
+.surface{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.25rem;transition:border-color .2s,transform .2s}
+.card:hover{border-color:rgba(217,119,6,.2);transform:translateY(-2px)}
 
-.tag{display:inline-flex;align-items:center;padding:2px 8px;border-radius:6px;font-size:.55rem;font-family:'JetBrains Mono',monospace;background:var(--accent-dim);color:var(--accent);border:1px solid rgba(217,122,12,.1)}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1.2rem;border-radius:8px;font-size:.85rem;font-weight:600;transition:all .15s;cursor:pointer}
+.tag{display:inline-flex;align-items:center;padding:2px 8px;border-radius:6px;font-size:.55rem;font-family:'JetBrains Mono',monospace;background:var(--accent-dim);color:var(--accent);border:1px solid rgba(217,119,6,.1)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.2rem;border-radius:8px;font-size:.85rem;font-weight:600;transition:all .15s;cursor:pointer}
 .btn-primary{background:var(--accent);color:var(--bg);border:none}
-.btn-primary:hover{background:#c46e0a}
+.btn-primary:hover{background:#b8620a}
 .btn-ghost{border:1px solid var(--border);color:var(--dim);background:transparent}
 .btn-ghost:hover{border-color:var(--accent);color:var(--text)}
 
-.section{padding:4rem 1rem;max-width:64rem;margin:0 auto}
+.section{padding:4rem 1rem;max-width:64rem;margin:0 auto;width:100%}
 .section-label{font-size:.55rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.12em;color:var(--dim);margin-bottom:.35rem}
 .section h2{font-size:1.5rem;font-weight:700;line-height:1.2}
 .section p.sub{color:var(--dim);font-size:.85rem;line-height:1.6;margin-top:.25rem;max-width:32rem}
 
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
 .reveal.show{opacity:1;transform:translateY(0)}
+
+/* dotted grid hero */
+.dots{background-image:radial-gradient(rgba(217,119,6,.06) 1px,transparent 1px);background-size:20px 20px}
+
+/* terminal cursor blink */
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.cursor{animation:blink 1s step-end infinite}
 </style>
 <script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Instrument Sans"','system-ui','sans-serif'],mono:['"JetBrains Mono"','monospace']}}}}</script>
 </head>
 <body>
 
 <!-- NAV -->
-<nav style="position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(14,15,18,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)">
+<nav style="position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(12,13,16,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)">
   <div style="max-width:64rem;margin:0 auto;padding:0 1rem;display:flex;align-items:center;justify-content:space-between;height:52px">
-    <a href="#" class="mono" style="font-size:.85rem;font-weight:600;color:var(--text);display:flex;align-items:center;gap:8px">
-      <span style="width:24px;height:24px;border-radius:6px;background:var(--accent);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700">DG</span>
-      Deifer Garantón
+    <a href="#" style="display:flex;align-items:center;gap:8px;color:var(--text);text-decoration:none">
+      <span style="width:24px;height:24px;border-radius:6px;background:var(--accent);color:var(--bg);display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:700;font-family:'JetBrains Mono',monospace">DG</span>
+      <span class="mono" style="font-size:.8rem;font-weight:600">Deifer Garantón</span>
     </a>
     <div style="display:flex;gap:1.5rem;font-size:.8rem;color:var(--dim)">
-      <a href="#trayectoria" style="transition:color .15s">Trayectoria</a>
-      <a href="#proyectos" style="transition:color .15s">Proyectos</a>
-      <a href="#enfoque" style="transition:color .15s">Enfoque</a>
+      <a href="#trayectoria" style="transition:color .15s;cursor:pointer">Trayectoria</a>
+      <a href="#proyectos" style="transition:color .15s;cursor:pointer">Proyectos</a>
+      <a href="#enfoque" style="transition:color .15s;cursor:pointer">Enfoque</a>
     </div>
-    <a href="https://github.com/deiferd3g" target="_blank" style="color:var(--dim);font-size:.8rem;border:1px solid var(--border);border-radius:6px;padding:4px 10px;display:flex;align-items:center;gap:4px;transition:all .15s;font-family:'JetBrains Mono',monospace">
+    <a href="https://github.com/deiferd3g" target="_blank" style="color:var(--dim);font-size:.8rem;border:1px solid var(--border);border-radius:6px;padding:4px 10px;display:flex;align-items:center;gap:4px;transition:all .15s;font-family:'JetBrains Mono',monospace;text-decoration:none">
       <i class="devicon-github-original" style="font-size:.8rem"></i>
       <span class="hidden sm:inline">deiferd3g</span>
     </a>
@@ -68,32 +75,37 @@ body{background:var(--bg);color:var(--text);font-family:'Instrument Sans',system
 </nav>
 
 <!-- HERO -->
-<section style="min-height:100vh;display:flex;align-items:center;padding-top:52px;overflow:hidden">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 30% 20%,rgba(217,122,12,.04),transparent),radial-gradient(ellipse 60% 40% at 70% 80%,rgba(217,122,12,.02),transparent)"></div>
+<section class="dots" style="min-height:100vh;display:flex;align-items:center;padding-top:52px;overflow:hidden;position:relative">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 30% 20%,rgba(217,119,6,.04),transparent)"></div>
   <div style="position:relative;width:100%;max-width:64rem;margin:0 auto;padding:0 1rem">
-    <div style="display:grid;grid-template-columns:1fr 260px;gap:3rem;align-items:center">
+    <div style="display:grid;grid-template-columns:1fr 280px;gap:2.5rem;align-items:center">
 
-      <!-- left content -->
+      <!-- left -->
       <div>
-        <div style="display:inline-flex;align-items:center;gap:6px;background:var(--accent-dim);border:1px solid rgba(217,122,12,.1);border-radius:999px;padding:3px 10px;font-size:.55rem;font-family:'JetBrains Mono',monospace;color:var(--accent);margin-bottom:1.25rem">
+        <div style="display:inline-flex;align-items:center;gap:6px;background:var(--accent-dim);border:1px solid rgba(217,119,6,.1);border-radius:999px;padding:3px 10px;font-size:.55rem;font-family:'JetBrains Mono',monospace;color:var(--accent);margin-bottom:1rem">
           <span style="width:5px;height:5px;border-radius:50%;background:#22c55e"></span>
-          Disponible para proyectos
+          Disponible · Freelance & Consultoría
         </div>
 
-        <h1 style="font-size:clamp(1.6rem,4vw,2.5rem);font-weight:700;line-height:1.12;letter-spacing:-.02em">
-          Backend <span class="accent">Engineer</span><br>
-          &amp; Systems Architect
+        <h1 style="font-size:clamp(1.5rem,4vw,2.4rem);font-weight:700;line-height:1.12;letter-spacing:-.02em">
+          <span style="color:var(--dim);font-weight:400;font-size:.9em">Software Engineer</span><br>
+          &amp; <span class="accent">Systems Architect</span>
         </h1>
 
         <p style="color:var(--dim);font-size:.9rem;line-height:1.7;margin-top:.65rem;max-width:30rem">
-          Ingeniero de software especializado en el ecosistema <strong style="color:var(--text)">Laravel</strong>, 
-          bases de datos <strong style="color:var(--text)">PostgreSQL/PostGIS</strong> e infraestructura 
+          <strong style="color:var(--text)">7 años</strong> construyendo backend. 
+          <strong style="color:var(--text)">9 años</strong> con servidores Linux. 
+          Especialista en <strong style="color:var(--text)">Laravel</strong>, 
+          <strong style="color:var(--text)">PostgreSQL/PostGIS</strong> y 
           <strong style="color:var(--text)">Docker</strong>. 
-          <strong style="color:var(--accent)">+50 proyectos</strong> en producción transformando 
-          la gestión pública y privada.
+          <strong style="color:var(--accent)">+50 proyectos</strong> que procesan datos de miles de personas.
         </p>
 
-        <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem">
+        <p style="color:var(--dim);font-size:.85rem;line-height:1.6;margin-top:.5rem;max-width:28rem;font-style:italic;border-left:2px solid var(--accent);padding-left:.75rem">
+          "Tranquilos, todo está bien... <span class="accent">porque yo estoy aquí</span>"
+        </p>
+
+        <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.25rem">
           <a href="#proyectos" class="btn btn-primary">
             Ver proyectos
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 9l-7 7-7-7"/></svg>
@@ -105,54 +117,62 @@ body{background:var(--bg);color:var(--text);font-family:'Instrument Sans',system
         </div>
 
         <!-- stats -->
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1.75rem;padding-top:1.25rem;border-top:1px solid var(--border)">
           <div>
-            <div class="mono" style="font-size:1.5rem;font-weight:700;color:var(--accent)">50+</div>
-            <div style="font-size:.5rem;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-top:2px">Proyectos</div>
+            <div class="mono" style="font-size:1.25rem;font-weight:700;color:var(--accent)">7</div>
+            <div style="font-size:.45rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;line-height:1.3">Años backend</div>
           </div>
           <div>
-            <div class="mono" style="font-size:1.5rem;font-weight:700;color:var(--text)">14</div>
-            <div style="font-size:.5rem;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-top:2px">Tecnologías</div>
+            <div class="mono" style="font-size:1.25rem;font-weight:700;color:var(--text)">9</div>
+            <div style="font-size:.45rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;line-height:1.3">Años Linux</div>
           </div>
           <div>
-            <div class="mono" style="font-size:1.5rem;font-weight:700;color:var(--dim)">5+</div>
-            <div style="font-size:.5rem;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-top:2px">Años</div>
+            <div class="mono" style="font-size:1.25rem;font-weight:700;color:var(--dim)">50+</div>
+            <div style="font-size:.45rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;line-height:1.3">Proyectos</div>
+          </div>
+          <div>
+            <div class="mono" style="font-size:1.25rem;font-weight:700;color:var(--accent)">20</div>
+            <div style="font-size:.45rem;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;line-height:1.3">Años técnico</div>
           </div>
         </div>
       </div>
 
-      <!-- right: terminal card -->
-      <div class="surface" style="padding:1rem;font-family:'JetBrains Mono',monospace;font-size:.7rem;line-height:1.8">
-        <div style="display:flex;gap:6px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--border)">
-          <span style="width:8px;height:8px;border-radius:50%;background:#d97a0c"></span>
-          <span style="width:8px;height:8px;border-radius:50%;background:var(--dim)"></span>
-          <span style="width:8px;height:8px;border-radius:50%;background:var(--border)"></span>
-          <span style="color:var(--dim);margin-left:6px;font-size:.5rem">profile.sh</span>
+      <!-- right: profile card -->
+      <div class="surface" style="padding:1.25rem;text-align:center">
+        <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#b8620a);display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:900;color:var(--bg);margin:0 auto;box-shadow:0 0 32px -10px rgba(217,119,6,.2)">DG</div>
+        <h3 style="font-size:.95rem;font-weight:700;margin-top:.6rem">Deifer Garantón</h3>
+        <p class="mono" style="font-size:.6rem;color:var(--dim)">Software Engineer · Systems Architect</p>
+        <p class="mono" style="font-size:.55rem;color:var(--accent);margin-top:.25rem">Tech Lead</p>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin-top:.6rem">
+          <span class="tag">Laravel</span>
+          <span class="tag">PostGIS</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Livewire</span>
         </div>
-        <div style="color:var(--dim)">
-          <span style="color:var(--dim)">$ </span>
-          <span>cat engineer.json</span>
-        </div>
-        <div style="margin-top:4px;color:var(--text)">{</div>
-        <div style="padding-left:12px">
-          <div>"name": "<span class="accent">Deifer Garantón</span>",</div>
-          <div>"role": "Backend Engineer",</div>
-          <div>"stack": ["Laravel","Livewire","PostgreSQL","Docker"],</div>
-          <div>"sectors": ["public","private","rd"],</div>
-          <div>"status": "<span style="color:#22c55e">available</span>"</div>
-        </div>
-        <div style="color:var(--text)">}</div>
-        <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border)">
-          <span style="color:var(--dim)">$ </span>
-          <span style="color:var(--accent)">█</span>
+        <div style="margin-top:.6rem;padding-top:.6rem;border-top:1px solid var(--border);display:flex;justify-content:center;gap:1rem;font-size:.55rem;color:var(--dim);font-family:'JetBrains Mono',monospace">
+          <span>📍 Venezuela</span>
+          <span>🎂 1993</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- QUOTE STRIP -->
+<section style="border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.25rem 1rem;text-align:center;background:var(--surface)">
+  <div style="max-width:48rem;margin:0 auto">
+    <p style="font-size:.8rem;color:var(--dim);line-height:1.7;font-style:italic">
+      "Out of the night that covers me,<br>
+      Black as the pit from pole to pole,<br>
+      I thank whatever gods may be<br>
+      <span class="accent">For my unconquerable soul.</span>"
+    </p>
+    <p class="mono" style="font-size:.5rem;color:var(--dim);margin-top:.35rem">— Invictus, William Ernest Henley</p>
+  </div>
+</section>
+
 <!-- STACK BAR -->
-<section style="border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.75rem 0;overflow:hidden">
+<section style="padding:.75rem 0;overflow:hidden">
   <div style="display:flex;gap:2rem;align-items:center;justify-content:center;flex-wrap:wrap;max-width:64rem;margin:0 auto;padding:0 1rem">
     <span class="mono" style="font-size:.5rem;color:var(--dim);text-transform:uppercase;letter-spacing:.1em">Stack</span>
     <i class="devicon-laravel-original" style="font-size:1.4rem" title="Laravel"></i>
@@ -160,11 +180,11 @@ body{background:var(--bg);color:var(--text);font-family:'Instrument Sans',system
     <i class="devicon-postgresql-plain" style="font-size:1.4rem;color:#60a5fa" title="PostgreSQL"></i>
     <i class="devicon-docker-plain" style="font-size:1.4rem;color:#38bdf8" title="Docker"></i>
     <i class="devicon-nginx-original" style="font-size:1.4rem;color:#22c55e" title="Nginx"></i>
-    <i class="devicon-tailwindcss-original" style="font-size:1.4rem;color:#22d3ee" title="Tailwind CSS"></i>
     <i class="devicon-filament-plain" style="font-size:1.4rem;color:#fbbf24" title="Filament"></i>
     <i class="devicon-flutter-plain" style="font-size:1.4rem;color:#93c5fd" title="Flutter"></i>
+    <i class="devicon-tailwindcss-original" style="font-size:1.4rem;color:#22d3ee" title="Tailwind CSS"></i>
     <i class="devicon-typescript-plain" style="font-size:1.4rem;color:#60a5fa" title="TypeScript"></i>
-    <i class="devicon-vuejs-plain" style="font-size:1.4rem;color:#4ade80" title="Vue.js"></i>
+    <i class="devicon-bootstrap-plain" style="font-size:1.4rem;color:#a78bfa" title="Bootstrap"></i>
   </div>
 </section>
 
@@ -172,93 +192,92 @@ body{background:var(--bg);color:var(--text);font-family:'Instrument Sans',system
 <section id="trayectoria" class="section">
   <div class="reveal">
     <p class="section-label">/trayectoria</p>
-    <h2>Áreas de <span class="accent">acción</span></h2>
-    <p class="sub">Tres frentes donde he construido sistemas que resuelven problemas reales.</p>
+    <h2>De la electrónica a la <span class="accent">arquitectura</span></h2>
+    <p class="sub">20 años de carrera técnica que empezaron con un destornillador y hoy diseñan sistemas para miles de personas.</p>
   </div>
 
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-top:1.5rem">
-    <div class="surface-card" style="padding:1.25rem">
-      <span style="font-size:1.5rem">🏛️</span>
-      <h3 style="font-size:.9rem;font-weight:600;margin-top:.5rem">Sector Público</h3>
-      <p style="font-size:.75rem;color:var(--dim);line-height:1.6;margin-top:.25rem">Sistemas de información geográfica, gestión documental y automatización gubernamental. Transformación digital institucional.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:.6rem">
-        <span class="tag">PostGIS</span>
-        <span class="tag">Laravel</span>
-        <span class="tag">Filament</span>
-      </div>
+    <div class="card">
+      <span style="font-size:1.5rem">🔧</span>
+      <h3 style="font-size:.9rem;font-weight:600;margin-top:.5rem">Técnico en Electrónica</h3>
+      <p style="font-size:.75rem;color:var(--dim);line-height:1.6;margin-top:.2rem">20 años diagnosticando y resolviendo problemas — primero hardware, luego redes, hoy sistemas completos.</p>
     </div>
-
-    <div class="surface-card" style="padding:1.25rem">
-      <span style="font-size:1.5rem">🏢</span>
-      <h3 style="font-size:.9rem;font-weight:600;margin-top:.5rem">Sector Privado</h3>
-      <p style="font-size:.75rem;color:var(--dim);line-height:1.6;margin-top:.25rem">Plataformas de negocio, landing pages, herramientas de salud y bienestar. Soluciones TALL stack para PyMEs.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:.6rem">
-        <span class="tag">Livewire</span>
-        <span class="tag">Flux</span>
-        <span class="tag">Tailwind</span>
-      </div>
+    <div class="card">
+      <span style="font-size:1.5rem">🐧</span>
+      <h3 style="font-size:.9rem;font-weight:600;margin-top:.5rem">SysAdmin · Linux</h3>
+      <p style="font-size:.75rem;color:var(--dim);line-height:1.6;margin-top:.2rem">9 años administrando servidores Linux. Infraestructura on-premise, Docker, Nginx, automatización SSL.</p>
     </div>
+    <div class="card">
+      <span style="font-size:1.5rem">⚡</span>
+      <h3 style="font-size:.9rem;font-weight:600;margin-top:.5rem">Software Engineer</h3>
+      <p style="font-size:.75rem;color:var(--dim);line-height:1.6;margin-top:.2rem">7 años construyendo backend con Laravel. Sistemas de georreferenciación, censos, plataformas multi-nivel.</p>
+    </div>
+  </div>
+</section>
 
-    <div class="surface-card" style="padding:1.25rem">
-      <span style="font-size:1.5rem">⚙️</span>
-      <h3 style="font-size:.9rem;font-weight:600;margin-top:.5rem">Infraestructura</h3>
-      <p style="font-size:.75rem;color:var(--dim);line-height:1.6;margin-top:.25rem">Arquitectura Docker multi-tenant, PostgreSQL, Nginx, SSL automation. Experiencia on-premise y cloud.</p>
-      <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:.6rem">
-        <span class="tag">Docker</span>
-        <span class="tag">Nginx</span>
-        <span class="tag">PostgreSQL</span>
-      </div>
+<!-- ENFOQUE TÉCNICO -->
+<section id="enfoque" style="border-top:1px solid var(--border);padding:3rem 1rem;background:var(--surface)">
+  <div style="max-width:64rem;margin:0 auto" class="reveal">
+    <p class="section-label">/fortalezas</p>
+    <h2 style="font-size:1.5rem;font-weight:700;line-height:1.2">Lo que <span class="accent">hago mejor</span></h2>
+    <p class="sub" style="margin-top:.25rem">No me pidas interfaces bonitas. Pídeme <strong style="color:var(--text)">estructuras de datos</strong>, <strong style="color:var(--text)">lógica de negocio</strong> y <strong style="color:var(--text)">sistemas que escalan</strong>.</p>
+  </div>
+
+  <div style="max-width:64rem;margin:1.25rem auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem">
+    <div class="card" style="text-align:center;padding:1rem">
+      <div class="mono accent" style="font-size:.6rem;font-weight:700">01</div>
+      <h3 style="font-size:.85rem;font-weight:600;margin-top:.35rem">Diseño de Bases de Datos</h3>
+      <p style="font-size:.7rem;color:var(--dim);line-height:1.6;margin-top:.15rem">PostgreSQL, PostGIS, MySQL. Esquemas que soportan millones de registros sin sacrificar consistencia.</p>
+    </div>
+    <div class="card" style="text-align:center;padding:1rem">
+      <div class="mono accent" style="font-size:.6rem;font-weight:700">02</div>
+      <h3 style="font-size:.85rem;font-weight:600;margin-top:.35rem">Lógica de Negocio</h3>
+      <p style="font-size:.7rem;color:var(--dim);line-height:1.6;margin-top:.15rem">Traduzco procesos del mundo real a código. Flujos complejos, reglas de negocio, automatización.</p>
+    </div>
+    <div class="card" style="text-align:center;padding:1rem">
+      <div class="mono accent" style="font-size:.6rem;font-weight:700">03</div>
+      <h3 style="font-size:.85rem;font-weight:600;margin-top:.35rem">Arquitectura de Sistemas</h3>
+      <p style="font-size:.7rem;color:var(--dim);line-height:1.6;margin-top:.15rem">Docker, Nginx, Linux. Desde el schema hasta el deploy. El sistema completo, no solo el código.</p>
+    </div>
+    <div class="card" style="text-align:center;padding:1rem">
+      <div class="mono accent" style="font-size:.6rem;font-weight:700">04</div>
+      <h3 style="font-size:.85rem;font-weight:600;margin-top:.35rem">Datos Geoespaciales</h3>
+      <p style="font-size:.7rem;color:var(--dim);line-height:1.6;margin-top:.15rem">PostGIS, georreferenciación, censos. Sistemas que procesan datos de miles de personas con precisión.</p>
     </div>
   </div>
 </section>
 
 <!-- PROYECTOS -->
-<section id="proyectos" class="section" style="border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+<section id="proyectos" class="section">
   <div class="reveal">
     <p class="section-label">/proyectos</p>
     <h2>Sistemas en <span class="accent">producción</span></h2>
-    <p class="sub">Cada proyecto es un sistema real funcionando. Sin nombres sensibles — solo el dominio y las tecnologías.</p>
+    <p class="sub">Cada uno resolviendo problemas reales para miles de personas.</p>
   </div>
 
-  <div id="project-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.6rem;margin-top:1.5rem"></div>
+  <div id="project-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:.6rem;margin-top:1.25rem"></div>
 
-  <div style="text-align:center;margin-top:1.5rem">
-    <span class="mono" style="font-size:.5rem;color:var(--dim)">[ + proyectos se agregarán manualmente ]</span>
+  <div style="text-align:center;margin-top:1.25rem">
+    <span class="mono" style="font-size:.5rem;color:var(--dim)">[ + proyectos se documentarán pronto ]</span>
   </div>
 </section>
 
-<!-- ENFOQUE -->
-<section id="enfoque" class="section">
-  <div class="reveal">
-    <p class="section-label">/enfoque</p>
-    <h2>Cómo <span class="accent">trabajo</span></h2>
-    <p class="sub">No escribo código porque sí. Diseño sistemas que resuelven problemas de fondo.</p>
-  </div>
-
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;margin-top:1.5rem">
-    <div class="surface-card" style="padding:1rem;text-align:center">
-      <div class="mono accent" style="font-size:.6rem;font-weight:700">01</div>
-      <h3 style="font-size:.85rem;font-weight:600;margin-top:.35rem">Entiendo el problema</h3>
-      <p style="font-size:.7rem;color:var(--dim);line-height:1.6;margin-top:.15rem">Antes de escribir una línea de código, mapeo el dominio, las restricciones y el resultado esperado.</p>
-    </div>
-    <div class="surface-card" style="padding:1rem;text-align:center">
-      <div class="mono accent" style="font-size:.6rem;font-weight:700">02</div>
-      <h3 style="font-size:.85rem;font-weight:600;margin-top:.35rem">Diseño la arquitectura</h3>
-      <p style="font-size:.7rem;color:var(--dim);line-height:1.6;margin-top:.15rem">Base de datos, infraestructura, flujo de datos. El sistema se construye desde los cimientos.</p>
-    </div>
-    <div class="surface-card" style="padding:1rem;text-align:center">
-      <div class="mono accent" style="font-size:.6rem;font-weight:700">03</div>
-      <h3 style="font-size:.85rem;font-weight:600;margin-top:.35rem">Construyo y entrego</h3>
-      <p style="font-size:.7rem;color:var(--dim);line-height:1.6;margin-top:.15rem">Código limpio, pruebas, despliegue. El proyecto no termina hasta que está en producción funcionando.</p>
-    </div>
+<!-- CITA ONE PIECE -->
+<section style="border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1rem 1rem;text-align:center;background:var(--surface)">
+  <div style="max-width:32rem;margin:0 auto">
+    <span style="font-size:1.5rem">☠️</span>
+    <p class="mono" style="font-size:.6rem;color:var(--dim);margin-top:.25rem">
+      "El conocimiento no es delito"<br>
+      <span style="font-size:.5rem;color:rgba(107,107,107,.5)">— Vegapunk · One Piece</span>
+    </p>
   </div>
 </section>
 
 <!-- CTA -->
-<section style="border-top:1px solid var(--border);padding:3rem 1rem;text-align:center">
-  <div style="max-width:30rem;margin:0 auto" class="reveal">
-    <h2 style="font-size:1.3rem;font-weight:700">¿Tienes un proyecto en mente?</h2>
-    <p style="color:var(--dim);font-size:.85rem;margin-top:.35rem;line-height:1.6">+50 proyectos demuestran que la tecnología bien aplicada transforma realidades. Hablemos de la tuya.</p>
+<section style="padding:3rem 1rem;text-align:center">
+  <div style="max-width:28rem;margin:0 auto" class="reveal">
+    <h2 style="font-size:1.25rem;font-weight:700">¿Buscas a alguien confiable?</h2>
+    <p style="color:var(--dim);font-size:.85rem;margin-top:.35rem;line-height:1.6">Necesitas un sistema, una base de datos, una arquitectura. Alguien que entienda el problema y entregue la solución. <strong style="color:var(--text)">Tranquilo, todo está bien.</strong></p>
     <a href="https://github.com/deiferd3g" target="_blank" class="btn btn-primary" style="margin-top:1rem">
       <i class="devicon-github-original" style="font-size:1rem"></i>
       /deiferd3g
@@ -268,8 +287,8 @@ body{background:var(--bg);color:var(--text);font-family:'Instrument Sans',system
 
 <!-- FOOTER -->
 <footer style="border-top:1px solid var(--border);padding:1.5rem 1rem;text-align:center;font-size:.5rem;font-family:'JetBrains Mono',monospace;color:var(--dim)">
-  <p>© 2026 · Deifer Garantón · Backend & Systems Architecture · Venezuela</p>
-  <p style="margin-top:2px">vegapunk protocol</p>
+  <p>© 2026 · Deifer Garantón · Software Engineer & Systems Architect · Venezuela</p>
+  <p style="margin-top:2px">"Tranquilos, todo está bien... porque yo estoy aquí"</p>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/4.0.0/anime.min.js"></script>
@@ -287,31 +306,24 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
   if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
 }));
 
-/* NAV LINKS HOVER */
-document.querySelectorAll('nav a[href^="#"]').forEach(a=>{
-  a.addEventListener('mouseenter',()=>a.style.color='var(--text)');
-  a.addEventListener('mouseleave',()=>a.style.color='var(--dim)');
-});
-
 /* PROJECT CARDS */
 const projects=[
-  {icon:'devicon-laravel-original',title:'Sistema de Información Geográfica',desc:'Plataforma SIG para planificación territorial. Georreferenciación, análisis espacial y visualización de datos con PostGIS.',tags:['Laravel 13','PostGIS','Filament 5']},
-  {icon:'devicon-laravel-original',title:'Gestión de Expedientes',desc:'Sistema de seguimiento documental con trazabilidad completa. Digitalización de procesos administrativos.',tags:['Laravel 13','Filament 5','PostgreSQL']},
-  {icon:'devicon-livewire-plain',title:'Portal Institucional',desc:'Portal web con CMS, autenticación multi-rol y generación de documentos. Cientos de usuarios activos.',tags:['Laravel 13','Livewire 4','Flux 2']},
-  {icon:'devicon-docker-plain',title:'Infraestructura Multi-Tenant',desc:'Arquitectura Docker Compose para múltiples proyectos con PostgreSQL, Nginx y SSL automatizado.',tags:['Docker','Nginx','PostgreSQL']},
-  {icon:'devicon-typescript-plain',title:'Videojuego en Navegador',desc:'Motor de juego tipo Pokémon con Canvas API. Batallas, sprites y lógica de juego en TypeScript puro.',tags:['TypeScript','Canvas API']},
-  {icon:'devicon-laravel-original',title:'Plataforma de Comunidad',desc:'App web con landing page, autenticación y foro. Integración con YouTube.',tags:['Laravel 13','Flux 2','Livewire']},
+  {icon:'devicon-postgresql-plain',title:'Sistema Geoespacial',desc:'Plataforma de información geográfica con PostGIS. Georreferenciación de miles de puntos para planificación territorial.',tags:['PostGIS','Laravel 13','Filament 5']},
+  {icon:'devicon-laravel-original',title:'Gestión Documental',desc:'Sistema de expedientes con trazabilidad completa. Digitalización de procesos para instituciones públicas.',tags:['Laravel 13','Filament 5','PostgreSQL']},
+  {icon:'devicon-livewire-plain',title:'Portal Multi-Rol',desc:'Portal web con autenticación, CMS y generación de documentos. Cientos de usuarios activos simultáneamente.',tags:['Laravel 13','Livewire 4','Flux 2']},
+  {icon:'devicon-docker-plain',title:'Infraestructura Multi-Tenant',desc:'Arquitectura Docker Compose para múltiples proyectos. PostgreSQL, Nginx, SSL automatizado.',tags:['Docker','Nginx','PostgreSQL']},
+  {icon:'devicon-typescript-plain',title:'Videojuego Web',desc:'Motor de juego tipo Pokémon con Canvas API. Batallas y sprites en TypeScript puro.',tags:['TypeScript','Canvas API']},
+  {icon:'devicon-laravel-original',title:'Plataforma Multi-Nivel',desc:'Sistema con autenticación, roles y permisos. Base para aplicaciones con múltiples niveles de usuarios.',tags:['Laravel 13','Livewire','PostgreSQL']},
 ];
 
 const grid=document.getElementById('project-grid');
 projects.forEach((p,i)=>{
   const c=document.createElement('div');
-  c.className='surface-card';
+  c.className='card';
   c.style.padding='1rem';
-  c.style.transitionDelay=`${i*30}ms`;
   c.innerHTML=`
     <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-      <i class="${p.icon}" style="font-size:1.1rem"></i>
+      <i class="${p.icon}" style="font-size:1.1rem;color:var(--accent)"></i>
       <span class="tag">sistema</span>
     </div>
     <h3 style="font-size:.85rem;font-weight:600">${p.title}</h3>
